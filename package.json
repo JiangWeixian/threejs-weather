@@ -25,7 +25,7 @@
   "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --config .prettierrc --loglevel warn --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+      "pre-commit": "pretty-quick --staged"
     }
   },
   "dependencies": {
