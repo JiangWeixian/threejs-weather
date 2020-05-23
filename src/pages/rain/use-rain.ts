@@ -27,7 +27,7 @@ const ORI_TO_DIR = {
   bottom: -1,
 }
 
-const ORIENTATIONS: Orientation[] = ['bottom', 'left', 'right', 'top']
+// const ORIENTATIONS: Orientation[] = ['bottom', 'left', 'right', 'top']
 const dirs = [1, -1]
 
 // utils
@@ -46,9 +46,9 @@ const getRandomInRange = <T>(range: T[]) => {
   return range[Math.round(Math.random() * (range.length - 1))]
 }
 
-const getRandomOri = () => {
-  return getRandomInRange(ORIENTATIONS)
-}
+// const getRandomOri = () => {
+//   return getRandomInRange(ORIENTATIONS)
+// }
 
 /**
  * 得到一个随机的噪声向量, 和ori有关。
@@ -107,7 +107,7 @@ export const useRain = (
   const lines = useMemo(() => {
     return Array(props.count)
       .fill(0)
-      .map((v, i) => {
+      .map(() => {
         // h / deltax = tan(ang)
         // 直角边
         const leg = Math.random() * 2
@@ -150,7 +150,7 @@ const computeBoundingbox = (pos?: THREE.Vector3) => {
       offsetBottom: 0,
     }
   }
-  const { x, y, z } = pos
+  const { x, y } = pos
   return {
     offsetLeft: x > 0 ? 4 + x : 4 - Math.abs(x),
     offsetRight: x > 0 ? 4 - x : 4 + Math.abs(x),
