@@ -6,7 +6,6 @@ import './App.styl'
 const App = () => {
   return (
     <div className="app">
-      this is react-simple webpack template
       <RouterViewer />
     </div>
   )
