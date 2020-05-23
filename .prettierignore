@@ -28,3 +28,4 @@ Jenkinsfile
 *.flowconfig
 LICENSE
 template
+node_modules
