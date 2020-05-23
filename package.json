@@ -11,7 +11,7 @@
     "check": "npm outdated && npm outdated --save-dev",
     "mock": "PORT=3000 umi-serve",
     "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch",
-    "prettier": "prettier --config .prettierrc --loglevel warn --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+    "prettier": "prettier --config .prettierrc --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
   },
   "repository": {
     "type": "git",
@@ -105,7 +105,8 @@
     "postcss-preset-env": "6.7.0",
     "postcss-url": "8.0.0",
     "preload-webpack-plugin": "3.0.0-beta.4",
-    "prettier": "1.19.1",
+    "prettier": "^2.0.5",
+    "prettier-quick": "0.0.5",
     "pretty-quick": "2.0.1",
     "react-hot-loader": "4.12.21",
     "rucksack-css": "1.0.2",
@@ -126,7 +127,7 @@
     "tslint-eslint-rules": "5.4.0",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.7.3",
+    "typescript": "^3.9.3",
     "typings-for-css-modules-loader": "1.7.0",
     "uglifyjs-webpack-plugin": "2.1.2",
     "umi-serve": "1.9.4",
