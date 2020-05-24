@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import { useRain, useRaindrop, UseRaindropProps } from './use-rain'
 import { Mesh } from 'three'
 
+export const SKY_COLOR = '#1677b3'
+
 export const Raindrop = (props: UseRaindropProps) => {
   const fatline = useRef<Mesh>()
   useRaindrop(fatline, { value: props.value })
