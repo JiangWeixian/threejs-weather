@@ -43,6 +43,7 @@
     "react-three-fiber": "^4.2.5",
     "react-transition-group": "4.0.1",
     "require-context": "1.1.0",
+    "styled-components": "^5.1.0",
     "swr": "0.2.0",
     "three": "^0.116.1",
     "threejs-meshline": "^2.0.11"
@@ -68,6 +69,7 @@
     "@types/react-loadable": "5.5.1",
     "@types/react-redux": "6.0.14",
     "@types/react-router-dom": "4.3.3",
+    "@types/styled-components": "^5.1.0",
     "@types/uglifyjs-webpack-plugin": "1.1.0",
     "@types/webpack": "4.4.31",
     "@types/webpack-bundle-analyzer": "2.13.1",

@@ -27,7 +27,7 @@ export const Rain = () => {
   const { lines } = useRain({ count: 200 })
   return (
     <>
-      {lines.map(v => {
+      {lines.map((v) => {
         return <Raindrop value={v} />
       })}
     </>
