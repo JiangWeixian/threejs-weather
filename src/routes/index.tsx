@@ -12,6 +12,11 @@ const Sun = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const Wind = Loadable({
+  loader: () => import(/* webpackChunkName: "Wind" */ '@/pages/wind'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
@@ -22,6 +27,9 @@ const RouterViewer = () => {
         </Route>
         <Route path="/sun">
           <Sun />
+        </Route>
+        <Route path="/wind">
+          <Wind />
         </Route>
       </Switch>
     </HashRouter>

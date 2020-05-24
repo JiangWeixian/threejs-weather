@@ -1,11 +1,13 @@
 import React, { useRef, useMemo } from 'react'
 import { useFrame } from 'react-three-fiber'
 import { Mesh } from 'three'
+import * as THREE from 'three'
+import * as meshline from 'threejs-meshline'
 import { Canvas, extend } from 'react-three-fiber'
 
 import { Controls } from '@/components/Controls'
 
-const WindBlade = ({ curve, width, color, speed }) => {
+const WindBlade = ({ curve, width, color, speed, opacity }) => {
   const material = useRef<any>()
   const wind = useRef<Mesh>()
   const dir = useRef(-1)
@@ -42,6 +44,7 @@ const WindBlade = ({ curve, width, color, speed }) => {
         lineWidth={width}
         color={color}
         dashRatio={radio}
+        opacity={opacity}
       />
     </mesh>
   )
@@ -77,6 +80,7 @@ const useWind = ({ count }) => {
             color: colors[parseInt((colors.length * Math.random()).toString())],
             width: Math.max(0.1, 0.5 * Math.random()),
             speed: Math.max(0.001, 0.0005 * Math.random()),
+            opacity: Math.random() * 4,
             curve,
           }
         }),
@@ -99,11 +103,12 @@ const Wind = ({ count }) => {
 }
 
 extend(meshline)
+
 const WindPage = () => {
   return (
-    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#faf4e8' }}>
+    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: 'white' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
-      <Wind count={20} />
+      <Wind count={40} />
     </Canvas>
   )
 }
