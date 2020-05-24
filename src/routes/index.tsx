@@ -17,6 +17,11 @@ const Wind = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const Snow = Loadable({
+  loader: () => import(/* webpackChunkName: "Snow" */ '@/pages/snow'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
@@ -30,6 +35,9 @@ const RouterViewer = () => {
         </Route>
         <Route path="/wind">
           <Wind />
+        </Route>
+        <Route path="/snow">
+          <Snow />
         </Route>
       </Switch>
     </HashRouter>
