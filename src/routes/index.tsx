@@ -7,6 +7,11 @@ const Rain = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const Sun = Loadable({
+  loader: () => import(/* webpackChunkName: "Sun" */ '@/pages/sun'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
@@ -14,6 +19,9 @@ const RouterViewer = () => {
         <Redirect to="/rain" exact={true} from="/" />
         <Route path="/rain">
           <Rain />
+        </Route>
+        <Route path="/sun">
+          <Sun />
         </Route>
       </Switch>
     </HashRouter>
