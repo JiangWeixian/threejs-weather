@@ -27,6 +27,11 @@ const StarRings = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const Cloudy = Loadable({
+  loader: () => import(/* webpackChunkName: "Cloudy" */ '@/pages/cloudy'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
@@ -46,6 +51,9 @@ const RouterViewer = () => {
         </Route>
         <Route path="/star-rings">
           <StarRings />
+        </Route>
+        <Route path="/cloudy">
+          <Cloudy />
         </Route>
       </Switch>
     </HashRouter>

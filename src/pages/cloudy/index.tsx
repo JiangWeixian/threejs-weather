@@ -3,14 +3,18 @@ import { Canvas } from 'react-three-fiber'
 import * as THREE from 'three'
 
 import { Controls } from '@/components/Controls'
-import { getRandomVertorByOri } from '@/utils/random'
+import { getRandomVertorByOri, getRandomInRange } from '@/utils/random'
+
+const CLOUD_COLORS = ['#21373d', '#535657']
 
 const Cloudy = () => {
   const clouds = useMemo(() => {
     return new Array(10).fill(0).map(() => {
       return {
-        radius: Math.random() * 4,
+        radius: Math.random() * 3,
         startpoint: getRandomVertorByOri('top').add(new THREE.Vector3(0, 4, 0)),
+        opacity: Math.random(),
+        color: getRandomInRange(CLOUD_COLORS),
       }
     })
   }, [])
@@ -18,9 +22,14 @@ const Cloudy = () => {
     <>
       {clouds.map((cloud) => {
         return (
-          <mesh>
+          <mesh position={cloud.startpoint}>
             <circleBufferGeometry attach="geometry" args={[cloud.radius, 128]} />
-            <meshBasicMaterial attach="material" transparent={true} opacity={0.5} color="black" />
+            <meshBasicMaterial
+              attach="material"
+              transparent={true}
+              opacity={cloud.opacity}
+              color={cloud.color}
+            />
           </mesh>
         )
       })}
@@ -30,7 +39,7 @@ const Cloudy = () => {
 
 const CloudyPage = () => {
   return (
-    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Cloudy />
     </Canvas>
