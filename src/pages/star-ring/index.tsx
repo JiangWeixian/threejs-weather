@@ -1,7 +1,6 @@
 import React, { useMemo, useRef } from 'react'
 import { Canvas, extend, useFrame } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
-import { Mesh } from 'three'
 import * as THREE from 'three'
 
 import { Controls } from '@/components/Controls'
@@ -55,7 +54,7 @@ const StarRings = () => {
         dashArray: Math.random() + 0.1,
         opacity: Math.random() * 0.8,
         color: getRandomInRange(RING_COLORS),
-        lineWidth: Math.random() * 0.1,
+        lineWidth: Math.random() * 0.05,
       }
     })
   }, [])
