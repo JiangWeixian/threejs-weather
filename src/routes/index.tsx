@@ -22,6 +22,11 @@ const Snow = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const StarRings = Loadable({
+  loader: () => import(/* webpackChunkName: "StarRings" */ '@/pages/star-ring'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
@@ -38,6 +43,9 @@ const RouterViewer = () => {
         </Route>
         <Route path="/snow">
           <Snow />
+        </Route>
+        <Route path="/star-rings">
+          <StarRings />
         </Route>
       </Switch>
     </HashRouter>
