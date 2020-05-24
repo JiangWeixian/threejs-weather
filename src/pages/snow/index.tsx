@@ -70,7 +70,7 @@ const Snow = () => {
   )
 }
 
-const SunPage = () => {
+const SnowPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
@@ -79,4 +79,4 @@ const SunPage = () => {
   )
 }
 
-export default SunPage
+export default SnowPage
