@@ -8,9 +8,9 @@ export const get = async <T, Q extends object>(path: string, params: Q): Promise
     .get(path, {
       params,
     })
-    .then(res => res.data)
+    .then((res) => res.data)
 }
 
 export const post = async <T, Q>(path: string, params: Q): Promise<T> => {
-  return axios.post(path, params).then(res => res.data)
+  return axios.post(path, params).then((res) => res.data)
 }

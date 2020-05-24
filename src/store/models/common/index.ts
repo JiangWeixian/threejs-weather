@@ -13,7 +13,7 @@ const common = {
     // handle state changes with impure functions.
     // use async/await for async actions
     async incrementAsync(payload: number, _rootState: { [key: string]: CommonState }) {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000))
       dispatch.common.increment(payload)
     },
   }),
