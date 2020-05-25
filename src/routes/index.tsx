@@ -32,6 +32,11 @@ const Cloudy = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const Meteors = Loadable({
+  loader: () => import(/* webpackChunkName: "Meteors" */ '@/pages/meteors'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
@@ -54,6 +59,9 @@ const RouterViewer = () => {
         </Route>
         <Route path="/cloudy">
           <Cloudy />
+        </Route>
+        <Route path="/meteors">
+          <Meteors />
         </Route>
       </Switch>
     </HashRouter>
