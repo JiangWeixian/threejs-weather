@@ -60,7 +60,7 @@ function compile(modules) {
   tsResult.on('end', check)
   const tsFilesStream = babelify(tsResult.js, modules)
   const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
-  return merge2([styles, tsFilesStream, tsd, assets])
+  return merge2([tsFilesStream, tsd, assets])
 }
 
 gulp.task('compile-with-es', (done) => {
