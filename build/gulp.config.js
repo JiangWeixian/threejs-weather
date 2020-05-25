@@ -1,7 +1,6 @@
 const path = require('path')
 const tsConfig = require('./ts.config')
 const babelConfig = require('./babel.config')
-const postcssPlugins = require('./postcss.config')
 
 const configs = {
   dirs: {
@@ -11,7 +10,6 @@ const configs = {
   },
   tsConfig: tsConfig(),
   getBabelConfig: babelConfig,
-  postcssPlugins: postcssPlugins,
 }
 
 module.exports = configs
