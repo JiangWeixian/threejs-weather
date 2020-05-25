@@ -1,9 +1,9 @@
 import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
+import { useFrame } from 'react-three-fiber'
 
 import { getRandomVertorByOri } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
-import { useFrame } from 'react-three-fiber'
 
 type UseMeteorsProps = {
   count?: number
@@ -38,7 +38,7 @@ export const useMeteors = ({ count = 5 }: UseMeteorsProps = { count: 10 }) => {
         leg,
         hypotenuse: leg / Math.sin(angle),
         color: 'white',
-      }
+      } as Meteor
     })
   }, [count])
   return {
