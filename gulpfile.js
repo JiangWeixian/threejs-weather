@@ -6,24 +6,12 @@ const rimraf = require('rimraf')
 const merge2 = require('merge2')
 const gulp = require('gulp')
 const sourcemaps = require('gulp-sourcemaps')
-const stylus = require('gulp-stylus')
-const postcss = require('gulp-postcss')
-const replace = require('gulp-replace')
 const tsDefaultReporter = ts.reporter.defaultReporter()
 
 // config
 const config = require('./build/gulp.config')
 const source = ['components/**/*.tsx', 'components/**/*.ts', 'typings/**/*.d.ts']
 const tsProject = ts.createProject('./tsconfig.json')
-
-function compileStylus(modules) {
-  return gulp
-    .src(['components/**/*.styl'])
-    .pipe(stylus())
-    .pipe(postcss([config.postcssPlugins.autoprefixer, config.postcssPlugins.cssmodules]))
-    .pipe(gulp.dest(config.dirs.components))
-    .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
-}
 
 function babelify(js, modules) {
   const babelConfig = config.getBabelConfig(modules)
@@ -44,7 +32,6 @@ function babelify(js, modules) {
 
 function compile(modules) {
   rimraf.sync(modules !== false ? config.dirs.lib : config.dirs.es)
-  const styles = compileStylus(modules)
   const assets = gulp
     .src(['./components/**/*.@(png|svg)'])
     .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
@@ -53,18 +40,15 @@ function compile(modules) {
   if (config.tsConfig.allowJs) {
     source.unshift('components/**/*.jsx')
   }
-  const tsResult = tsProject
-    .src()
-    .pipe(replace(/(styl)'/g, "css.json'"))
-    .pipe(
-      ts(config.tsConfig, {
-        error(e) {
-          tsDefaultReporter.error(e)
-          error = 1
-        },
-        finish: tsDefaultReporter.finish,
-      }),
-    )
+  const tsResult = tsProject.src().pipe(
+    ts(config.tsConfig, {
+      error(e) {
+        tsDefaultReporter.error(e)
+        error = 1
+      },
+      finish: tsDefaultReporter.finish,
+    }),
+  )
 
   function check() {
     if (error && !argv['ignore-error']) {
@@ -87,11 +71,6 @@ gulp.task('compile-with-es', (done) => {
 gulp.task('compile-with-lib', (done) => {
   console.log('[Parallel] Compile to lib...')
   compile().on('finish', done)
-})
-
-gulp.task('styles', (done) => {
-  console.log('[Parallel] Compile to style...')
-  compileStylus(false).on('finish', done)
 })
 
 gulp.task('compile', gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib')))
