@@ -72,11 +72,19 @@ const ProdMeteors = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const Text = Loadable({
+  loader: () => import(/* webpackChunkName: "Text" */ '@/pages/text'),
+  loading: () => <div>loading</div>,
+})
+
 const RouterViewer = () => {
   return (
     <HashRouter>
       <Switch>
         <Redirect to="/rain" exact={true} from="/" />
+        <Route path="/text">
+          <Text />
+        </Route>
         <Route path="/rain">
           <Rain />
         </Route>
