@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { getRandomInRange, DIRS } from '../utils/random'
 import { useFrame } from 'react-three-fiber'
 
-type UseStarRings = {
+type UseStarRingsProps = {
   count?: number
 }
 
@@ -19,7 +19,7 @@ export type Ring = {
 
 const RING_COLORS = ['#cdd1d3', '#fcd337', '#1677b3']
 
-export const useStarRings = ({ count = 50 }: UseStarRings = { count: 50 }) => {
+export const useStarRings = ({ count = 50 }: UseStarRingsProps = { count: 50 }) => {
   const rings = useMemo(() => {
     return new Array(count).fill(0).map(() => {
       const radius = Math.random() * 10

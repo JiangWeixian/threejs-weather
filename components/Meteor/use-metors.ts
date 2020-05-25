@@ -5,7 +5,7 @@ import { getRandomVertorByOri } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
 import { useFrame } from 'react-three-fiber'
 
-type UseMeteors = {
+type UseMeteorsProps = {
   count?: number
 }
 
@@ -17,7 +17,7 @@ export type Meteor = {
   color: string
 }
 
-export const useMeteors = ({ count = 5 }: UseMeteors = { count: 10 }) => {
+export const useMeteors = ({ count = 5 }: UseMeteorsProps = { count: 10 }) => {
   const meteors = useMemo(() => {
     const angle = useRef((30 * Math.PI) / 180).current
     return new Array(count).fill(0).map(() => {
@@ -46,14 +46,14 @@ export const useMeteors = ({ count = 5 }: UseMeteors = { count: 10 }) => {
   }
 }
 
-export type UseMeteor = {
+export type UseMeteorProps = {
   value: Meteor
 }
 
 export const useMeteor = (
   meteor: React.MutableRefObject<Mesh | undefined>,
   mat: React.MutableRefObject<any>,
-  { value }: UseMeteor,
+  { value }: UseMeteorProps,
 ) => {
   const vopacity = useRef(0.01)
   const { offsetTop } = computeBoundingbox(value.vertices[0])

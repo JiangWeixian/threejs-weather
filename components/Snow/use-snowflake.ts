@@ -10,11 +10,11 @@ export type Snowflake = {
   radius: number
 }
 
-type UseSnowflakes = {
+type UseSnowflakesProps = {
   count: number
 }
 
-export const useSnowflakes = ({ count = 100 }: UseSnowflakes = { count: 100 }) => {
+export const useSnowflakes = ({ count = 100 }: UseSnowflakesProps = { count: 100 }) => {
   const snowflakes = useMemo(() => {
     return new Array(4).fill(0).reduce((prev, _cur, i) => {
       return prev.concat(
@@ -33,13 +33,13 @@ export const useSnowflakes = ({ count = 100 }: UseSnowflakes = { count: 100 }) =
   }
 }
 
-type UseSnowflake = {
+type UseSnowflakeProps = {
   value: Snowflake
 }
 
 export const useSnowflake = (
   flake: React.MutableRefObject<Mesh | undefined>,
-  { value }: UseSnowflake,
+  { value }: UseSnowflakeProps,
 ) => {
   const friction = useRef(
     getRandomInRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
