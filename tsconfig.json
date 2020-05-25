@@ -4,15 +4,19 @@
     "strictNullChecks": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "declaration": true,
     "experimentalDecorators": true,
     "jsx": "react",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es6",
+    "skipLibCheck": true,
     "lib": ["dom", "es2017"],
     "resolveJsonModule": true,
-    "rootDir": "."
+    "rootDir": "./components",
+    "outDir": "es"
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "include": ["components", "global.d.ts"],
+  "exclude": ["node_modules", "lib", "es", "example"]
 }

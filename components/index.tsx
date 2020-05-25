@@ -1,3 +1,3 @@
-import Demo from './demo'
+import Rain from './Rain'
 
-export { Demo }
+export { Rain }

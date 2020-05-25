@@ -25,7 +25,7 @@ export const Raindrop = (props: UseRaindropProps) => {
   )
 }
 
-export const Rain = () => {
+const Rain = () => {
   const { lines } = useRain({ count: 200 })
   return (
     <>
@@ -35,3 +35,5 @@ export const Rain = () => {
     </>
   )
 }
+
+export default Rain
