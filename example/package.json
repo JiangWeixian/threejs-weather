@@ -46,7 +46,8 @@
     "styled-components": "^5.1.0",
     "swr": "0.2.0",
     "three": "^0.116.1",
-    "threejs-meshline": "^2.0.11"
+    "threejs-meshline": "^2.0.11",
+    "threejs-weather": ".."
   },
   "devDependencies": {
     "@babel/core": "7.4.4",

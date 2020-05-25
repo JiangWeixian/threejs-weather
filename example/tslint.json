@@ -7,7 +7,7 @@
     "no-any": false,
     "ordered-imports": false,
     "file-name-casing": false,
-    "no-implicit-dependencies": [true, ["react-hot-loader", "@"]],
+    "no-implicit-dependencies": false,
     "jsx-no-lambda": false,
     "react-this-binding-issue": false,
     "promise-must-complete": false,
