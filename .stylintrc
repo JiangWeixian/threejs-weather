@@ -1,0 +1,16 @@
+{
+  "colons": {
+    "expect": "never",
+    "error": true
+  },
+  "semicolons": {
+    "expect": "never",
+    "error": true
+  },
+  "brackets": {
+    "expect": "never",
+    "error": true
+  },
+  "indentPref": 2,
+  "exclude": ["node_modules/**/*"]
+}
