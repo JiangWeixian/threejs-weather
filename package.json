@@ -1,8 +1,8 @@
 {
-  "name": "@aiou/react-components-lib-template",
+  "name": "threejs-weather",
   "prefix": "aiou",
   "version": "1.0.0",
-  "description": "react-components-lib-template",
+  "description": "threejs-weather",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "repository": {
-    "url": "https://github.com/JiangWeixian/templates/packages/react-components-lib-template"
+    "url": "https://github.com/JiangWeixian/templates/packages/threejs-weather"
   },
   "typings": "lib/index.d.ts",
   "keywords": [
@@ -80,7 +80,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'components/**/*.styl' -r -p .stylintrc"
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
