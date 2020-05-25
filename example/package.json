@@ -1,7 +1,7 @@
 {
-  "name": "@aiou/react-template",
-  "version": "1.7.1",
-  "description": "React template",
+  "name": "example-for-threejs-weather",
+  "version": "0.0.0",
+  "description": "example-for-threejs-weather",
   "main": "src/index.tsx",
   "scripts": {
     "test": "jest --config ./test/jest.config.js",
