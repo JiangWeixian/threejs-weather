@@ -16,7 +16,6 @@ const RainPage = () => {
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <fog attach="fog" args={[0xffffff, 100, 100]} />
       <Rain />
-      {/* <Wind count={10} /> */}
     </Canvas>
   )
 }

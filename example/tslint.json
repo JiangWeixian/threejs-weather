@@ -6,7 +6,6 @@
     "no-floating-promises": false,
     "no-any": false,
     "ordered-imports": false,
-    "file-name-casing": false,
     "no-implicit-dependencies": false,
     "jsx-no-lambda": false,
     "react-this-binding-issue": false,
