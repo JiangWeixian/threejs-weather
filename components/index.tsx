@@ -1,9 +1,9 @@
-import Rain from './Rain'
-import Sun from './Sun'
-import StarRings from './StarRings'
-import Snow from './Snow'
-import Meteors from './Meteors'
-import Cloudy from './Cloudy'
-import Wind from './Wind'
+import Rain from './rain'
+import Sun from './sun'
+import StarRings from './star-rings'
+import Snow from './snow'
+import Meteors from './meteors'
+import Cloudy from './cloudy'
+import Wind from './wind'
 
 export { Rain, Sun, StarRings, Snow, Meteors, Cloudy, Wind }

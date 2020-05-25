@@ -3,17 +3,17 @@ import { Canvas, extend } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 
 import { Controls } from '@/components/Controls'
-import { Cloudy } from 'threejs-weather'
+import { Meteors } from 'threejs-weather'
 
 extend(meshline)
 
-const CloudyPage = () => {
+const SnowPage = () => {
   return (
-    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
+    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
-      <Cloudy />
+      <Meteors />
     </Canvas>
   )
 }
 
-export default CloudyPage
+export default SnowPage
