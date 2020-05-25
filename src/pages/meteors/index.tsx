@@ -83,15 +83,7 @@ const Meteors = () => {
   return (
     <>
       {meteors.map((meteor) => {
-        return (
-          <Meteor
-            vertices={meteor.vertices}
-            color={meteor.color}
-            length={meteor.hypotenuse}
-            leg={meteor.leg}
-            angle={meteor.angle}
-          />
-        )
+        return <Meteor vertices={meteor.vertices} color={meteor.color} angle={meteor.angle} />
       })}
     </>
   )
