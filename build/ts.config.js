@@ -4,7 +4,7 @@ const lodash = require('lodash')
 
 const tsConfigPath = path.resolve(__dirname, '../tsconfig.json')
 
-module.exports = function() {
+module.exports = function () {
   let my = {}
   if (fs.existsSync(tsConfigPath)) {
     my = require(tsConfigPath)
@@ -18,6 +18,7 @@ module.exports = function() {
       jsx: 'preserve',
       moduleResolution: 'node',
       declaration: true,
+      // isolatedModules: true,
       allowSyntheticDefaultImports: true,
     },
     my.compilerOptions,

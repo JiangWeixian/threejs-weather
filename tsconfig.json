@@ -10,7 +10,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es6",
+    "target": "ES2015",
     "skipLibCheck": true,
     "lib": ["dom", "es2017"],
     "resolveJsonModule": true,

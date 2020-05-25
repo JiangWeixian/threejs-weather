@@ -9,13 +9,13 @@
     "clean": "npx rimraf es && npx rimraf lib",
     "server:mock": "npm run server:mock --prefix example",
     "dev": "npm run dev --prefix example",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && cross-env NODE_ENV=production gulp compile",
     "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "repository": {
     "url": "https://github.com/JiangWeixian/templates/packages/threejs-weather"
   },
-  "typings": "lib/index.d.ts",
+  "typings": "es/index.d.ts",
   "keywords": [
     "react",
     "tree"
@@ -59,6 +59,7 @@
     "poststylus": "1.0.0",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
+    "react": "16.13.1",
     "react-three-fiber": "^4.2.5",
     "rimraf": "2.6.3",
     "stylus-supremacy": "2.12.7",
