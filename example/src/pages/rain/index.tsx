@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Canvas, extend } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 
 import { Controls } from '@/components/Controls'
+import { Text } from '@/components/Text'
 import { Rain } from './Rain'
 
 extend(meshline)
@@ -16,7 +17,9 @@ const RainPage = () => {
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <fog attach="fog" args={[0xffffff, 100, 100]} />
       <Rain />
-      {/* <Wind count={10} /> */}
+      <Suspense fallback="loading...">
+        <Text color="#f1f0ed">雨</Text>
+      </Suspense>
     </Canvas>
   )
 }
