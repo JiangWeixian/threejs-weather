@@ -4,6 +4,7 @@ import { useFrame } from 'react-three-fiber'
 
 import { getRandomVertorByOri, getRandomInRange, DIRS } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
+import { getCoord } from '../utils/scene'
 
 export type Snowflake = {
   startpoint: Vector3
@@ -16,12 +17,13 @@ type UseSnowflakesProps = {
 
 export const useSnowflakes = ({ count = 100 }: UseSnowflakesProps = { count: 100 }) => {
   const snowflakes = useMemo(() => {
+    const coord = getCoord()
     return new Array(4).fill(0).reduce((prev, _cur, i) => {
       return prev.concat(
         new Array(Math.round(count / 4)).fill(0).map(() => {
           const vertor = getRandomVertorByOri('top', { noise: true })
           return {
-            startpoint: new Vector3().copy(new Vector3(0, 4 + i * 2, 0)).add(vertor),
+            startpoint: new Vector3().copy(new Vector3(0, coord[1] + i * 2, 0)).add(vertor),
             radius: Math.random() * 0.1,
           }
         }),
@@ -45,6 +47,7 @@ export const useSnowflake = (
     getRandomInRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
   ).current
   const vy0 = useRef(0.01 + friction)
+  const coord = useRef(getCoord()).current
   // vy0 / vx0 = tan(angle)
   const vx0 = useRef(0.001 + friction - Math.random() * 0.002)
   // const a = useRef(0.00001)
@@ -60,7 +63,7 @@ export const useSnowflake = (
     if (offsetTop + Math.abs(value.startpoint.y - flake.current.position.y) > 8) {
       const vertor = getRandomVertorByOri('top')
       // 随机raindrop初始位置, 避免loop重复
-      flake.current.position.set(vertor.x, vertor.y + 4, vertor.z)
+      flake.current.position.set(vertor.x, vertor.y + coord[1], vertor.z)
       vy0.current = 0.01 + friction
       vx0.current = 0.001 + friction - Math.random() * 0.002
     }

@@ -21,7 +21,6 @@ export const useClouds = ({ count }: UseCloudsProps = { count: 10 }) => {
   const clouds = useMemo(() => {
     const coord = getCoord()
     return new Array(count).fill(0).map(() => {
-      console.log(getRandomVertorByOri('top').add(new Vector3(0, coord[1], 0)))
       return {
         radius: (Math.random() * coord[0]) / 2,
         startpoint: getRandomVertorByOri('top').add(new Vector3(0, coord[1], 0)),
