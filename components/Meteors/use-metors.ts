@@ -4,9 +4,11 @@ import { useFrame } from 'react-three-fiber'
 
 import { getRandomVertorByOri } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
+import { getCoord } from '../utils/scene'
 
 type UseMeteorsProps = {
   count?: number
+  angle?: number
 }
 
 export type Meteor = {
@@ -17,30 +19,33 @@ export type Meteor = {
   color: string
 }
 
-export const useMeteors = ({ count = 5 }: UseMeteorsProps = { count: 10 }) => {
+export const useMeteors = (
+  { count = 5, angle = 30 }: UseMeteorsProps = { count: 10, angle: 30 },
+) => {
   const meteors = useMemo(() => {
-    const angle = useRef((30 * Math.PI) / 180).current
+    const _angle = (angle * Math.PI) / 180
+    const coord = getCoord()
     return new Array(count).fill(0).map(() => {
-      const leg = Math.random() * 4
+      const leg = Math.random() * coord[1]
       // noise vertor for startpoint
       const vertor = getRandomVertorByOri('right', { noise: true })
       return {
         vertices: [
           // endpoint
-          new Vector3(4, 0, 0)
+          new Vector3(coord[0], 0, 0)
             .copy(vertor)
             // distance vertor
-            .add(new Vector3(leg / Math.tan(angle), leg, 0)),
+            .add(new Vector3(leg / Math.tan(_angle), leg, 0)),
           // startpoint
-          new Vector3(4, 0, 0).copy(vertor),
+          new Vector3(coord[0], 0, 0).copy(vertor),
         ],
-        angle,
+        angle: _angle,
         leg,
-        hypotenuse: leg / Math.sin(angle),
+        hypotenuse: leg / Math.sin(_angle),
         color: 'white',
       } as Meteor
     })
-  }, [count])
+  }, [count, angle])
   return {
     meteors,
   }
