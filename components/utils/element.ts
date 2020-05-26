@@ -1,4 +1,5 @@
 import { Vector3 } from 'three'
+import { getCoord } from './scene'
 
 export const computeBoundingbox = (pos?: Vector3) => {
   if (!pos) {
@@ -9,11 +10,12 @@ export const computeBoundingbox = (pos?: Vector3) => {
       offsetBottom: 0,
     }
   }
+  const [coordx, coordy] = getCoord()
   const { x, y } = pos
   return {
-    offsetLeft: x > 0 ? 4 + x : 4 - Math.abs(x),
-    offsetRight: x > 0 ? 4 - x : 4 + Math.abs(x),
-    offsetTop: y > 0 ? 4 - y : 4 + Math.abs(y),
-    offsetBottom: y > 0 ? 4 + y : 4 - Math.abs(y),
+    offsetLeft: x > 0 ? coordx + x : coordx - Math.abs(x),
+    offsetRight: x > 0 ? coordx - x : coordx + Math.abs(x),
+    offsetTop: y > 0 ? coordy - y : coordy + Math.abs(y),
+    offsetBottom: y > 0 ? coordy + y : coordy - Math.abs(y),
   }
 }

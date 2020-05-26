@@ -4,7 +4,7 @@ import * as meshline from 'threejs-meshline'
 
 import { Controls } from '@/components/Controls'
 import { Text } from '@/components/Text'
-import { Rain } from './Rain'
+import Rain from '../../../../components/rain'
 
 extend(meshline)
 

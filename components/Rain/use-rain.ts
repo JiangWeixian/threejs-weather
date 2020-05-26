@@ -2,6 +2,11 @@ import { useFrame } from 'react-three-fiber'
 import * as THREE from 'three'
 import React, { useRef, useMemo } from 'react'
 
+import { computeBoundingbox } from '../utils/element'
+import { getRandomInRange, getRandomVertorByOri } from '../utils/random'
+import { DIRS } from '../utils/constants'
+import { getCoord } from '../utils/scene'
+
 export type Raindrop = {
   vertices: THREE.Vector3[] // rain-drop geom
   orientation: 'right' | 'top' | 'left' // rain-drop direction
@@ -12,63 +17,6 @@ export type Raindrop = {
 
 type Orientation = 'top' | 'right' | 'left' | 'bottom'
 const RAIN_COLORS = ['#cdd1d3', '#fcd337']
-
-// constants
-const ORI_TO_INDEX = {
-  top: 0,
-  right: 1,
-  left: 1,
-  bottom: 0,
-}
-const ORI_TO_DIR = {
-  top: 1,
-  right: 1,
-  left: -1,
-  bottom: -1,
-}
-
-// const ORIENTATIONS: Orientation[] = ['bottom', 'left', 'right', 'top']
-const dirs = [1, -1]
-
-// utils
-/**
- * scene内部随机点
- */
-const getRandomPoint = () => {
-  return 4 - Math.random() * 8
-}
-
-/**
- * 从range数组中随机一个元素
- * @param range any[]
- */
-const getRandomInRange = <T>(range: T[]) => {
-  return range[Math.round(Math.random() * (range.length - 1))]
-}
-
-// const getRandomOri = () => {
-//   return getRandomInRange(ORIENTATIONS)
-// }
-
-/**
- * 得到一个随机的噪声向量, 和ori有关。
- * - ori = top - [a, b, 0] or [0, b, 0]
- * - ori = left - [a, b, 0] or [a, 0, 0]
- * - ori = right - [a, b, 0] or [a, 0, 0]
- * @param ori Orientation
- * @param props
- */
-const getRandomVertorByOri = (
-  ori: Orientation,
-  { noise }: { noise?: boolean } = { noise: false },
-) => {
-  const endpoint = [0, 0, 0]
-  endpoint[ORI_TO_INDEX[ori]] = getRandomPoint()
-  if (noise) {
-    endpoint[1 - ORI_TO_INDEX[ori]] = Math.abs(getRandomPoint() * 0.5) * ORI_TO_DIR[ori]
-  }
-  return new THREE.Vector3(endpoint[0], endpoint[1], endpoint[2])
-}
 
 /**
  * 角度正负数值
@@ -93,10 +41,11 @@ export const useRain = (
   },
 ) => {
   // raindrop start position data
+  const coord = useRef(getCoord()).current
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
-    top: new THREE.Vector3(0, 4, 0),
-    right: new THREE.Vector3(4, 0, 0),
-    left: new THREE.Vector3(-4, 0, 0),
+    top: new THREE.Vector3(0, coord[1], 0),
+    right: new THREE.Vector3(coord[0], 0, 0),
+    left: new THREE.Vector3(-coord[0], 0, 0),
   }).current
   // radindrop come from which orientation
   const comefrom = useRef<{ [key: string]: Orientation[] }>({
@@ -141,31 +90,13 @@ export type UseRaindropProps = {
   value: Raindrop
 }
 
-const computeBoundingbox = (pos?: THREE.Vector3) => {
-  if (!pos) {
-    return {
-      offsetLeft: 0,
-      offsetRight: 0,
-      offsetTop: 0,
-      offsetBottom: 0,
-    }
-  }
-  const { x, y } = pos
-  return {
-    offsetLeft: x > 0 ? 4 + x : 4 - Math.abs(x),
-    offsetRight: x > 0 ? 4 - x : 4 + Math.abs(x),
-    offsetTop: y > 0 ? 4 - y : 4 + Math.abs(y),
-    offsetBottom: y > 0 ? 4 + y : 4 - Math.abs(y),
-  }
-}
-
 export const useRaindrop = (
   raindrop: React.MutableRefObject<THREE.Mesh | undefined>,
   props?: UseRaindropProps,
 ) => {
   // 摩擦系数, raindrop从负数开始运动, 更加随机的效果
   const friction = useRef(
-    getRandomInRange(dirs) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
+    getRandomInRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
   ).current
   const vy0 = useRef(0.0001 + friction)
   // vy0 / vx0 = tan(angle)
