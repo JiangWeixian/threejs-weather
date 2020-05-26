@@ -3,6 +3,7 @@ import * as THREE from 'three'
 
 import { getRandomInRange, DIRS } from '../utils/random'
 import { useFrame } from 'react-three-fiber'
+import { getCoord } from '../utils/scene'
 
 type UseStarRingsProps = {
   count?: number
@@ -21,12 +22,13 @@ const RING_COLORS = ['#cdd1d3', '#fcd337', '#1677b3']
 
 export const useStarRings = ({ count = 50 }: UseStarRingsProps = { count: 50 }) => {
   const rings = useMemo(() => {
+    const coord = getCoord()
     return new Array(count).fill(0).map(() => {
       const radius = Math.random() * 10
       const vertices = new Array(180).fill(0).map((_v, i) => {
         return new THREE.Vector3(
-          Math.cos((i * 2 * Math.PI) / 180) * radius - 6,
-          Math.sin((i * 2 * Math.PI) / 180) * radius + 4,
+          Math.cos((i * 2 * Math.PI) / 180) * radius - (coord[0] + 2),
+          Math.sin((i * 2 * Math.PI) / 180) * radius + coord[1],
           0,
         )
       })
