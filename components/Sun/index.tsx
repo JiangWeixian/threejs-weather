@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { Group } from 'three'
-import * as THREE from 'three'
 
 import { useSunshine, useSun } from './use-sun'
 
@@ -9,10 +8,10 @@ export const SKY_COLOR = '#faf4e8'
 const Sun = () => {
   const sun = useRef<Group>()
   const sunshine = useRef<Group>()
-  const { sunshines, halos } = useSun()
+  const { sunshines, halos, startpoint } = useSun()
   useSunshine(sunshine)
   return (
-    <group ref={sun} position={new THREE.Vector3(4, 4, 0)}>
+    <group ref={sun} position={startpoint}>
       <group ref={sunshine}>
         {sunshines.map((v) => {
           return (
@@ -25,7 +24,7 @@ const Sun = () => {
                 sizeAttenuation={true}
                 lineWidth={0.05}
                 opacity={0.15}
-                color="white"
+                color="#c34e35"
               />
             </mesh>
           )

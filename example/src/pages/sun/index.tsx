@@ -3,7 +3,7 @@ import { Canvas, extend } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 
 import { Controls } from '@/components/Controls'
-import { Sun } from './Sun'
+import Sun from '../../../../components/sun'
 import { Text } from '@/components/Text'
 
 extend(meshline)

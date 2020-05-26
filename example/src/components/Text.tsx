@@ -22,7 +22,7 @@ export const Text = ({ color = '#310f1b', ...props }: TextProps) => {
     return props.children.length
   }, [props.children])
   return (
-    <mesh ref={text} position={new Vector3(-0.25 * len, 0, 0)}>
+    <mesh ref={text} position={new Vector3(-0.4 * len, -0.25 * len, 0)}>
       <textGeometry
         attach="geometry"
         args={[
