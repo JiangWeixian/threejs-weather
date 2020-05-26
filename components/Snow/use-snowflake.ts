@@ -1,9 +1,9 @@
 import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
+import { useFrame } from 'react-three-fiber'
 
 import { getRandomVertorByOri, getRandomInRange, DIRS } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
-import { useFrame } from 'react-three-fiber'
 
 export type Snowflake = {
   startpoint: Vector3

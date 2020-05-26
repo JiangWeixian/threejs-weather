@@ -1,6 +1,10 @@
 import { Vector3 } from 'three'
 import { getCoord } from './scene'
 
+/**
+ * box offset to four edge
+ * @param pos
+ */
 export const computeBoundingbox = (pos?: Vector3) => {
   if (!pos) {
     return {
