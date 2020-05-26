@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
 import * as THREE from 'three'
 
 import { Controls } from '@/components/Controls'
 import { getRandomVertorByOri, getRandomInRange } from '@/utils/random'
+import { Text } from '@/components/Text'
 
 const CLOUD_COLORS = ['#21373d', '#535657']
 
@@ -42,6 +43,9 @@ const CloudyPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Cloudy />
+      <Suspense fallback="loading...">
+        <Text color="#f1f0ed">阴</Text>
+      </Suspense>
     </Canvas>
   )
 }

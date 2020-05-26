@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Canvas, extend } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 
 import { Controls } from '@/components/Controls'
 import { Cloudy } from 'threejs-weather'
+import { Text } from '@/components/Text'
 
 extend(meshline)
 
@@ -12,6 +13,9 @@ const CloudyPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Cloudy />
+      <Suspense fallback="loading...">
+        <Text color="#f1f0ed">阴</Text>
+      </Suspense>
     </Canvas>
   )
 }

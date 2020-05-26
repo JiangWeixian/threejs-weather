@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react'
+import React, { useRef, useMemo, Suspense } from 'react'
 import { useFrame } from 'react-three-fiber'
 import { Mesh } from 'three'
 import * as THREE from 'three'
@@ -6,6 +6,7 @@ import * as meshline from 'threejs-meshline'
 import { Canvas, extend } from 'react-three-fiber'
 
 import { Controls } from '@/components/Controls'
+import { Text } from '@/components/Text'
 
 const WindBlade = ({ curve, width, color, speed, opacity }) => {
   const material = useRef<any>()
@@ -109,6 +110,9 @@ const WindPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: 'white' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Wind count={40} />
+      <Suspense fallback="loading...">
+        <Text>风</Text>
+      </Suspense>
     </Canvas>
   )
 }
