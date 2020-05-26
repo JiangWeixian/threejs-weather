@@ -2,6 +2,7 @@ import React from 'react'
 import { useLoader, useFrame } from 'react-three-fiber'
 import { useRef } from 'react'
 import { Mesh, FontLoader, Vector3 } from 'three'
+import { useMemo } from 'react'
 
 type TextProps = {
   children: string
@@ -17,8 +18,11 @@ export const Text = ({ color = '#310f1b', ...props }: TextProps) => {
     }
     text.current.scale.z = 0.001
   })
+  const len = useMemo(() => {
+    return props.children.length
+  }, [props.children])
   return (
-    <mesh ref={text} position={new Vector3(-0.25, 0, 0)}>
+    <mesh ref={text} position={new Vector3(-0.25 * len, 0, 0)}>
       <textGeometry
         attach="geometry"
         args={[
