@@ -98,6 +98,7 @@ export const useRaindrop = (
   const friction = useRef(
     getRandomInRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
   ).current
+  const coord = useRef(getCoord()).current
   const vy0 = useRef(0.0001 + friction)
   // vy0 / vx0 = tan(angle)
   const vx0 = useRef(0.0001 + friction)
@@ -114,7 +115,7 @@ export const useRaindrop = (
     vy0.current += a.current
     vx0.current += a.current
     // 判断raindrop是否出了边界
-    if (offsetTop + Math.abs(raindrop.current.position.y) > 8 + props.value.leg) {
+    if (offsetTop + Math.abs(raindrop.current.position.y) > coord[1] * 2 + props.value.leg) {
       const vertor = getRandomVertorByOri(props.value.orientation)
       // 随机raindrop初始位置, 避免loop重复
       raindrop.current.position.set(vertor.x, vertor.y, vertor.z)
