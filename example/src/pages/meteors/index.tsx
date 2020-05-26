@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo, useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 import * as THREE from 'three'
@@ -7,6 +7,7 @@ import { Mesh, Vector3 } from 'three'
 import { Controls } from '@/components/Controls'
 import { getRandomVertorByOri, getRandomPoint } from '@/utils/random'
 import { computeBoundingbox } from '@/utils/element'
+import { Text } from '@/components/Text'
 
 extend(meshline)
 
@@ -94,6 +95,9 @@ const MeteorPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Meteors />
+      <Suspense fallback="loading...">
+        <Text color="#f1f0ed">流星</Text>
+      </Suspense>
     </Canvas>
   )
 }

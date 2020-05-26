@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo, useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 import * as THREE from 'three'
@@ -7,6 +7,7 @@ import { Mesh } from 'three'
 import { Controls } from '@/components/Controls'
 import { getRandomVertorByOri, getRandomInRange, dirs } from '@/utils/random'
 import { computeBoundingbox } from '@/utils/element'
+import { Text } from '@/components/Text'
 
 extend(meshline)
 
@@ -75,6 +76,9 @@ const SnowPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Snow />
+      <Suspense fallback="loading...">
+        <Text color="#f1f0ed">雪</Text>
+      </Suspense>
     </Canvas>
   )
 }

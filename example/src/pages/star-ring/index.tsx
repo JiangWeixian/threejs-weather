@@ -1,10 +1,11 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo, useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 import * as THREE from 'three'
 
 import { Controls } from '@/components/Controls'
 import { getRandomInRange, dirs } from '@/utils/random'
+import { Text } from '@/components/Text'
 
 const RING_COLORS = ['#cdd1d3', '#fcd337', '#1677b3']
 
@@ -82,6 +83,9 @@ const StarRingPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <StarRings />
+      <Suspense fallback="loading...">
+        <Text color="#f1f0ed">星夜</Text>
+      </Suspense>
     </Canvas>
   )
 }
