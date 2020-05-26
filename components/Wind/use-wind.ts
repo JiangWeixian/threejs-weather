@@ -2,6 +2,8 @@ import { useMemo, useRef } from 'react'
 import { Vector3, CatmullRomCurve3, Mesh } from 'three'
 import { useFrame } from 'react-three-fiber'
 
+import { getRandomPoint } from '../utils/random'
+
 const WIND_COLORS = ['#A2CCB6', '#FCEEB5', '#EE786E', '#e0feff', 'lightpink', 'lightblue']
 
 type UseWindsProps = {
@@ -30,18 +32,14 @@ export const useWinds = ({ count = 100 }: UseWindsProps = { count: 100 }) => {
           const points = new Array(30)
             .fill(0)
             .map(() =>
-              pos
-                .add(
-                  new Vector3(4 - Math.random() * 8, 4 - Math.random() * 8, 2 - Math.random() * 4),
-                )
-                .clone(),
+              pos.add(new Vector3(getRandomPoint(0), getRandomPoint(1), getRandomPoint(2))).clone(),
             )
           const vertices = new CatmullRomCurve3(points).getPoints(1000)
           return {
             color: WIND_COLORS[parseInt((WIND_COLORS.length * Math.random()).toString())],
             lineWidth: Math.max(0.1, 0.5 * Math.random()),
             speed: Math.max(0.001, 0.0005 * Math.random()),
-            opacity: Math.random() * 4,
+            opacity: Math.random(),
             vertices,
           } as WindBlade
         }),
@@ -68,11 +66,7 @@ export const useWind = (
     }
     mat.current.uniforms.dashOffset.value -= value.speed
     if (mat.current.uniforms.opacity.value <= 0) {
-      wind.current?.position.set(
-        4 - Math.random() * 8,
-        4 - Math.random() * 8,
-        4 - Math.random() * 8,
-      )
+      wind.current?.position.set(getRandomPoint(0), getRandomPoint(1), getRandomPoint(2))
       mat.current.uniforms.opacity.value += value.speed * 10
       dir.current = 1
     } else if (mat.current.uniforms.opacity.value >= 1) {
