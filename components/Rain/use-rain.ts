@@ -113,6 +113,7 @@ export const useRaindrop = (
     raindrop.current.position.y -= vy0.current
     // left raindrop从左到右移动, right raindrop从右到左移动
     raindrop.current.position.x -= vx0.current * angle2dir(props.value.angle)
+    // 从无到有比较真实
     mat.current.opacity += 0.01
     vy0.current += a.current
     vx0.current += a.current
