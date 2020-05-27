@@ -43,13 +43,10 @@ export const useSnowflake = (
   flake: React.MutableRefObject<Mesh | undefined>,
   { value }: UseSnowflakeProps,
 ) => {
-  const friction = useRef(
-    getRandomInRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
-  ).current
-  const vy0 = useRef(0.01 + friction)
+  const vy0 = useRef(0.01)
   const coord = useRef(getCoord()).current
   // vy0 / vx0 = tan(angle)
-  const vx0 = useRef(0.001 + friction - Math.random() * 0.002)
+  const vx0 = useRef(0.001 * Math.random() * getRandomInRange(DIRS))
   // const a = useRef(0.00001)
   const { offsetTop } = computeBoundingbox(value.startpoint)
   useFrame(() => {
@@ -60,12 +57,12 @@ export const useSnowflake = (
     flake.current.position.y -= vy0.current
     flake.current.position.x -= vx0.current
     // 判断是否出了边界
-    if (offsetTop + Math.abs(value.startpoint.y - flake.current.position.y) > 8) {
+    if (offsetTop + Math.abs(value.startpoint.y - flake.current.position.y) > coord[1] * 2) {
       const vertor = getRandomVertorByOri('top')
       // 随机raindrop初始位置, 避免loop重复
       flake.current.position.set(vertor.x, vertor.y + coord[1], vertor.z)
-      vy0.current = 0.01 + friction
-      vx0.current = 0.001 + friction - Math.random() * 0.002
+      vy0.current = 0.01
+      vx0.current = 0.001 * Math.random() * getRandomInRange(DIRS)
     }
   })
 }

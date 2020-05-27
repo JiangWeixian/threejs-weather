@@ -1,9 +1,10 @@
 import { useFrame } from 'react-three-fiber'
 import * as THREE from 'three'
 import React, { useRef, useMemo } from 'react'
+import { Vector3 } from 'three'
 
 import { computeBoundingbox } from '../utils/element'
-import { getRandomInRange, getRandomVertorByOri } from '../utils/random'
+import { getRandomInRange, getRandomVertorByOri, getRandomPoint } from '../utils/random'
 import { DIRS } from '../utils/constants'
 import { getCoord } from '../utils/scene'
 
@@ -62,7 +63,9 @@ export const useRain = (
         const leg = Math.random() * 2
         const orientation = getRandomInRange<Orientation>(comefrom.right)
         // noise vertor for startpoint
-        const vertor = getRandomVertorByOri(orientation, { noise: true })
+        const vertor = getRandomVertorByOri(orientation, { noise: true }).add(
+          new Vector3(0, 0, getRandomPoint(2)),
+        )
         return {
           vertices: [
             // endpoint
@@ -119,7 +122,7 @@ export const useRaindrop = (
     vx0.current += a.current
     // 判断raindrop是否出了边界
     if (offsetTop + Math.abs(raindrop.current.position.y) > coord[1] * 2 + props.value.leg) {
-      const vertor = getRandomVertorByOri(props.value.orientation)
+      const vertor = getRandomVertorByOri(props.value.orientation, { noise: true })
       // 随机raindrop初始位置, 避免loop重复
       raindrop.current.position.set(vertor.x, vertor.y, vertor.z)
       mat.current.opacity = 0

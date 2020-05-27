@@ -51,7 +51,6 @@ export const getRandomVertorByOri = (
   endpoint[ORI_TO_INDEX[ori]] = getRandomPoint(ORI_TO_INDEX[ori])
   if (noise) {
     endpoint[1 - ORI_TO_INDEX[ori]] = Math.abs(getRandomPoint() * 0.5) * ORI_TO_DIR[ori]
-    endpoint[2] = getRandomPoint(2)
   }
   return new Vector3(endpoint[0], endpoint[1], endpoint[2])
 }

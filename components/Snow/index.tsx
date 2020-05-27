@@ -8,7 +8,7 @@ const SnowFlake = ({ value }: { value: Snowflake }) => {
   useSnowflake(flake, { value })
   return (
     <mesh position={value.startpoint} ref={flake}>
-      <circleBufferGeometry attach="geometry" args={[value.radius, 128]} />
+      <circleGeometry attach="geometry" args={[value.radius, 128]} />
       <meshBasicMaterial color="white" attach="material" />
     </mesh>
   )
