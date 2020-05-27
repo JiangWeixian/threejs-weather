@@ -92,6 +92,7 @@ export type UseRaindropProps = {
 
 export const useRaindrop = (
   raindrop: React.MutableRefObject<THREE.Mesh | undefined>,
+  mat: React.MutableRefObject<any>,
   props?: UseRaindropProps,
 ) => {
   // 摩擦系数, raindrop从负数开始运动, 更加随机的效果
@@ -102,16 +103,17 @@ export const useRaindrop = (
   const vy0 = useRef(0.0001 + friction)
   // vy0 / vx0 = tan(angle)
   const vx0 = useRef(0.0001 + friction)
-  const a = useRef(0.0001)
+  const a = useRef(0.001)
   const { offsetTop } = computeBoundingbox(props?.value.vertices[0])
   useFrame(() => {
-    if (raindrop.current?.position.y === undefined || !props?.value) {
+    if (raindrop.current?.position.y === undefined || !props?.value || !mat.current) {
       return
     }
     // raindrop加速下落
     raindrop.current.position.y -= vy0.current
     // left raindrop从左到右移动, right raindrop从右到左移动
     raindrop.current.position.x -= vx0.current * angle2dir(props.value.angle)
+    mat.current.opacity += 0.01
     vy0.current += a.current
     vx0.current += a.current
     // 判断raindrop是否出了边界
@@ -119,6 +121,7 @@ export const useRaindrop = (
       const vertor = getRandomVertorByOri(props.value.orientation)
       // 随机raindrop初始位置, 避免loop重复
       raindrop.current.position.set(vertor.x, vertor.y, vertor.z)
+      mat.current.opacity = 0
       vy0.current = 0.0001
       vx0.current = 0.0001
     }
