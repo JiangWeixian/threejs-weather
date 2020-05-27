@@ -1,14 +1,16 @@
 import React, { useRef } from 'react'
 import { Group } from 'three'
 
-import { useSunshine, useSun } from './use-sun'
+import { useSunshine, useSun, UseSunProps } from './use-sun'
 
 export const SKY_COLOR = '#faf4e8'
 
-const Sun = () => {
+type SunProps = UseSunProps
+
+const Sun = ({ positionX = 1 }: SunProps = { positionX: 1 }) => {
   const sun = useRef<Group>()
   const sunshine = useRef<Group>()
-  const { sunshines, halos, startpoint } = useSun()
+  const { sunshines, halos, startpoint } = useSun({ positionX })
   useSunshine(sunshine)
   return (
     <group ref={sun} position={startpoint}>

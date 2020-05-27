@@ -1,4 +1,4 @@
-import { useRef, useMemo, useState } from 'react'
+import { useRef, useMemo } from 'react'
 import * as THREE from 'three'
 import { useFrame } from 'react-three-fiber'
 import { Group } from 'three'
@@ -20,17 +20,23 @@ type Halo = {
   startpoint: THREE.Vector3
 }
 
-export const useSun = () => {
+export type UseSunProps = {
+  positionX?: number
+}
+
+export const useSun = ({ positionX = 1 }: UseSunProps = { positionX: 1 }) => {
   const angle = useRef(-(Math.random() * 90 + 90))
   const coord = useRef(getCoord()).current
-  const [startpoint] = useState(new THREE.Vector3(coord[0], coord[1], 0))
+  const startpoint = useMemo(() => {
+    return new THREE.Vector3(coord[0] * positionX, coord[1], 0)
+  }, [positionX])
 
   const sunshines = useMemo(() => {
     return Array(3)
       .fill(0)
       .map((_v, i) => {
         angle.current += i * 20
-        const startpoint = Math.random() * coord[0] + coord[0]
+        const startpoint = Math.random() * coord[0] + coord[0] * positionX
         const length = Math.random() * 2
         return {
           vertices: [
@@ -48,7 +54,7 @@ export const useSun = () => {
           angle: angle.current,
         } as Sunshine
       })
-  }, [])
+  }, [positionX])
   const halos = useMemo(() => {
     return Array(HALO_COLORS.length)
       .fill(0)
@@ -60,7 +66,7 @@ export const useSun = () => {
           startpoint,
         } as Halo
       })
-  }, [])
+  }, [startpoint])
   return {
     sunshines,
     halos,
