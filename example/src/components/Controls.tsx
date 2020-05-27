@@ -7,9 +7,12 @@ extend({ OrbitControls })
 export const Controls = (props) => {
   const {
     camera,
+    scene,
     gl: { domElement },
   } = useThree()
-  const controls = useRef<any>()
-  useFrame(() => controls.current?.update())
+  const controls = useRef<OrbitControls>()
+  useFrame(() => {
+    controls.current?.update()
+  })
   return <orbitControls ref={controls} args={[camera, domElement]} {...props} />
 }

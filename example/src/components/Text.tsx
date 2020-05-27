@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoader, useFrame } from 'react-three-fiber'
+import { useLoader, useFrame, useThree } from 'react-three-fiber'
 import { useRef } from 'react'
 import { Mesh, FontLoader, Vector3 } from 'three'
 import { useMemo } from 'react'
@@ -12,11 +12,16 @@ type TextProps = {
 export const Text = ({ color = '#310f1b', ...props }: TextProps) => {
   const font = useLoader(FontLoader, 'static/FZJinLS.json')
   const text = useRef<Mesh>()
+  const { camera } = useThree()
   useFrame(() => {
-    if (!text.current) {
+    if (!text.current || !camera) {
       return
     }
+    const rotation = camera.rotation
     text.current.scale.z = 0.001
+    text.current.rotation.x = rotation.x
+    text.current.rotation.y = rotation.y
+    text.current.rotation.z = rotation.z
   })
   const len = useMemo(() => {
     return props.children.length
