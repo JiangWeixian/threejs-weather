@@ -18,7 +18,12 @@
   "typings": "es/index.d.ts",
   "keywords": [
     "react",
-    "tree"
+    "tree",
+    "weather"
+  ],
+  "files": [
+    "es",
+    "lib"
   ],
   "author": "JW",
   "license": "MIT",
