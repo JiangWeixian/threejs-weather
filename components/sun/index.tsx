@@ -7,10 +7,10 @@ export const SKY_COLOR = '#faf4e8'
 
 type SunProps = UseSunProps
 
-const Sun = ({ positionX = 1 }: SunProps = { positionX: 1 }) => {
+const Sun = ({ percentX = 1 }: SunProps = { percentX: 1 }) => {
   const sun = useRef<Group>()
   const sunshine = useRef<Group>()
-  const { sunshines, halos, startpoint } = useSun({ positionX })
+  const { sunshines, halos, startpoint } = useSun({ percentX })
   useSunshine(sunshine)
   return (
     <group ref={sun} position={startpoint}>

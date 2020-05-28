@@ -5,7 +5,7 @@ import { getRandomInRange, DIRS } from '../utils/random'
 import { useFrame } from 'react-three-fiber'
 import { getCoord } from '../utils/scene'
 
-type UseStarRingsProps = {
+export type UseStarRingsProps = {
   count?: number
 }
 

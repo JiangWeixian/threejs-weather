@@ -21,22 +21,22 @@ type Halo = {
 }
 
 export type UseSunProps = {
-  positionX?: number
+  percentX?: number
 }
 
-export const useSun = ({ positionX = 1 }: UseSunProps = { positionX: 1 }) => {
+export const useSun = ({ percentX = 1 }: UseSunProps = { percentX: 1 }) => {
   const angle = useRef(-(Math.random() * 90 + 90))
   const coord = useRef(getCoord()).current
   const startpoint = useMemo(() => {
-    return new THREE.Vector3(coord[0] * positionX, coord[1], 0)
-  }, [positionX])
+    return new THREE.Vector3(coord[0] * percentX, coord[1], 0)
+  }, [percentX])
 
   const sunshines = useMemo(() => {
     return Array(3)
       .fill(0)
       .map((_v, i) => {
         angle.current += i * 20
-        const startpoint = Math.random() * coord[0] + coord[0] * positionX
+        const startpoint = Math.random() * coord[0] + coord[0] * percentX
         const length = Math.random() * 2
         return {
           vertices: [
@@ -54,7 +54,7 @@ export const useSun = ({ positionX = 1 }: UseSunProps = { positionX: 1 }) => {
           angle: angle.current,
         } as Sunshine
       })
-  }, [positionX])
+  }, [percentX])
   const halos = useMemo(() => {
     return Array(HALO_COLORS.length)
       .fill(0)

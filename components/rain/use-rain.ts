@@ -43,7 +43,6 @@ export const DEFAULT_RAINPROPS = {
 export const useRain = ({
   angle = (-45 * Math.PI) / 180,
   count = 100,
-  ...props
 }: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
   const coord = useRef(getCoord()).current

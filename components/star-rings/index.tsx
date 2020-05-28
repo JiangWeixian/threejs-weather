@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-import { useStarRings, Ring, useRing } from './use-starrings'
+import { useStarRings, Ring, useRing, UseStarRingsProps } from './use-starrings'
 
 const Ring = ({ value }: { value: Ring }) => {
   const ring = useRef<any>()
@@ -24,8 +24,10 @@ const Ring = ({ value }: { value: Ring }) => {
   )
 }
 
-const StarRings = () => {
-  const { rings } = useStarRings()
+type StarRingsProps = UseStarRingsProps & {}
+
+const StarRings = (props: StarRingsProps) => {
+  const { rings } = useStarRings(props)
   return (
     <>
       {rings.map((ring) => {

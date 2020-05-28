@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { useClouds } from './use-cloud'
+import { useClouds, UseCloudsProps } from './use-cloud'
 
-const Cloudy = () => {
-  const { clouds } = useClouds()
+type CloudyProps = UseCloudsProps
+
+const Cloudy = (props: CloudyProps) => {
+  const { clouds } = useClouds(props)
   return (
     <>
       {clouds.map((cloud) => {

@@ -11,7 +11,7 @@ export type Snowflake = {
   radius: number
 }
 
-type UseSnowflakesProps = {
+export type UseSnowflakesProps = {
   count: number
 }
 

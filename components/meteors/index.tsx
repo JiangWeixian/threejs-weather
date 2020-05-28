@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Mesh } from 'three'
 
-import { useMeteors, Meteor, useMeteor } from './use-metors'
+import { useMeteors, Meteor, useMeteor, UseMeteorsProps } from './use-metors'
 
 const Meteor = ({ value }: { value: Meteor }) => {
   const meteor = useRef<Mesh>()
@@ -26,8 +26,10 @@ const Meteor = ({ value }: { value: Meteor }) => {
   )
 }
 
-const Meteors = () => {
-  const { meteors } = useMeteors()
+type MeteorsProps = UseMeteorsProps & {}
+
+const Meteors = (props: MeteorsProps) => {
+  const { meteors } = useMeteors(props)
   return (
     <>
       {meteors.map((meteor) => {

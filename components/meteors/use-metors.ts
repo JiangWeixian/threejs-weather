@@ -6,7 +6,7 @@ import { getRandomVertorByOri } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
 import { getCoord } from '../utils/scene'
 
-type UseMeteorsProps = {
+export type UseMeteorsProps = {
   count?: number
   angle?: number
 }
