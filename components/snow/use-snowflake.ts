@@ -12,7 +12,7 @@ export type Snowflake = {
 }
 
 export type UseSnowflakesProps = {
-  count: number
+  count?: number
 }
 
 export const useSnowflakes = ({ count = 100 }: UseSnowflakesProps = { count: 100 }) => {

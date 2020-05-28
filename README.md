@@ -1,5 +1,7 @@
 # weather
-> weather with threejs
+> weather background with threejs
+
+[docs](/docs/README.md)
 
 - [weather](#weather)
   - [screenshots](#screenshots)

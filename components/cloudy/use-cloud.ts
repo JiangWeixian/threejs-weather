@@ -7,7 +7,7 @@ import { getCoord } from '../utils/scene'
 const CLOUD_COLORS = ['#21373d', '#535657']
 
 export type UseCloudsProps = {
-  count: number
+  count?: number
 }
 
 export type Cloud = {
@@ -17,7 +17,7 @@ export type Cloud = {
   color: string
 }
 
-export const useClouds = ({ count }: UseCloudsProps = { count: 10 }) => {
+export const useClouds = ({ count = 10 }: UseCloudsProps = { count: 10 }) => {
   const clouds = useMemo(() => {
     const coord = getCoord()
     return new Array(count).fill(0).map(() => {
