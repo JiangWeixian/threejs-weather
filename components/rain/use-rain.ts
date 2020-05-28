@@ -30,17 +30,21 @@ const angle2dir = (angle?: number) => {
   return angle / Math.abs(angle)
 }
 
-type UseRainProps = {
-  count: number
+export type UseRainProps = {
+  count?: number
   angle?: number
 }
 
-export const useRain = (
-  { angle = (-45 * Math.PI) / 180, ...props }: UseRainProps = {
-    count: 100,
-    angle: (-45 * Math.PI) / 180,
-  },
-) => {
+export const DEFAULT_RAINPROPS = {
+  count: 100,
+  angle: (-45 * Math.PI) / 180,
+}
+
+export const useRain = ({
+  angle = (-45 * Math.PI) / 180,
+  count = 100,
+  ...props
+}: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
   const coord = useRef(getCoord()).current
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
@@ -55,7 +59,7 @@ export const useRain = (
     top: ['top'],
   }).current
   const lines = useMemo(() => {
-    return Array(props.count)
+    return Array(count)
       .fill(0)
       .map(() => {
         // h / deltax = tan(ang)
@@ -83,7 +87,7 @@ export const useRain = (
           color: getRandomInRange(RAIN_COLORS),
         } as Raindrop
       })
-  }, [angle, props.count])
+  }, [angle, count])
   return {
     lines,
   }

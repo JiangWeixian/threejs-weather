@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useRain, useRaindrop, UseRaindropProps } from './use-rain'
+import { useRain, useRaindrop, UseRaindropProps, UseRainProps } from './use-rain'
 import { Mesh } from 'three'
 
 export const SKY_COLOR = '#1677b3'
@@ -27,8 +27,10 @@ export const Raindrop = (props: UseRaindropProps) => {
   )
 }
 
-const Rain = () => {
-  const { lines } = useRain({ count: 200 })
+type RainProps = UseRainProps & {}
+
+const Rain = (props: RainProps) => {
+  const { lines } = useRain(props)
   return (
     <>
       {lines.map((v) => {
