@@ -15,7 +15,7 @@ export const RainRing = ({ value }: { value: Ring }) => {
 
 type RainRingsProps = UseRainRingsProps
 
-export const RainRings = (props: RainRingsProps) => {
+const RainRings = (props: RainRingsProps) => {
   const { rings } = useRainRings(props)
   return (
     <>
@@ -25,3 +25,5 @@ export const RainRings = (props: RainRingsProps) => {
     </>
   )
 }
+
+export default RainRings
