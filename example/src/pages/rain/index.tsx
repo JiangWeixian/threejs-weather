@@ -5,34 +5,9 @@ import * as meshline from 'threejs-meshline'
 import { Controls } from '@/components/Controls'
 import { Text } from '@/components/Text'
 import Rain from '../../../../components/rain'
-import { useRef } from 'react'
-import { Mesh, Vector3 } from 'three'
+import { RainRings } from '../../../../components/rain-ring'
 
 extend(meshline)
-
-const Inter = () => {
-  const mesh = useRef<Mesh>()
-  const { camera, raycaster } = useThree()
-  raycaster.setFromCamera({ x: 0, y: 0 }, camera)
-  useFrame(() => {
-    if (!mesh.current) {
-      return
-    }
-  })
-  return (
-    <mesh ref={mesh}>
-      <meshLine attach="geometry" vertices={[new Vector3(0, 1, 0), new Vector3(0, 0, 0)]} />
-      <meshLineMaterial
-        attach="material"
-        transparent={true}
-        depthTest={false}
-        sizeAttenuation={true}
-        lineWidth={1}
-        opacity={0.75}
-      />
-    </mesh>
-  )
-}
 
 const RainPage = () => {
   return (
@@ -46,6 +21,7 @@ const RainPage = () => {
       <Suspense fallback="loading...">
         <Text color="#f1f0ed">雨</Text>
       </Suspense>
+      <RainRings />
     </Canvas>
   )
 }

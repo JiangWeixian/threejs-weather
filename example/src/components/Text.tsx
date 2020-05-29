@@ -77,6 +77,7 @@ const Slashes = ({ allpoints }) => {
   }, [])
   const [dashOffset, setDashOffset] = useState(0)
   const [opacity, setOpacity] = useState(1)
+  const { camera } = useThree()
   const a = useRef(-0.001)
   const speed = useRef(Math.random() * 0.01)
   const vopacity = useRef(0.04 + Math.random() * 0.01)
@@ -93,6 +94,12 @@ const Slashes = ({ allpoints }) => {
         return prev - vopacity.current
       }
     })
+    if (!slash.current) {
+      return
+    }
+    slash.current.rotation.x = camera.rotation.x
+    slash.current.rotation.y = camera.rotation.y
+    slash.current.rotation.z = camera.rotation.z
   })
   useEffect(() => {
     if (!inited && allpoints.length !== 0) {
@@ -101,7 +108,7 @@ const Slashes = ({ allpoints }) => {
     }
   }, [randomSetPoint, inited])
   return (
-    <group position={startpoint} ref={slash}>
+    <group ref={slash}>
       {lines.map((l) => {
         return (
           <mesh>
@@ -190,9 +197,9 @@ export const Text = ({ color = '#310f1b', ...props }: TextProps) => {
           opacity={1}
         />
       </mesh> */}
-      {new Array(5).fill(0).map((v) => (
+      {/* {new Array(5).fill(0).map((v) => (
         <Slashes allpoints={vertex} />
-      ))}
+      ))} */}
     </>
   )
 }
