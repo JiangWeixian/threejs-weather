@@ -12,7 +12,7 @@ const SunPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#faf4e8' }}>
       <Controls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
-      <Sun percentX={-1} />
+      <Sun percentX={-1} count={3} />
       <Suspense fallback="loading...">
         <Text>晴</Text>
       </Suspense>

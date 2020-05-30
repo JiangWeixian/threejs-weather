@@ -4,8 +4,6 @@ import { useFrame } from 'react-three-fiber'
 import { Group } from 'three'
 import { getCoord } from '../utils/scene'
 
-// constants
-// radius
 const R = 2
 const HALO_COLORS = ['#faf3d2', '#fbebb3', '#fae09c', '#f9d67c', '#f6c451', '#c34e35']
 
@@ -22,9 +20,15 @@ type Halo = {
 
 export type UseSunProps = {
   percentX?: number
+  count?: number
 }
 
-export const useSun = ({ percentX = 1 }: UseSunProps = { percentX: 1 }) => {
+export const useSun = (
+  { percentX = 1, count = HALO_COLORS.length }: UseSunProps = {
+    percentX: 1,
+    count: HALO_COLORS.length,
+  },
+) => {
   const angle = useRef(-(Math.random() * 90 + 90))
   const coord = useRef(getCoord()).current
   const startpoint = useMemo(() => {
@@ -56,7 +60,7 @@ export const useSun = ({ percentX = 1 }: UseSunProps = { percentX: 1 }) => {
       })
   }, [percentX])
   const halos = useMemo(() => {
-    return Array(HALO_COLORS.length)
+    return Array(count)
       .fill(0)
       .map((_v, i) => {
         const startpoint = new THREE.Vector3(0.5 - Math.random() * 1, 0.5 - Math.random() * 1, 0)
@@ -66,7 +70,7 @@ export const useSun = ({ percentX = 1 }: UseSunProps = { percentX: 1 }) => {
           startpoint,
         } as Halo
       })
-  }, [startpoint])
+  }, [startpoint, count])
   return {
     sunshines,
     halos,
