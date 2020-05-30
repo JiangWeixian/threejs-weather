@@ -120,10 +120,17 @@ const prod = {
       filename: path.posix.join('static', 'css/[name].[contenthash].css'),
       chunkFilename: path.posix.join('static', 'css/[name].[contenthash].async.css'),
     }),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: true,
-    }),
-  ].concat(configs.gzip ? [new CompressionPlugin()] : []),
+  ]
+    .concat(
+      configs.analyzer
+        ? [
+            new BundleAnalyzerPlugin({
+              openAnalyzer: false,
+            }),
+          ]
+        : [],
+    )
+    .concat(configs.gzip ? [new CompressionPlugin()] : []),
 }
 
 module.exports = MergeWebpack(common, prod)
