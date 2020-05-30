@@ -22,3 +22,4 @@ const RainPage = () => {
 |   name   |              description               |    type     | default |
 | :------: | :------------------------------------: | :---------: | :-----: |
 | percentX | startpoint offset(太阳初始位置百分比)) | number(0-1) |    1    |
+|  count   |     sum of halo(光晕数目)｜number      |      6     |
