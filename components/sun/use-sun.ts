@@ -12,7 +12,7 @@ type Sunshine = {
   angle: number
 }
 
-type Halo = {
+export type Halo = {
   radius: number
   color: string
   startpoint: THREE.Vector3
