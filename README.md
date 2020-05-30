@@ -5,8 +5,13 @@
 
 [![npm](https://img.shields.io/npm/v/threejs-weather.svg?style=flat-square)](https://www.npmjs.org/package/threejs-weather) [![npm](https://img.shields.io/npm/dm/threejs-weather.svg?style=flat-square)](https://www.npmjs.org/package/threejs-weather) [![npm](https://img.shields.io/npm/l/threejs-weather.svg?style=flat-square)](https://www.npmjs.org/package/threejs-weather)
 
+[📖](/docs/README.md) / [🌟](https://threejs-weather.now.sh)
+
 </div>
 
+## install
+
+`npm install threejs-weather three react-three-fiber`
 
 ## demos and documents
 
