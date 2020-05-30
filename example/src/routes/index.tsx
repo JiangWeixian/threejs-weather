@@ -2,28 +2,10 @@ import React from 'react'
 import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
 import Loadable from 'react-loadable'
 
-const Rain = Loadable({
-  loader: () => import(/* webpackChunkName: "Rain" */ '@/pages/rain'),
-  loading: () => <div>loading</div>,
-})
-
-const ProdRain = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdRain" */ '@/pages/prod/rain'),
-  loading: () => <div>loading</div>,
-})
-
-const Sun = Loadable({
-  loader: () => import(/* webpackChunkName: "Sun" */ '@/pages/sun'),
-  loading: () => <div>loading</div>,
-})
+// import { DevRoutes } from './dev'
 
 const ProdSun = Loadable({
   loader: () => import(/* webpackChunkName: "ProdSun" */ '@/pages/prod/sun'),
-  loading: () => <div>loading</div>,
-})
-
-const Wind = Loadable({
-  loader: () => import(/* webpackChunkName: "Wind" */ '@/pages/wind'),
   loading: () => <div>loading</div>,
 })
 
@@ -32,18 +14,8 @@ const ProdWind = Loadable({
   loading: () => <div>loading</div>,
 })
 
-const Snow = Loadable({
-  loader: () => import(/* webpackChunkName: "Snow" */ '@/pages/snow'),
-  loading: () => <div>loading</div>,
-})
-
 const PordSnow = Loadable({
   loader: () => import(/* webpackChunkName: "PordSnow" */ '@/pages/prod/snow'),
-  loading: () => <div>loading</div>,
-})
-
-const StarRings = Loadable({
-  loader: () => import(/* webpackChunkName: "StarRings" */ '@/pages/star-ring'),
   loading: () => <div>loading</div>,
 })
 
@@ -52,18 +24,8 @@ const ProdStarRings = Loadable({
   loading: () => <div>loading</div>,
 })
 
-const Cloudy = Loadable({
-  loader: () => import(/* webpackChunkName: "Cloudy" */ '@/pages/cloudy'),
-  loading: () => <div>loading</div>,
-})
-
 const ProdCloudy = Loadable({
   loader: () => import(/* webpackChunkName: "ProdCloudy" */ '@/pages/prod/cloudy'),
-  loading: () => <div>loading</div>,
-})
-
-const Meteors = Loadable({
-  loader: () => import(/* webpackChunkName: "Meteors" */ '@/pages/meteors'),
   loading: () => <div>loading</div>,
 })
 
@@ -72,36 +34,18 @@ const ProdMeteors = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const ProdRain = Loadable({
+  loader: () => import(/* webpackChunkName: "ProdRain" */ '@/pages/prod/rain'),
+  loading: () => <div>loading</div>,
+})
+
+const entry = process.env.NODE_ENV === 'development' ? '/rain' : '/prod/rain'
+
 const RouterViewer = () => {
   return (
     <HashRouter>
       <Switch>
-        <Redirect to="/prod/rain" exact={true} from="/" />
-        {process.env.NODE_ENV === 'development' ? (
-          <>
-            <Route path="/rain">
-              <Rain />
-            </Route>
-            <Route path="/sun">
-              <Sun />
-            </Route>
-            <Route path="/wind">
-              <Wind />
-            </Route>
-            <Route path="/snow">
-              <Snow />
-            </Route>
-            <Route path="/star-rings">
-              <StarRings />
-            </Route>
-            <Route path="/cloudy">
-              <Cloudy />
-            </Route>
-            <Route path="/meteors">
-              <Meteors />
-            </Route>
-          </>
-        ) : null}
+        <Redirect to={entry} exact={true} from="/" />
         {/* prod */}
         <Route path="/prod/rain">
           <ProdRain />
@@ -123,6 +67,12 @@ const RouterViewer = () => {
         </Route>
         <Route path="/prod/star-ring">
           <ProdStarRings />
+        </Route>
+        {/* dev */}
+        {/* <DevRoutes /> */}
+        {/* not found */}
+        <Route path="/">
+          <Redirect to="/prod/rain" />
         </Route>
       </Switch>
     </HashRouter>
