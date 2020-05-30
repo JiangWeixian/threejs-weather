@@ -82,8 +82,6 @@
     "react-three-fiber": ">=4.2.5"
   },
   "dependencies": {
-    "classnames": "2.2.6",
-    "lodash.isnull": "3.0.0",
     "threejs-meshline": "2.0.11"
   },
   "husky": {
