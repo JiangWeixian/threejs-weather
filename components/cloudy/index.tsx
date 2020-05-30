@@ -9,20 +9,22 @@ type CloudyProps = UseCloudsProps
 
 export const DarkCloud = ({ value }: { value: Cloud }) => {
   const cloud = useRef<Mesh>()
-  const [dir, setDir] = useState(1)
+  const dir = useRef(1)
   const speed = useRef(Math.random() * 0.001 * getRandomInRange(DIRS))
   const distance = useRef(0)
   useFrame(() => {
     if (!cloud.current) {
       return
     }
-    distance.current += 0.001 * dir
-    cloud.current.position.x += speed.current * dir
-    cloud.current.position.y -= speed.current * dir
+    distance.current += 0.001 * dir.current
+    cloud.current.position.x += speed.current * dir.current
+    cloud.current.position.y -= speed.current * dir.current
     if (distance.current <= 0) {
-      setDir(1)
+      dir.current = -dir.current
+      speed.current = Math.random() * 0.001 * getRandomInRange(DIRS)
     } else if (distance.current >= 0.1) {
-      setDir(-1)
+      dir.current = -dir.current
+      speed.current = Math.random() * 0.001 * getRandomInRange(DIRS)
     }
   })
   return (
