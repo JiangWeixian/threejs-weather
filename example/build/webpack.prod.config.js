@@ -1,6 +1,6 @@
 const path = require('path')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -45,10 +45,10 @@ const prod = {
       },
     },
     minimizer: [
-      new UglifyJsPlugin({
+      new TerserPlugin({
         parallel: true,
         extractComments: false,
-        uglifyOptions: {
+        terserOptions: {
           warnings: false,
           compress: {
             drop_console: true,
@@ -104,7 +104,7 @@ const prod = {
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html',
+      template: 'public/index.html',
       inject: true,
       minify: {
         collapseWhitespace: true,
