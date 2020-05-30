@@ -72,7 +72,7 @@ const RouterViewer = () => {
         {/* <DevRoutes /> */}
         {/* not found */}
         <Route path="/">
-          <Redirect to="/prod/rain" />
+          <Redirect to={entry} />
         </Route>
       </Switch>
     </HashRouter>

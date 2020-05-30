@@ -1,21 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { useLoader, useFrame, useThree } from 'react-three-fiber'
 import { useRef } from 'react'
-import {
-  Mesh,
-  FontLoader,
-  Vector3,
-  ShapeBufferGeometry,
-  MeshBasicMaterial,
-  Color,
-  DoubleSide,
-  Vector2,
-  Group,
-} from 'three'
-import { useMemo } from 'react'
-import { useEffect } from 'react'
-import { getRandomVertorByOri } from '../../../components/utils/random'
-import { useCallback } from 'react'
+import { Mesh, FontLoader, Vector3, Vector2, Group } from 'three'
 
 type TextProps = {
   children: string
