@@ -77,27 +77,31 @@ const RouterViewer = () => {
     <HashRouter>
       <Switch>
         <Redirect to="/rain" exact={true} from="/" />
-        <Route path="/rain">
-          <Rain />
-        </Route>
-        <Route path="/sun">
-          <Sun />
-        </Route>
-        <Route path="/wind">
-          <Wind />
-        </Route>
-        <Route path="/snow">
-          <Snow />
-        </Route>
-        <Route path="/star-rings">
-          <StarRings />
-        </Route>
-        <Route path="/cloudy">
-          <Cloudy />
-        </Route>
-        <Route path="/meteors">
-          <Meteors />
-        </Route>
+        {process.env.NODE_ENV === 'development' ? (
+          <>
+            <Route path="/rain">
+              <Rain />
+            </Route>
+            <Route path="/sun">
+              <Sun />
+            </Route>
+            <Route path="/wind">
+              <Wind />
+            </Route>
+            <Route path="/snow">
+              <Snow />
+            </Route>
+            <Route path="/star-rings">
+              <StarRings />
+            </Route>
+            <Route path="/cloudy">
+              <Cloudy />
+            </Route>
+            <Route path="/meteors">
+              <Meteors />
+            </Route>
+          </>
+        ) : null}
         {/* prod */}
         <Route path="/prod/rain">
           <ProdRain />
