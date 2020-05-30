@@ -14,7 +14,8 @@
     "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "repository": {
-    "url": "https://github.com/JiangWeixian/templates/packages/threejs-weather"
+    "url": "https://github.com/JiangWeixian/threejs-weather",
+    "type": "git"
   },
   "typings": "es/index.d.ts",
   "keywords": [
