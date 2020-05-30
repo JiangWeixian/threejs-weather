@@ -3,11 +3,6 @@ const CopyWebpakcPlugin = require('copy-webpack-plugin')
 
 const configs = require('./config')
 
-const workerpool = {
-  workers: require('os').cpus().length - 1,
-  poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,
-}
-
 /**
  * @type import('webpack').Configuration
  */
@@ -35,7 +30,7 @@ const common = {
           { loader: 'cache-loader' },
           {
             loader: 'thread-loader',
-            options: workerpool,
+            options: configs.workerpool,
           },
           { loader: 'babel-loader' },
           {

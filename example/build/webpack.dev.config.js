@@ -8,7 +8,7 @@ const configs = require('./config')
 const common = require('./webpack.common.config')
 const port = 8080
 
-ThreadLoader.warmup(workerpool, ['ts-loader', 'babel-loader'])
+ThreadLoader.warmup(configs.workerpool, ['ts-loader', 'babel-loader'])
 
 /**
  * @type import('webpack').Configuration
