@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 
 import { useClouds, UseCloudsProps, Cloud } from './use-cloud'
 import { useFrame } from 'react-three-fiber'
