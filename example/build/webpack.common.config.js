@@ -62,6 +62,10 @@ const common = {
         from: configs.path.static,
         to: 'static',
       },
+      {
+        from: configs.path.public,
+        to: '',
+      },
     ]),
     new ForkTsCheckerWebpackPlugin({
       tsconfig: configs.path.tsconfig,
