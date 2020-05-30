@@ -76,7 +76,7 @@ const RouterViewer = () => {
   return (
     <HashRouter>
       <Switch>
-        <Redirect to="/rain" exact={true} from="/" />
+        <Redirect to="/prod/rain" exact={true} from="/" />
         {process.env.NODE_ENV === 'development' ? (
           <>
             <Route path="/rain">
