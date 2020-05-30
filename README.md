@@ -1,11 +1,14 @@
-# weather
-> weather background with threejs
 
-[docs](/docs/README.md)
+<div align="center">
 
-- [weather](#weather)
-  - [screenshots](#screenshots)
-  - [todo](#todo)
+<h1>@threejs-weather</h1>
+
+[![npm](https://img.shields.io/npm/v/threejs-weather.svg?style=flat-square)](https://www.npmjs.org/package/threejs-weather) [![npm](https://img.shields.io/npm/dm/threejs-weather.svg?style=flat-square)](https://www.npmjs.org/package/threejs-weather) [![npm](https://img.shields.io/npm/l/threejs-weather.svg?style=flat-square)](https://www.npmjs.org/package/threejs-weather)
+
+</div>
+
+
+docs can be found [here](/docs/README.md) 
 
 ## screenshots
 
