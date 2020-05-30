@@ -6,3 +6,4 @@
 - [snow](/docs/snow.md)
 - [star-rings](/docs/star-rings.md)
 - [cloudy](/docs/cloudy.md)
+- [rain-ring](/docs/rain-rings.md)

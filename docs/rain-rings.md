@@ -1,3 +1,5 @@
+![rain](https://user-images.githubusercontent.com/6839576/83318117-40741480-a264-11ea-9f28-e4e4b55326dd.gif)
+
 ## usage
 > 只会在特定角度出现
 
@@ -16,6 +18,8 @@ const RainPage = () => {
   )
 }
 ```
+
+可配合[rain-ring](/docs/rain-rings.md)使用
 
 ## props
 

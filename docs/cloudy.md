@@ -1,4 +1,4 @@
-![cloudy](https://user-images.githubusercontent.com/6839576/82968941-fa6b4680-a000-11ea-8422-77a016cc445e.gif)
+![cloudy](https://user-images.githubusercontent.com/6839576/83318092-191d4780-a264-11ea-9095-29d5ff180247.gif)
 
 ## usage
 
