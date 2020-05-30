@@ -2,8 +2,6 @@ import React from 'react'
 import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
 import Loadable from 'react-loadable'
 
-// import { DevRoutes } from './dev'
-
 const ProdSun = Loadable({
   loader: () => import(/* webpackChunkName: "ProdSun" */ '@/pages/prod/sun'),
   loading: () => <div>loading</div>,
@@ -39,7 +37,7 @@ const ProdRain = Loadable({
   loading: () => <div>loading</div>,
 })
 
-const entry = process.env.NODE_ENV === 'development' ? '/rain' : '/prod/rain'
+const entry = '/prod/rain'
 
 const RouterViewer = () => {
   return (
@@ -68,8 +66,6 @@ const RouterViewer = () => {
         <Route path="/prod/star-ring">
           <ProdStarRings />
         </Route>
-        {/* dev */}
-        {/* <DevRoutes /> */}
         {/* not found */}
         <Route path="/">
           <Redirect to={entry} />
