@@ -45,7 +45,9 @@
     "swr": "0.2.0",
     "three": "^0.116.1",
     "threejs-meshline": "2.0.11",
-    "threejs-weather": "0.0.2"
+    "threejs-weather": "0.0.2",
+    "react": "latest",
+    "react-three-fiber": ">=4.2.5"
   },
   "devDependencies": {
     "@babel/core": "7.4.4",
