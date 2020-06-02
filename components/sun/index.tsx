@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Group, Mesh } from 'three'
 import { useFrame } from 'react-three-fiber'
 
-import { useSunshine, useSun, UseSunProps, Halo } from './use-sun'
+import { useSun, UseSunProps, Halo } from './use-sun'
 import { getRandomInRange, DIRS } from '../utils/random'
 
 export const SKY_COLOR = '#faf4e8'
@@ -35,29 +35,9 @@ const SunHalo = ({ value }: { value: Halo }) => {
 
 const Sun = (props: SunProps) => {
   const sun = useRef<Group>()
-  const sunshine = useRef<Group>()
-  const { sunshines, halos, startpoint } = useSun(props)
-  useSunshine(sunshine)
+  const { halos, startpoint } = useSun(props)
   return (
     <group ref={sun} position={startpoint}>
-      <group ref={sunshine}>
-        {sunshines.map((v) => {
-          return (
-            <mesh>
-              <meshLine attach="geometry" vertices={v.vertices} />
-              <meshLineMaterial
-                attach="material"
-                transparent={true}
-                depthTest={false}
-                sizeAttenuation={true}
-                lineWidth={0.05}
-                opacity={0.15}
-                color="#c34e35"
-              />
-            </mesh>
-          )
-        })}
-      </group>
       {halos.map((halo) => {
         return <SunHalo value={halo} />
       })}
