@@ -19,8 +19,8 @@ const RainRings = (props: RainRingsProps) => {
   const { rings } = useRainRings(props)
   return (
     <>
-      {rings.map((r) => {
-        return <RainRing value={r} />
+      {rings.map((ring, index) => {
+        return <RainRing key={index} value={ring} />
       })}
     </>
   )

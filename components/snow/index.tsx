@@ -20,8 +20,8 @@ const Snow = (props: SnowProps) => {
   const { snowflakes } = useSnowflakes(props)
   return (
     <>
-      {snowflakes.map((snowflake) => {
-        return <SnowFlake value={snowflake} />
+      {snowflakes.map((snowflake, index) => {
+        return <SnowFlake key={index} value={snowflake} />
       })}
     </>
   )

@@ -30,8 +30,8 @@ const StarRings = (props: StarRingsProps) => {
   const { rings } = useStarRings(props)
   return (
     <>
-      {rings.map((ring) => {
-        return <Ring value={ring} />
+      {rings.map((ring, index) => {
+        return <Ring key={index} value={ring} />
       })}
     </>
   )

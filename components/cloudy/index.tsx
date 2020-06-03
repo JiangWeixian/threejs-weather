@@ -44,8 +44,8 @@ const Cloudy = (props: CloudyProps) => {
   const { clouds } = useClouds(props)
   return (
     <>
-      {clouds.map((cloud) => {
-        return <DarkCloud value={cloud} />
+      {clouds.map((cloud, index) => {
+        return <DarkCloud key={index} value={cloud} />
       })}
     </>
   )

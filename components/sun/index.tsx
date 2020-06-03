@@ -38,8 +38,8 @@ const Sun = (props: SunProps) => {
   const { halos, startpoint } = useSun(props)
   return (
     <group ref={sun} position={startpoint}>
-      {halos.map((halo) => {
-        return <SunHalo value={halo} />
+      {halos.map((halo, index) => {
+        return <SunHalo key={index} value={halo} />
       })}
     </group>
   )

@@ -32,8 +32,8 @@ const Meteors = (props: MeteorsProps) => {
   const { meteors } = useMeteors(props)
   return (
     <>
-      {meteors.map((meteor) => {
-        return <Meteor value={meteor} />
+      {meteors.map((meteor, index) => {
+        return <Meteor key={index} value={meteor} />
       })}
     </>
   )

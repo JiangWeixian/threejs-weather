@@ -33,8 +33,8 @@ const Rain = (props: RainProps) => {
   const { lines } = useRain(props)
   return (
     <>
-      {lines.map((v) => {
-        return <Raindrop value={v} />
+      {lines.map((raindrop, index) => {
+        return <Raindrop key={index} value={raindrop} />
       })}
     </>
   )
