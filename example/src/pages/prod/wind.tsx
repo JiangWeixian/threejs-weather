@@ -3,7 +3,7 @@ import { Canvas, extend } from 'react-three-fiber'
 import * as meshline from 'threejs-meshline'
 
 import { Wind } from 'threejs-weather'
-import { Text } from '@/components/Text'
+import { WeatherText } from '@/components/WeatherText'
 
 extend(meshline)
 
@@ -12,7 +12,7 @@ const WindPage = () => {
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: 'white' }}>
       <Wind />
       <Suspense fallback="loading...">
-        <Text>风</Text>
+        <WeatherText>风</WeatherText>
       </Suspense>
     </Canvas>
   )
