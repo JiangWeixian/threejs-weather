@@ -4,6 +4,7 @@ import { useFrame } from 'react-three-fiber'
 
 import { getRandomVertorByOri } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
+import { deg2rad } from '../utils/angle'
 import { getCoord } from '../utils/scene'
 
 export type UseMeteorsProps = {
@@ -23,7 +24,7 @@ export const useMeteors = (
   { count = 5, angle = 30 }: UseMeteorsProps = { count: 10, angle: 30 },
 ) => {
   const meteors = useMemo(() => {
-    const _angle = (angle * Math.PI) / 180
+    const _angle = deg2rad(angle)
     const coord = getCoord()
     return new Array(count).fill(0).map(() => {
       const leg = Math.random() * coord[1]

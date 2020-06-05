@@ -5,6 +5,7 @@ import { Vector3 } from 'three'
 
 import { computeBoundingbox } from '../utils/element'
 import { getRandomInRange, getRandomVertorByOri, getRandomPoint } from '../utils/random'
+import { deg2rad } from '../utils/angle'
 import { DIRS } from '../utils/constants'
 import { getCoord } from '../utils/scene'
 
@@ -37,15 +38,13 @@ export type UseRainProps = {
 
 export const DEFAULT_RAINPROPS = {
   count: 100,
-  angle: (-45 * Math.PI) / 180,
+  angle: -45,
 }
 
-export const useRain = ({
-  angle = (-45 * Math.PI) / 180,
-  count = 100,
-}: UseRainProps = DEFAULT_RAINPROPS) => {
+export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
   const coord = useRef(getCoord()).current
+  const _angle = deg2rad(angle)
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
     top: new THREE.Vector3(0, coord[1], 0),
     right: new THREE.Vector3(coord[0], 0, 0),
@@ -76,17 +75,17 @@ export const useRain = ({
               .copy(startpoints[orientation])
               .add(vertor)
               // distance vertor
-              .add(new THREE.Vector3(leg / Math.tan(angle), leg, 0)),
+              .add(new THREE.Vector3(leg / Math.tan(_angle), leg, 0)),
             // startpoint
             new THREE.Vector3().copy(startpoints[orientation]).add(vertor),
           ],
-          angle,
+          angle: _angle,
           leg,
           orientation: orientation,
           color: getRandomInRange(RAIN_COLORS),
         } as Raindrop
       })
-  }, [angle, count])
+  }, [_angle, count])
   return {
     lines,
   }
