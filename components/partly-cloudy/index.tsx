@@ -21,7 +21,7 @@ export const WhiteCloud = ({ value }: { value: Cloud }) => {
   )
 }
 
-const Cloudy = (props: CloudyProps) => {
+const PartlyCloudy = (props: CloudyProps) => {
   const { clouds } = usePartlyClouds(props)
   return (
     <>
@@ -32,4 +32,4 @@ const Cloudy = (props: CloudyProps) => {
   )
 }
 
-export default Cloudy
+export default PartlyCloudy
