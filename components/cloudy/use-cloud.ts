@@ -1,9 +1,9 @@
 import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
+import { useFrame } from 'react-three-fiber'
 
 import { getRandomInRange, getRandomVertorByOri, DIRS } from '../utils/random'
 import { getCoord } from '../utils/scene'
-import { useFrame } from 'react-three-fiber'
 
 const DARK_CLOUD_COLORS = ['#21373d', '#535657']
 
