@@ -37,6 +37,11 @@ const ProdRain = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const ProdPartlyCloud = Loadable({
+  loader: () => import(/* webpackChunkName: "ProdPartlyCloud" */ '@/pages/prod/partly-cloudy'),
+  loading: () => <div>loading</div>,
+})
+
 const entry = '/prod/rain'
 
 const RouterViewer = () => {
@@ -50,6 +55,9 @@ const RouterViewer = () => {
         </Route>
         <Route path="/prod/cloudy">
           <ProdCloudy />
+        </Route>
+        <Route path="/prod/partly-cloudy">
+          <ProdPartlyCloud />
         </Route>
         <Route path="/prod/sun">
           <ProdSun />

@@ -9,10 +9,10 @@ extend(meshline)
 
 const CloudyPage = () => {
   return (
-    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
+    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
       <PartlyCloudy />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">阴</WeatherText>
+        <WeatherText color="#f1f0ed">多云</WeatherText>
       </Suspense>
     </Canvas>
   )
