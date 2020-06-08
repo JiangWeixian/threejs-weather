@@ -26,6 +26,8 @@ docs can be found [here](/docs/README.md)
 
 <a src="https://threejs-weather.now.sh/#/prod/star-rings"><img src='https://user-images.githubusercontent.com/6839576/82881937-f0026b80-9f72-11ea-9cf2-fe2dd3f06937.gif' width='432' /></a><a src="https://threejs-weather.now.sh/#/prod/sun"><img src='https://user-images.githubusercontent.com/6839576/82881946-f2fd5c00-9f72-11ea-8083-69b4dabd71d5.gif' width='432' /></a>
 
+<a src="https://threejs-weather.now.sh/#/prod/partly-cloudy"><img src='https://user-images.githubusercontent.com/6839576/84014733-652b6300-a9ad-11ea-827e-5e1cee4f7e9b.gif' width='432' /></a>
+
 </div>
 
 ## qa
