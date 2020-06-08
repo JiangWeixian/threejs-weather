@@ -1,13 +1,13 @@
 import React, { useRef } from 'react'
 
-import { useClouds, UseCloudsProps, Cloud, useCloud } from './use-cloud'
+import { usePartlyClouds, UsePartlyCloudProps, Cloud, usePartlyCloud } from './use-partly-cloud'
 import { Mesh } from 'three'
 
-type CloudyProps = UseCloudsProps
+type CloudyProps = UsePartlyCloudProps
 
-export const DarkCloud = ({ value }: { value: Cloud }) => {
+export const WhiteCloud = ({ value }: { value: Cloud }) => {
   const cloud = useRef<Mesh>()
-  useCloud(cloud)
+  usePartlyCloud(cloud)
   return (
     <mesh ref={cloud} position={value.startpoint}>
       <circleBufferGeometry attach="geometry" args={[value.radius, 128]} />
@@ -22,11 +22,11 @@ export const DarkCloud = ({ value }: { value: Cloud }) => {
 }
 
 const Cloudy = (props: CloudyProps) => {
-  const { clouds } = useClouds(props)
+  const { clouds } = usePartlyClouds(props)
   return (
     <>
       {clouds.map((cloud, index) => {
-        return <DarkCloud key={index} value={cloud} />
+        return <WhiteCloud key={index} value={cloud} />
       })}
     </>
   )
