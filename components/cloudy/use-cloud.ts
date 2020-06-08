@@ -30,7 +30,7 @@ export const useCloud = (cloud: React.MutableRefObject<Mesh | undefined>) => {
 
 export type UseCloudsProps = {
   count?: number
-  colors: string[]
+  colors?: string[]
 }
 
 export type Cloud = {
