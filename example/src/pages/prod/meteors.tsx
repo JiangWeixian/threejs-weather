@@ -11,6 +11,7 @@ extend(meshline)
 const SnowPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+      <Stats />
       <Meteors />
       <Suspense fallback="loading...">
         <WeatherText color="#f1f0ed">流星</WeatherText>

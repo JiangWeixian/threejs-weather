@@ -11,6 +11,7 @@ extend(meshline)
 const StarRingsPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+      <Stats />
       <StarRings />
       <Suspense fallback="loading...">
         <WeatherText color="#f1f0ed">星夜</WeatherText>

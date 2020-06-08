@@ -11,6 +11,7 @@ extend(meshline)
 const CloudyPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
+      <Stats />
       <Cloudy />
       <Stats />
       <Suspense fallback="loading...">

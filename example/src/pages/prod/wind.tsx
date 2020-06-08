@@ -11,6 +11,7 @@ extend(meshline)
 const WindPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: 'white' }}>
+      <Stats />
       <Wind />
       <Suspense fallback="loading...">
         <WeatherText>风</WeatherText>

@@ -11,6 +11,7 @@ extend(meshline)
 const SunPage = () => {
   return (
     <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#faf4e8' }}>
+      <Stats />
       <Sun />
       <Suspense fallback="loading...">
         <WeatherText>晴</WeatherText>
