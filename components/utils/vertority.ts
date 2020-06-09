@@ -39,7 +39,7 @@ const fromPlacement = (placement: Orientation) => {
   if (PLACEMENT_TO_AXIS[placement] === 'y') {
     endpoint.x = Math.abs(point.fromAxisY() * 0.5) * PLACEMENT_TO_DIR[placement]
   }
-  return new Vector3(endpoint.x, endpoint.z, endpoint.z)
+  return new Vector3(endpoint.x, endpoint.y, endpoint.z)
 }
 
 export default {

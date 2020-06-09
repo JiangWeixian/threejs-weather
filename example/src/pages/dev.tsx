@@ -5,6 +5,7 @@ import { Controls, useControl } from 'react-three-gui'
 import * as meshline from 'threejs-meshline'
 
 import Rain from '../../../components/rain'
+import Meteors from '../../../components/meteors'
 import { WeatherText } from '@/components/WeatherText'
 
 extend(meshline)
@@ -16,6 +17,7 @@ const CloudyPage = () => {
       <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
         <Stats />
         <Rain count={Math.floor(count)} />
+        {/* <Meteors count={30} /> */}
         <Stats />
         <Suspense fallback="loading...">
           <WeatherText color="#f1f0ed">阴</WeatherText>

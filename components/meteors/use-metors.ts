@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
 import { useFrame } from 'react-three-fiber'
 
-import { getRandomVertorByOri } from '../utils/random'
+import vertority from '../utils/vertority'
 import { computeBoundingbox } from '../utils/element'
 import { deg2rad } from '../utils/angle'
 import { getCoord } from '../utils/scene'
@@ -29,16 +29,16 @@ export const useMeteors = (
     return new Array(count).fill(0).map(() => {
       const leg = Math.random() * coord[1]
       // noise vertor for startpoint
-      const vertor = getRandomVertorByOri('right', { noise: true })
+      const vertor = vertority.fromPlacement('fromRight')
       return {
         vertices: [
           // endpoint
-          new Vector3(coord[0], 0, 0)
+          new Vector3()
             .copy(vertor)
             // distance vertor
             .add(new Vector3(leg / Math.tan(_angle), leg, 0)),
           // startpoint
-          new Vector3(coord[0], 0, 0).copy(vertor),
+          new Vector3().copy(vertor),
         ],
         angle: _angle,
         leg,
@@ -80,7 +80,7 @@ export const useMeteor = (
     if (Math.abs(mat.current.uniforms.dashOffset.value) >= 1.1) {
       mat.current.opacity = 1
       mat.current.uniforms.dashOffset.value = 0
-      const vertor = getRandomVertorByOri('right')
+      const vertor = vertority.fromAxis('fromRight')
       // 随机meteor初始位置, 避免loop重复
       meteor.current.position.set(vertor.x, vertor.y, vertor.z)
     }
