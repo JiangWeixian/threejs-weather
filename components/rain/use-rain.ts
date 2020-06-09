@@ -22,7 +22,7 @@ const RAIN_COLORS = ['#cdd1d3', '#fcd337']
 
 /**
  * 角度正负数值
- * @param angle number
+ * @param {number | undefined} angle
  */
 const angle2dir = (angle?: number) => {
   if (!angle || angle === 0) {
