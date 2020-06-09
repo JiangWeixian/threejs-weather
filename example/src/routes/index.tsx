@@ -42,11 +42,6 @@ const ProdPartlyCloud = Loadable({
   loading: () => <div>loading</div>,
 })
 
-const Dev = Loadable({
-  loader: () => import(/* webpackChunkName: "Dev" */ '@/pages/dev'),
-  loading: () => <div>loading</div>,
-})
-
 const entry = '/prod/rain'
 
 const RouterViewer = () => {
@@ -55,9 +50,6 @@ const RouterViewer = () => {
       <Switch>
         <Redirect to={entry} exact={true} from="/" />
         {/* dev */}
-        <Route path="/dev">
-          <Dev />
-        </Route>
         {/* prod */}
         <Route path="/prod/rain">
           <ProdRain />

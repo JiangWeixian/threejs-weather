@@ -33,6 +33,13 @@ const angle2dir = (angle?: number) => {
   return angle / Math.abs(angle)
 }
 
+const angle2placement = (angle?: number) => {
+  if (!angle || angle === 0) {
+    return 'fromTop'
+  }
+  return angle < 0 ? 'fromRight' : 'fromLeft'
+}
+
 export type UseRainProps = {
   count?: number
   angle?: number
@@ -53,9 +60,9 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
   }).current
   // radindrop come from which orientation
   const comefrom = useRef<{ [key: string]: Orientation[] }>({
-    left: ['fromTop', 'fromRight'],
-    right: ['fromTop', 'fromLeft'],
-    top: ['fromTop'],
+    fromLeft: ['fromTop', 'fromRight'],
+    fromRight: ['fromTop', 'fromLeft'],
+    fromTop: ['fromTop'],
   }).current
   const lines = useMemo(() => {
     return Array(count)
@@ -65,7 +72,7 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
         // 直角边
         const leg = Math.random() * 2
         // FIXME: should modify from angle
-        const orientation = random.inRange<Orientation>(comefrom.right)
+        const orientation = random.inRange<Orientation>(comefrom[angle2placement(_angle)])
         // noise vertor for startpoint
         const vertor = vertority
           .fromPlacement(orientation)
