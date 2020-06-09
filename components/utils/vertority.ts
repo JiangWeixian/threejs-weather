@@ -42,7 +42,12 @@ const fromPlacement = (placement: Orientation) => {
   return new Vector3(endpoint.x, endpoint.y, endpoint.z)
 }
 
+const random = () => {
+  return new Vector3(point.fromAxisX(), point.fromAxisY(), point.fromAxisZ())
+}
+
 export default {
   fromAxis,
   fromPlacement,
+  random,
 }

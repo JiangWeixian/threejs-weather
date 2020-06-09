@@ -1,11 +1,13 @@
 import React, { Suspense } from 'react'
 import { Canvas, extend } from 'react-three-fiber'
-import { Stats } from 'drei'
+import { Stats, OrbitControls } from 'drei'
 import { Controls, useControl } from 'react-three-gui'
 import * as meshline from 'threejs-meshline'
 
 import Rain from '../../../components/rain'
+import RainRing from '../../../components/rain-ring'
 import Meteors from '../../../components/meteors'
+import Cloudy from '../../../components/cloudy'
 import { WeatherText } from '@/components/WeatherText'
 
 extend(meshline)
@@ -16,8 +18,11 @@ const CloudyPage = () => {
     <>
       <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
         <Stats />
+        <OrbitControls />
         <Rain count={Math.floor(count)} />
+        <RainRing />
         {/* <Meteors count={30} /> */}
+        {/* <Cloudy /> */}
         <Stats />
         <Suspense fallback="loading...">
           <WeatherText color="#f1f0ed">阴</WeatherText>
