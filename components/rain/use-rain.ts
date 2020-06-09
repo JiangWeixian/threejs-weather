@@ -45,12 +45,11 @@ export const DEFAULT_RAINPROPS = {
 
 export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
-  const coord = useRef(getCoord()).current
   const _angle = deg2rad(angle)
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
-    top: new THREE.Vector3(0, coord[1], 0),
-    right: new THREE.Vector3(coord[0], 0, 0),
-    left: new THREE.Vector3(-coord[0], 0, 0),
+    fromTop: new THREE.Vector3().fromArray(point.axisxy.top),
+    fromRight: new THREE.Vector3().fromArray(point.axisxy.right),
+    fromLeft: new THREE.Vector3().fromArray(point.axisxy.left),
   }).current
   // radindrop come from which orientation
   const comefrom = useRef<{ [key: string]: Orientation[] }>({
@@ -65,6 +64,7 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
         // h / deltax = tan(ang)
         // 直角边
         const leg = Math.random() * 2
+        // FIXME: should modify from angle
         const orientation = random.inRange<Orientation>(comefrom.right)
         // noise vertor for startpoint
         const vertor = vertority
