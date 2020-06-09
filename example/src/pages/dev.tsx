@@ -5,6 +5,7 @@ import { Controls, useControl } from 'react-three-gui'
 import * as meshline from 'threejs-meshline'
 
 import Rain from '../../../components/rain'
+import Snow from '../../../components/snow'
 import RainRing from '../../../components/rain-ring'
 import Meteors from '../../../components/meteors'
 import Cloudy from '../../../components/cloudy'
@@ -18,11 +19,12 @@ const CloudyPage = () => {
     <>
       <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
         <Stats />
-        <OrbitControls />
-        <Rain count={Math.floor(count)} />
-        <RainRing />
+        {/* <OrbitControls /> */}
+        {/* <Rain count={Math.floor(count)} /> */}
+        {/* <RainRing /> */}
         {/* <Meteors count={30} /> */}
         {/* <Cloudy /> */}
+        <Snow />
         <Stats />
         <Suspense fallback="loading...">
           <WeatherText color="#f1f0ed">阴</WeatherText>
