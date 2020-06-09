@@ -1,21 +1,21 @@
 import { useRef, useMemo } from 'react'
-import * as THREE from 'three'
 import { useFrame } from 'react-three-fiber'
-import { Group } from 'three'
+import { Group, Vector3 } from 'three'
+
 import { getCoord } from '../utils/scene'
 
 const R = 2
 const HALO_COLORS = ['#faf3d2', '#fbebb3', '#fae09c', '#f9d67c', '#f6c451', '#c34e35']
 
 type Sunshine = {
-  vertices: THREE.Vector3[]
+  vertices: Vector3[]
   angle: number
 }
 
 export type Halo = {
   radius: number
   color: string
-  startpoint: THREE.Vector3
+  startpoint: Vector3
 }
 
 export type UseSunProps = {
@@ -32,7 +32,7 @@ export const useSun = (
   const angle = useRef(-(Math.random() * 90 + 90))
   const coord = useRef(getCoord()).current
   const startpoint = useMemo(() => {
-    return new THREE.Vector3(coord[0] * percentX, coord[1], 0)
+    return new Vector3(coord[0] * percentX, coord[1], 0)
   }, [percentX])
 
   const sunshines = useMemo(() => {
@@ -44,12 +44,12 @@ export const useSun = (
         const length = Math.random() * 2
         return {
           vertices: [
-            new THREE.Vector3(
+            new Vector3(
               Math.cos((angle.current * Math.PI) / 180) * startpoint,
               Math.sin((angle.current * Math.PI) / 180) * startpoint,
               0,
             ),
-            new THREE.Vector3(
+            new Vector3(
               Math.cos((angle.current * Math.PI) / 180) * (startpoint + length),
               Math.sin((angle.current * Math.PI) / 180) * (startpoint + length),
               0,
@@ -63,7 +63,7 @@ export const useSun = (
     return Array(count)
       .fill(0)
       .map((_v, i) => {
-        const startpoint = new THREE.Vector3(0.5 - Math.random() * 1, 0.5 - Math.random() * 1, 0)
+        const startpoint = new Vector3(0.5 - Math.random() * 1, 0.5 - Math.random() * 1, 0)
         return {
           radius: R + 5 - i,
           color: HALO_COLORS[i],

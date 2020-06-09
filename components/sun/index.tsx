@@ -3,7 +3,7 @@ import { Group, Mesh } from 'three'
 import { useFrame } from 'react-three-fiber'
 
 import { useSun, UseSunProps, Halo } from './use-sun'
-import { getRandomInRange, DIRS } from '../utils/random'
+import { inRange, DIRS } from '../utils/random'
 
 export const SKY_COLOR = '#faf4e8'
 
@@ -11,7 +11,7 @@ type SunProps = UseSunProps
 
 const SunHalo = ({ value }: { value: Halo }) => {
   const dir = useRef(1)
-  const speed = useRef(Math.random() * 0.0001 * getRandomInRange(DIRS))
+  const speed = useRef(Math.random() * 0.0001 * inRange(DIRS))
   const halo = useRef<Mesh>()
   useFrame(() => {
     if (!halo.current) {

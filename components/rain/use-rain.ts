@@ -4,25 +4,27 @@ import React, { useRef, useMemo } from 'react'
 import { Vector3 } from 'three'
 
 import { computeBoundingbox } from '../utils/element'
-import { getRandomInRange, getRandomVertorByOri, getRandomPoint } from '../utils/random'
+import random from '../utils/random'
+import vertority from '../utils/vertority'
+import point from '../utils/point'
 import { deg2rad } from '../utils/angle'
 import { DIRS } from '../utils/constants'
 import { getCoord } from '../utils/scene'
+import { Orientation } from '../interface'
 
 export type Raindrop = {
   vertices: THREE.Vector3[] // rain-drop geom
-  orientation: 'right' | 'top' | 'left' // rain-drop direction
+  orientation: 'fromRight' | 'fromTop' | 'fromLeft' // rain-drop direction
   leg: number
   angle: number // unit=deg
   color: string
 }
 
-type Orientation = 'top' | 'right' | 'left' | 'bottom'
 const RAIN_COLORS = ['#cdd1d3', '#fcd337']
 
 /**
  * 角度正负数值
- * @param angle number
+ * @param {number | undefined} angle
  */
 const angle2dir = (angle?: number) => {
   if (!angle || angle === 0) {
@@ -43,18 +45,17 @@ export const DEFAULT_RAINPROPS = {
 
 export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
-  const coord = useRef(getCoord()).current
   const _angle = deg2rad(angle)
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
-    top: new THREE.Vector3(0, coord[1], 0),
-    right: new THREE.Vector3(coord[0], 0, 0),
-    left: new THREE.Vector3(-coord[0], 0, 0),
+    fromTop: new THREE.Vector3().fromArray(point.axisxy.top),
+    fromRight: new THREE.Vector3().fromArray(point.axisxy.right),
+    fromLeft: new THREE.Vector3().fromArray(point.axisxy.left),
   }).current
   // radindrop come from which orientation
   const comefrom = useRef<{ [key: string]: Orientation[] }>({
-    left: ['top', 'right'],
-    right: ['top', 'left'],
-    top: ['top'],
+    left: ['fromTop', 'fromRight'],
+    right: ['fromTop', 'fromLeft'],
+    top: ['fromTop'],
   }).current
   const lines = useMemo(() => {
     return Array(count)
@@ -63,11 +64,12 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
         // h / deltax = tan(ang)
         // 直角边
         const leg = Math.random() * 2
-        const orientation = getRandomInRange<Orientation>(comefrom.right)
+        // FIXME: should modify from angle
+        const orientation = random.inRange<Orientation>(comefrom.right)
         // noise vertor for startpoint
-        const vertor = getRandomVertorByOri(orientation, { noise: true }).add(
-          new Vector3(0, 0, getRandomPoint(2)),
-        )
+        const vertor = vertority
+          .fromPlacement(orientation)
+          .add(new Vector3(0, 0, point.fromAxisZ()))
         return {
           vertices: [
             // endpoint
@@ -82,7 +84,7 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
           angle: _angle,
           leg,
           orientation: orientation,
-          color: getRandomInRange(RAIN_COLORS),
+          color: random.inRange(RAIN_COLORS),
         } as Raindrop
       })
   }, [_angle, count])
@@ -102,7 +104,7 @@ export const useRaindrop = (
 ) => {
   // 摩擦系数, raindrop从负数开始运动, 更加随机的效果
   const friction = useRef(
-    getRandomInRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
+    random.inRange(DIRS) === 1 ? 0 : -1 * 0.01 * Math.round(Math.random() * 10),
   ).current
   const coord = useRef(getCoord()).current
   const vy0 = useRef(0.0001 + friction)
@@ -124,7 +126,7 @@ export const useRaindrop = (
     vx0.current += a.current
     // 判断raindrop是否出了边界
     if (offsetTop + Math.abs(raindrop.current.position.y) > coord[1] * 2 + props.value.leg) {
-      const vertor = getRandomVertorByOri(props.value.orientation, { noise: true })
+      const vertor = vertority.fromPlacement(props.value.orientation)
       // 随机raindrop初始位置, 避免loop重复
       raindrop.current.position.set(vertor.x, vertor.y, vertor.z)
       mat.current.opacity = 0
