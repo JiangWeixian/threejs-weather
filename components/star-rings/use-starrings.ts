@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
-import { getRandomInRange, DIRS } from '../utils/random'
+import { inRange, DIRS } from '../utils/random'
 import { useFrame } from 'react-three-fiber'
 import { getCoord } from '../utils/scene'
 
@@ -37,7 +37,7 @@ export const useStarRings = ({ count = 50 }: UseStarRingsProps = { count: 50 }) 
         vertices,
         dashArray: Math.random() + 0.1,
         opacity: Math.random() * 0.8,
-        color: getRandomInRange(RING_COLORS),
+        color: inRange(RING_COLORS),
         lineWidth: Math.random() * 0.05,
       } as Ring
     })
@@ -48,7 +48,7 @@ export const useStarRings = ({ count = 50 }: UseStarRingsProps = { count: 50 }) 
 }
 
 export const useRing = (ring: React.MutableRefObject<any>) => {
-  const dir = getRandomInRange(DIRS)
+  const dir = inRange(DIRS)
   const speed = useRef(Math.random() * 2 * 0.0001)
   useFrame(() => {
     if (!ring.current) {

@@ -1,27 +1,40 @@
 import { getCoord } from './scene'
+import { atPoint } from './random'
 
 const [axisx, axisy, axisz] = getCoord()
-export const axis2 = {
+export const axisxy = {
   top: [0, axisy, 0],
   bottom: [0, -axisy, 0],
   left: [-axisx, 0, 0],
   right: [axisx, 0, 0],
 }
 
-const random = () => {
-  // 1 - 2
-  // -1 - 1
-  return 1 - Math.random() * 2
+export const fromAxisX = () => {
+  return atPoint() * axisx
 }
-export const inner = () => {
-  return [random() * axisx, random() * axisy, random() * axisz]
+export const fromAxisY = () => {
+  return atPoint() * axisy
 }
-export const outer = () => {
-  return [random() * axisx, random() * axisy, random() * axisz]
+export const fromAxisZ = () => {
+  return atPoint() * axisz
 }
-export const randomAxisY = () => {
-  return [0, axisy * random(), 0]
+export const fromAxis = (axis: 'x' | 'y' | 'z') => {
+  switch (axis) {
+    case 'x':
+      return fromAxisX()
+    case 'y':
+      return fromAxisY()
+    case 'z':
+      return fromAxisZ()
+    default:
+      return fromAxisX()
+  }
 }
-export const randAxisX = () => {
-  return [axisx * random(), 0, 0]
+
+export default {
+  fromAxisX,
+  fromAxisY,
+  fromAxisZ,
+  fromAxis,
+  axisxy,
 }

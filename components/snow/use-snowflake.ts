@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
 import { useFrame } from 'react-three-fiber'
 
-import { getRandomVertorByOri, getRandomInRange, DIRS } from '../utils/random'
+import { getRandomVertorByOri, inRange, DIRS } from '../utils/random'
 import { computeBoundingbox } from '../utils/element'
 import { getCoord } from '../utils/scene'
 
@@ -46,7 +46,7 @@ export const useSnowflake = (
   const vy0 = useRef(0.01)
   const coord = useRef(getCoord()).current
   // vy0 / vx0 = tan(angle)
-  const vx0 = useRef(0.001 * Math.random() * getRandomInRange(DIRS))
+  const vx0 = useRef(0.001 * Math.random() * inRange(DIRS))
   // const a = useRef(0.00001)
   const { offsetTop } = computeBoundingbox(value.startpoint)
   useFrame(() => {
@@ -62,7 +62,7 @@ export const useSnowflake = (
       // 随机raindrop初始位置, 避免loop重复
       flake.current.position.set(vertor.x, vertor.y + coord[1], vertor.z)
       vy0.current = 0.01
-      vx0.current = 0.001 * Math.random() * getRandomInRange(DIRS)
+      vx0.current = 0.001 * Math.random() * inRange(DIRS)
     }
   })
 }

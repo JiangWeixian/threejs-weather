@@ -22,7 +22,7 @@ export const dirs = [1, -1]
  * 从range数组中随机一个元素
  * @param range any[]
  */
-export const getRandomInRange = <T>(range: T[]) => {
+export const inRange = <T>(range: T[]) => {
   return range[Math.round(Math.random() * (range.length - 1))]
 }
 
