@@ -3,7 +3,8 @@ import { Group, Mesh } from 'three'
 import { useFrame } from 'react-three-fiber'
 
 import { useSun, UseSunProps, Halo } from './use-sun'
-import { inRange, DIRS } from '../utils/random'
+import { inRange } from '../utils/random'
+import { DIRS } from '../utils/constants'
 
 export const SKY_COLOR = '#faf4e8'
 
