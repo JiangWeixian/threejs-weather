@@ -7,11 +7,6 @@ const ProdSun = Loadable({
   loading: () => <div>loading</div>,
 })
 
-const ProdWind = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdWind" */ '@/pages/prod/wind'),
-  loading: () => <div>loading</div>,
-})
-
 const PordSnow = Loadable({
   loader: () => import(/* webpackChunkName: "PordSnow" */ '@/pages/prod/snow'),
   loading: () => <div>loading</div>,
@@ -65,9 +60,6 @@ const RouterViewer = () => {
         </Route>
         <Route path="/prod/snow">
           <PordSnow />
-        </Route>
-        <Route path="/prod/wind">
-          <ProdWind />
         </Route>
         <Route path="/prod/meteors">
           <ProdMeteors />
