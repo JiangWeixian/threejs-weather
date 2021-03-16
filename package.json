@@ -67,7 +67,7 @@
     "react-three-fiber": "^4.2.5",
     "rimraf": "2.6.3",
     "stylus-supremacy": "2.12.7",
-    "three": "^0.116.1",
+    "three": "^0.125.0",
     "through2": "3.0.1",
     "ts-jest": "24.2.0",
     "ts-loader": "6.0.4",
