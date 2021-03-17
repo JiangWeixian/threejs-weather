@@ -28,12 +28,6 @@ docs can be found [here](/docs/README.md)
 
 </div>
 
-## qa
-
-- Q1 - version mean ?
-
-   `<main>.<num-components>.<improvements>.<bug-fixs>`
-
 ## todo
 
 - [ ] 萤火虫
