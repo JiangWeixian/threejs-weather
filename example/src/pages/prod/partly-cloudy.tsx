@@ -6,6 +6,7 @@ import * as meshline from 'threejs-meshline'
 
 import { PartlyCloudy } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
+import { PATHS } from '@/constants'
 
 extend(meshline)
 
@@ -18,7 +19,7 @@ const PartlyCloudyPage = () => {
         <PartlyCloudy count={Math.floor(count)} />
         <Stats />
         <Suspense fallback="loading...">
-          <WeatherText color="#f1f0ed">多云</WeatherText>
+          <WeatherText color="#f1f0ed">{PATHS.partlyCloudy.name}</WeatherText>
         </Suspense>
       </Canvas>
       <Controls />

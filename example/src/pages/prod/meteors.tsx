@@ -6,6 +6,7 @@ import * as meshline from 'threejs-meshline'
 
 import { Meteors } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
+import { PATHS } from '@/constants'
 
 extend(meshline)
 
@@ -18,7 +19,7 @@ const MeteorsPage = () => {
         <Stats />
         <Meteors count={Math.floor(count)} angle={angle} />
         <Suspense fallback="loading...">
-          <WeatherText color="#f1f0ed">流星</WeatherText>
+          <WeatherText color="#f1f0ed">{PATHS.metetors.name}</WeatherText>
         </Suspense>
       </Canvas>
       <Controls />

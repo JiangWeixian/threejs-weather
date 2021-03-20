@@ -6,6 +6,7 @@ import { Controls, useControl } from 'react-three-gui'
 
 import { StarRings } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
+import { PATHS } from '@/constants'
 
 extend(meshline)
 
@@ -17,7 +18,7 @@ const StarRingsPage = () => {
         <Stats />
         <StarRings count={Math.floor(count)} />
         <Suspense fallback="loading...">
-          <WeatherText color="#f1f0ed">星夜</WeatherText>
+          <WeatherText color="#f1f0ed">{PATHS.starRing.name}</WeatherText>
         </Suspense>
       </Canvas>
       <Controls />

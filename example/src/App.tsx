@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
   }
+  @font-face {
+    font-family: font;
+    src: url("/static/font.ttf") format("truetype")
+  }
 `
 
 const App = () => {

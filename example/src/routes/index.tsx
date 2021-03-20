@@ -2,6 +2,9 @@ import React from 'react'
 import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
 import Loadable from 'react-loadable'
 
+import { PATHS } from '@/constants'
+import { WeatherSwitcher } from '@/components/WeatherSwitcher'
+
 const ProdSun = Loadable({
   loader: () => import(/* webpackChunkName: "ProdSun" */ '@/pages/prod/sun'),
   loading: () => <div>loading</div>,
@@ -42,29 +45,30 @@ const entry = '/prod/rain'
 const RouterViewer = () => {
   return (
     <HashRouter>
+      <WeatherSwitcher />
       <Switch>
         <Redirect to={entry} exact={true} from="/" />
         {/* dev */}
         {/* prod */}
-        <Route path="/prod/rain">
+        <Route path={PATHS.rain.path}>
           <ProdRain />
         </Route>
-        <Route path="/prod/cloudy">
+        <Route path={PATHS.cloudy.path}>
           <ProdCloudy />
         </Route>
-        <Route path="/prod/partly-cloudy">
+        <Route path={PATHS.partlyCloudy.path}>
           <ProdPartlyCloud />
         </Route>
-        <Route path="/prod/sun">
+        <Route path={PATHS.sun.path}>
           <ProdSun />
         </Route>
-        <Route path="/prod/snow">
+        <Route path={PATHS.snow.path}>
           <PordSnow />
         </Route>
-        <Route path="/prod/meteors">
+        <Route path={PATHS.metetors.path}>
           <ProdMeteors />
         </Route>
-        <Route path="/prod/star-ring">
+        <Route path={PATHS.starRing.path}>
           <ProdStarRings />
         </Route>
         {/* not found */}

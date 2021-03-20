@@ -6,6 +6,7 @@ import * as meshline from 'threejs-meshline'
 
 import { Snow } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
+import { PATHS } from '@/constants'
 
 extend(meshline)
 
@@ -17,7 +18,7 @@ const SnowPage = () => {
         <Stats />
         <Snow count={Math.floor(count)} />
         <Suspense fallback="loading...">
-          <WeatherText color="#f1f0ed">雪</WeatherText>
+          <WeatherText color="#f1f0ed">{PATHS.snow.name}</WeatherText>
         </Suspense>
       </Canvas>
       <Controls />

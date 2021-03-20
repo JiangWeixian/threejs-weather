@@ -6,6 +6,7 @@ import { Controls, useControl } from 'react-three-gui'
 
 import { Sun } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
+import { PATHS } from '@/constants'
 
 extend(meshline)
 
@@ -17,7 +18,7 @@ const SunPage = () => {
         <Stats />
         <Sun count={Math.floor(count)} />
         <Suspense fallback="loading...">
-          <WeatherText>晴</WeatherText>
+          <WeatherText>{PATHS.sun.name}</WeatherText>
         </Suspense>
       </Canvas>
       <Controls />
