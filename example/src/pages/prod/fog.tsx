@@ -15,6 +15,7 @@ import THREE, {
   Vector3,
   PlaneBufferGeometry,
   PCFSoftShadowMap,
+  Fog,
 } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
@@ -26,7 +27,7 @@ const PerspectiveCamera = (props) => {
   const { setDefaultCamera } = useThree()
   useFrame(() => cam.current.updateMatrixWorld())
 
-  return <perspectiveCamera ref={cam} {...props} />
+  return <perspectiveCamera args={[20, 1, 1, 1000]} position={[3, 50, 155]} ref={cam} {...props} />
 }
 
 const Lights = () => {
@@ -121,34 +122,42 @@ const Fogx = () => {
         metalness: 0,
         roughness: 0.77,
       }
-      const max = 10
+      const max = 0.009
       const min = 0.001
       const material = new MeshPhysicalMaterial({ ...meshParams, transparent: true })
 
       const buildings = new Object3D()
+      const gridSize = 40
 
-      for (let i = 0; i < 10; i++) {
-        const model = models[Math.floor(Math.random() * Math.floor(models.length))].clone()
-        ;(model as any).material = material
-        // model.scale.y = Math.random() * (max - min + 0.01)
-        // model.position.x = i * boxSize
-        // model.position.z = 0 * boxSize
+      for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+          const model = models[Math.floor(Math.random() * Math.floor(models.length))].clone()
+          ;(model as any).material = material
+          model.scale.y = Math.random() * (max - min + 0.01)
+          model.position.x = i * boxSize
+          model.position.z = j * boxSize
 
-        buildings.add(model)
+          buildings.add(model)
+        }
       }
       buildings.castShadow = true
       buildings.receiveShadow = true
-      // setBuildings(buildings)
-      // scene.add(buildings)
+      setBuildings(buildings)
+      const near = 1
+      const far = 208
+      const color = 'lightblue'
+      scene.fog = new Fog(color, near, far)
+      scene.background = new Color(color)
     })
   }, [scene])
   console.log(buildings)
   return (
-    <>
-      {/* <fog color={new Color("#353c3c")} near={1} far={128} /> */}
-      {/* {buildings ? <primitive castShadow={true} receiveShadow={true} object={buildings} dispose={null} /> : null} */}
-      <Buildings url={url} />
-    </>
+    <mesh>
+      {buildings ? (
+        <primitive castShadow={true} receiveShadow={true} object={buildings} dispose={null} />
+      ) : null}
+      {/* <Buildings url={url} /> */}
+    </mesh>
   )
 }
 
@@ -157,47 +166,49 @@ const FogPage = () => {
   return (
     <>
       <Canvas
-        colorManagement
-        pixelRatio={window.devicePixelRatio}
+        // pixelRatio={window.devicePixelRatio}
         style={{ background: 'lightblue' }}
-        shadowMap={{ enabled: true, type: PCFSoftShadowMap }}
-        camera={{ position: [0, 0, 15] }}
+        // shadowMap={{ enabled: true, type: PCFSoftShadowMap }}
+        // camera={{ position: [0, 0, 15] }}
       >
-        <PerspectiveCamera position={[-10, 5, 40]} fov={60} />
+        {/* <PerspectiveCamera /> */}
+        {/* <fog color={new Color("lightblue")} near={1} far={2} /> */}
+        <perspectiveCamera args={[75, 2, 0.5, 5]} />
+        {/* <directionalLight
+          position={[-1, 2, 4]}
+          castShadow={true}
+          color={0xFFFFFF}
+          intensity={1}
+        /> */}
+        {/* <mesh>
+          <boxGeometry attach="geometry" args={[1, 1, 1]} />
+          <meshPhongMaterial attach="material" color={0x44aa88} />
+        </mesh> */}
+        <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
         <Fogx />
         {/* <Lights /> */}
-        <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
-        {/* <ambientLight intensity={1} color="#fff" /> */}
-        <hemisphereLight
+        {/* <hemisphereLight
           skyColor={'black'}
           groundColor={0xffffff}
           intensity={0.68}
           position={[0, 50, 0]}
-        />
-        <directionalLight
-          position={[-8, 12, 8]}
-          shadow-camera-left={d * -1}
-          shadow-camera-bottom={d * -1}
-          shadow-camera-right={d}
-          shadow-camera-top={d}
-          shadow-camera-near={0.1}
-          shadow-camera-far={1500}
+        /> */}
+        <directionalLight position={[-8, 12, 0]} castShadow={true} color="#272727" />
+        <directionalLight position={[8, 1200, 8]} color="#d3263a" castShadow={true} />
+        {/* <ambientLight />
+        <spotLight
+          position={[641, -462, 509]}
           castShadow={true}
-        />
-        {/* <spotLight
-        intensity={1}
-        position={[641, -462, 509]}
-        castShadow={true}
-        color="#ff0000"
-      /> */}
+        /> */}
+        {/* <pointLight intensity={8.2} position={[16, 100, -68]} /> */}
         {/* <spotLight args={["#ff0000", 1]} rotation={[-Math.PI/2, 0, 0]} intensity={0.6} position={[100, 150, 100]} angle={0.2} penumbra={1} castShadow /> */}
-        <mesh position={[0, 10, -150]}>
+        <mesh rotation={[0, 0, -Math.PI / 2]} position={[0, 10, -150]}>
           <planeBufferGeometry attach="geometry" args={[400, 100]} />
           <meshPhysicalMaterial attach="material" color="#fff" />
         </mesh>
-        <mesh castShadow receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+        <mesh castShadow receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[50, 0, 50]}>
           <planeBufferGeometry attach="geometry" args={[100, 100, 10, 10]} />
-          <meshStandardMaterial attach="material" color="#ff0000" />
+          <meshPhysicalMaterial attach="material" color="#ff0000" />
         </mesh>
       </Canvas>
       <Controls />
