@@ -79,8 +79,8 @@
   },
   "peerDependencies": {
     "react": "latest",
-    "three": ">=0.116.1",
-    "react-three-fiber": ">=4.2.5"
+    "react-three-fiber": ">=4.2.5",
+    "three": ">=0.116.1"
   },
   "dependencies": {
     "threejs-meshline": "2.0.11"

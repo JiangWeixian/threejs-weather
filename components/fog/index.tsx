@@ -9,8 +9,8 @@ const Fog = () => {
   const [buildings, setBuildings] = useState(new THREE.Object3D())
   console.log('loading fog')
   useEffect(() => {
-    loader.load(url, obj => {
-      const models = [...obj.children].map(model => {
+    loader.load(url, (obj) => {
+      const models = [...obj.children].map((model) => {
         const scale = 0.01
 
         model.scale.set(scale, scale, scale)
@@ -46,8 +46,7 @@ const Fog = () => {
   }, [])
   return (
     <>
-      <fog color={new Color('#353c3c')} near={1} far={128} />
-      {buildings}
+      <fog color="#353c3c" near={1} far={128} />
     </>
   )
 }

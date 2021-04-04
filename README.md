@@ -36,3 +36,23 @@ docs can be found [here](/docs/README.md)
 - [x] 光环
 - [x] 云
 - [x] 流星
+
+## develope
+
+> **⚠️ WARNING**  
+not time to figure out error mutiple copy of react
+
+```console
+// in root
+yarn build
+
+cd example
+yarn remove react
+yarn link "threejs-weater"
+```
+
+**before depoly example**
+
+```console
+yarn add react@16.3.1
+```

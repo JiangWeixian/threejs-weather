@@ -28,4 +28,8 @@ export const PATHS = {
     name: '星环',
     path: '/prod/star-ring',
   },
+  fog: {
+    name: '雾',
+    path: '/prod/fog',
+  },
 }
