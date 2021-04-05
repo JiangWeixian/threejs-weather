@@ -31,7 +31,8 @@ docs can be found [here](/docs/README.md)
 ## todo
 
 - [ ] 萤火虫
-- [ ] 水波纹效果
+- [ ] 水波纹
+- [x] 雾霾
 - [x] online-demo
 - [x] 光环
 - [x] 云
@@ -40,16 +41,17 @@ docs can be found [here](/docs/README.md)
 ## develope
 
 > **⚠️ WARNING**  
-not time to figure out error mutiple copy of react
+it's hard to develope component mode
 
 ```console
-// in root
-yarn build
-
-cd example
 yarn remove react
-yarn link "threejs-weater"
 ```
+
+1. write `code` in root `components` fold
+2. `npm run build:dev` in root
+3. goto `example`
+4. `import component from @/components/lib` in `example`
+5. `yarn run dev`
 
 **before depoly example**
 
