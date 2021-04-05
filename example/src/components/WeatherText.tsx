@@ -1,12 +1,13 @@
 import React from 'react'
 import { useFrame, useThree } from 'react-three-fiber'
 import { useRef } from 'react'
-import { Mesh } from 'three'
+import { Mesh, Vector3 } from 'three'
 import { Text } from 'drei'
 
 type TextProps = {
   children: string
   color?: string
+  position?: Vector3
 }
 
 export const WeatherText = ({ color = '#310f1b', ...props }: TextProps) => {
@@ -29,6 +30,7 @@ export const WeatherText = ({ color = '#310f1b', ...props }: TextProps) => {
       anchorY="middle"
       font="static/font.ttf"
       color={color}
+      position={props.position}
     >
       {props.children}
     </Text>
