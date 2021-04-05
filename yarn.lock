@@ -685,7 +685,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.5.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.1", "@babel/runtime@^7.5.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.13.10"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.13.10.tgz?cache=0&sync_timestamp=1615243284383&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
   integrity sha1-R9QqV7YJX0Ro2kQDiP262L6/DX0=
@@ -2582,6 +2582,20 @@ dot-prop@^4.2.1:
   integrity sha1-RYhBlKcfws2nHLtLzrOk3S9DO6Q=
   dependencies:
     is-obj "^1.0.0"
+
+drei@0.0.54:
+  version "0.0.54"
+  resolved "https://registry.npmjs.org/drei/-/drei-0.0.54.tgz#f5ed77613149c86c0f0d62cf3c694647992de393"
+  integrity sha512-+TtFVGqIh9IhWMRkUeUHdHZF5RtYEJ851NxZUywvei1tow6oMKoVqxEQXo8+8f6bUOILI9LOLS90c5usMpRtZw==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    lodash.omit "^4.5.0"
+    lodash.pick "^4.4.0"
+    postprocessing "^6.13.5"
+    react-merge-refs "^1.0.0"
+    stats.js "^0.17.0"
+    troika-3d-text "^0.26.1"
+    utility-types "^3.10.0"
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -5211,6 +5225,16 @@ lodash.memoize@4.x:
   resolved "https://registry.npm.taobao.org/lodash.memoize/download/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
 
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npmjs.org/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+  integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
+
+lodash.pick@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+  integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
+
 lodash.rest@^4.0.0:
   version "4.0.5"
   resolved "https://registry.npm.taobao.org/lodash.rest/download/lodash.rest-4.0.5.tgz#954ef75049262038c96d1fc98b28fdaf9f0772aa"
@@ -6449,6 +6473,11 @@ postcss@^7.0.1, postcss@^7.0.16:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+postprocessing@^6.13.5:
+  version "6.21.2"
+  resolved "https://registry.npmjs.org/postprocessing/-/postprocessing-6.21.2.tgz#ef270f8aee4278c65f331baed7ac6cc6a56603ac"
+  integrity sha512-MPDt+yHjuKjJIYesdDl0qEvwvh8mQ9KYG14Dw+XGRsy3qbTLxxA+0ZTT6I24e6ln7QdPirD5LS1P02s9NvSRSQ==
+
 poststylus@1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/poststylus/download/poststylus-1.0.0.tgz#2ec9fc486841399dc5f2baff8fc7bd1cd1792c6f"
@@ -7497,6 +7526,11 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
+stats.js@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.npmjs.org/stats.js/-/stats.js-0.17.0.tgz#b1c3dc46d94498b578b7fd3985b81ace7131cc7d"
+  integrity sha1-scPcRtlEmLV4t/05hbgaznExzH0=
+
 stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/stealthy-require/download/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
@@ -7956,6 +7990,46 @@ trim-newlines@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/trim-newlines/download/trim-newlines-2.0.0.tgz#b403d0b91be50c331dfc4b82eeceb22c3de16d20"
   integrity sha1-tAPQuRvlDDMd/EuC7s6yLD3hbSA=
+
+troika-3d-text@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.npmjs.org/troika-3d-text/-/troika-3d-text-0.26.1.tgz#009352a9d05b94b36c46dcd8f3761a8ca748e753"
+  integrity sha512-sPLT9GfoJPhoG+dAWy1EDgtXjU4hJiYsmjZykPyxx1v5tzJTAo3pMfzha11IE2je5bO05NjvPFuWrh/HQjeQUQ==
+  dependencies:
+    troika-3d "^0.26.0"
+    troika-three-utils "^0.26.0"
+    troika-worker-utils "^0.26.1"
+
+troika-3d@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/troika-3d/-/troika-3d-0.26.0.tgz#9c96327ec2c3c0a3f09d1442877b1c76198897b7"
+  integrity sha512-wVMatGRx/jKtaRgv5onK3JMsYBZOkg3fh1f9bppBRG5TxGwL+E6v5eJB34AxKsLFuL441t+k1qbs2eBRP0XFXg==
+  dependencies:
+    troika-core "^0.26.0"
+    troika-three-utils "^0.26.0"
+
+troika-animation@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/troika-animation/-/troika-animation-0.26.0.tgz#f9fbacfb340aba2a20dc4d7e9d3222fd74efc6f5"
+  integrity sha512-L8k0aaZKFhBMPCBuzRKCDMvoKgzNiQv+JU1K4VbBUtY4pz/MlAuj3JqtMBr8qXpFeKfIIv52gB4CfJve3uDUWQ==
+
+troika-core@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/troika-core/-/troika-core-0.26.0.tgz#5a336d99ff3f487356f5cbf7c005a24a27a9c31f"
+  integrity sha512-N3H0e4YpEGuZgwR+hOO2CmjXXv/+vKhQ1+Fm51VzNODXJtaTeOh2/FO0WYfgmSIG1/afVsqx/wpCqGEEt5LkdA==
+  dependencies:
+    prop-types "^15.6.2"
+    troika-animation "^0.26.0"
+
+troika-three-utils@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.npmjs.org/troika-three-utils/-/troika-three-utils-0.26.0.tgz#4019d7691d4b88d4dc0521d55f50dcf46e6fea2f"
+  integrity sha512-zyH/MKg8/zEhAri48i0hUGxTZUIsOlq02wVdDQLUHIaqE0GhisNrh8hYcV1xChnDQvpVfzL/yzKcPgyk/Qbw/w==
+
+troika-worker-utils@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.npmjs.org/troika-worker-utils/-/troika-worker-utils-0.26.1.tgz#cdf4d6d319145cf74383d27cf716c4fca3437aab"
+  integrity sha512-631kvP1T02Go4sBjOETL3xETw8cK9QiBDho46yoDojtezEodp9i02gcZRy9rpycRj0Gz0o6Ks+R5arUj+c0S8w==
 
 ts-jest@24.2.0:
   version "24.2.0"

@@ -23,7 +23,7 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 const url = 'https://raw.githubusercontent.com/iondrimba/images/master/buildings.obj'
 const loader = new OBJLoader()
 
-const Fog = () => {
+const CityFog = () => {
   const [buildings, setBuildings] = useState<Object3D>()
   const { scene } = useThree()
   useEffect(() => {
@@ -120,7 +120,7 @@ const FogPage = () => {
         <Stats />
         <Camera />
         {/* <Control /> */}
-        <Fog />
+        <CityFog />
 
         <directionalLight position={[-8, 12, 0]} castShadow={true} color="#272727" />
         <directionalLight position={[8, 1200, 8]} color="#d3263a" castShadow={true} />
