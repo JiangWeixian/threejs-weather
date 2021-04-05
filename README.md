@@ -31,8 +31,30 @@ docs can be found [here](/docs/README.md)
 ## todo
 
 - [ ] 萤火虫
-- [ ] 水波纹效果
+- [ ] 水波纹
+- [x] 雾霾
 - [x] online-demo
 - [x] 光环
 - [x] 云
 - [x] 流星
+
+## develope
+
+> **⚠️ WARNING**  
+it's hard to develope component mode
+
+```console
+yarn remove react
+```
+
+1. write `code` in root `components` fold
+2. `npm run build:dev` in root
+3. goto `example`
+4. `import component from @/components/lib` in `example`
+5. `yarn run dev`
+
+**before depoly example**
+
+```console
+yarn add react@16.3.1
+```

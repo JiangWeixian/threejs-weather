@@ -11087,14 +11087,6 @@ react-use-measure@^2.0.3:
   dependencies:
     debounce "^1.2.0"
 
-react@latest:
-  version "17.0.1"
-  resolved "https://registry.npm.taobao.org/react/download/react-17.0.1.tgz?cache=0&sync_timestamp=1616171183695&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
-  integrity sha1-bgYAQWvVdXTj+G2S7bo9kAhyYSc=
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
 reactcss@^1.2.0:
   version "1.2.3"
   resolved "https://registry.npm.taobao.org/reactcss/download/reactcss-1.2.3.tgz#c00013875e557b1cf0dfd9a368a1c3dab3b548dd"
@@ -12759,10 +12751,10 @@ threejs-meshline@2.0.11:
   resolved "https://registry.npm.taobao.org/threejs-meshline/download/threejs-meshline-2.0.11.tgz#f56b0462128aadd69e59ce583e1fec7bc8f21f53"
   integrity sha1-9WsEYhKKrdaeWc5YPh/se8jyH1M=
 
-threejs-weather@^0.8.1-0:
-  version "0.8.1-0"
-  resolved "https://registry.npm.taobao.org/threejs-weather/download/threejs-weather-0.8.1-0.tgz#6777bc4fb7c0e1f23363cd718e9144daa0542fe6"
-  integrity sha1-Z3e8T7fA4fIzY81xjpFE2qBUL+Y=
+threejs-weather@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.npmjs.org/threejs-weather/-/threejs-weather-0.10.0.tgz#e162d0e713a61f6d4873645023c599a16c4721a2"
+  integrity sha512-wknJgH3SAkCKESxjI2JYj+Bp+zZvyCSPEByxA7masX3f/Kv54RlEW+oS2Doq4uY5FgFS534IpJ3ODzIhYr6iHw==
   dependencies:
     threejs-meshline "2.0.11"
 

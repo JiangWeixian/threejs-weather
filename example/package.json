@@ -35,7 +35,6 @@
     "core-js": "3.0.1",
     "drei": "0.0.54",
     "history": "4.9.0",
-    "react": "latest",
     "react-dom": "16.13.1",
     "react-loadable": "5.5.0",
     "react-redux": "7.0.3",
@@ -50,7 +49,7 @@
     "swr": "0.2.0",
     "three": "0.125.0",
     "threejs-meshline": "2.0.11",
-    "threejs-weather": "^0.8.1-0"
+    "threejs-weather": "^0.10.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.4",

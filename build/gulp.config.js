@@ -7,6 +7,8 @@ const configs = {
     components: path.resolve(__dirname, '../components'),
     lib: path.resolve(__dirname, '../lib'),
     es: path.resolve(__dirname, '../es'),
+    devLib: path.resolve(__dirname, '../example/src/components/lib'),
+    devEs: path.resolve(__dirname, '../example/src/components/es'),
   },
   tsConfig: tsConfig(),
   getBabelConfig: babelConfig,

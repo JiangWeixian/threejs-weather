@@ -12,6 +12,8 @@ const tsDefaultReporter = ts.reporter.defaultReporter()
 const config = require('./build/gulp.config')
 const source = ['components/**/*.tsx', 'components/**/*.ts', 'typings/**/*.d.ts']
 const tsProject = ts.createProject('./tsconfig.json')
+const lib = process.env.NODE_ENV === 'development' ? config.dirs.devLib : config.dirs.lib
+const es = process.env.NODE_ENV === 'development' ? config.dirs.devEs : config.dirs.es
 
 function babelify(js, modules) {
   const babelConfig = config.getBabelConfig(modules)
@@ -27,14 +29,14 @@ function babelify(js, modules) {
         })
         .pipe(sourcemaps.write('.')),
     )
-  return stream.pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
+  return stream.pipe(gulp.dest(modules === false ? es : lib))
 }
 
 function compile(modules) {
-  rimraf.sync(modules !== false ? config.dirs.lib : config.dirs.es)
+  rimraf.sync(modules !== false ? lib : es)
   const assets = gulp
     .src(['./components/**/*.@(png|svg)'])
-    .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
+    .pipe(gulp.dest(modules === false ? es : lib))
   let error = 0
   // allow jsx file in src/xxx/
   if (config.tsConfig.allowJs) {
@@ -59,7 +61,7 @@ function compile(modules) {
   tsResult.on('finish', check)
   tsResult.on('end', check)
   const tsFilesStream = babelify(tsResult.js, modules)
-  const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
+  const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? es : lib))
   return merge2([tsFilesStream, tsd, assets])
 }
 
