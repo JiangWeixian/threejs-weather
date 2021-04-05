@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useThree } from 'react-three-fiber'
-
 import { PerspectiveCamera } from 'drei'
-
 import {
   Color,
   Object3D,
