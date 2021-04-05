@@ -11,6 +11,7 @@
     "server:mock": "npm run server:mock --prefix example",
     "dev": "npm run dev --prefix example",
     "build": "npm run clean && cross-env NODE_ENV=production gulp compile",
+    "build:dev": "npm run clean && cross-env NODE_ENV=development gulp compile",
     "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
   "repository": {
@@ -46,6 +47,7 @@
     "core-js": "3.1.4",
     "cross-env": "5.2.0",
     "debug": "4.1.1",
+    "drei": "0.0.54",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.15.1",
     "fs-extra": "8.1.0",
@@ -79,8 +81,8 @@
   },
   "peerDependencies": {
     "react": "latest",
-    "three": ">=0.116.1",
-    "react-three-fiber": ">=4.2.5"
+    "react-three-fiber": ">=4.2.5",
+    "three": ">=0.116.1"
   },
   "dependencies": {
     "threejs-meshline": "2.0.11"

@@ -40,6 +40,11 @@ const ProdPartlyCloud = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const ProdFog = Loadable({
+  loader: () => import(/* webpackChunkName: "ProdFog" */ '@/pages/prod/fog'),
+  loading: () => <div>loading</div>,
+})
+
 const entry = '/prod/rain'
 
 const RouterViewer = () => {
@@ -70,6 +75,9 @@ const RouterViewer = () => {
         </Route>
         <Route path={PATHS.starRing.path}>
           <ProdStarRings />
+        </Route>
+        <Route path={PATHS.fog.path}>
+          <ProdFog />
         </Route>
         {/* not found */}
         <Route path="/">
