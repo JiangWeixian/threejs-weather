@@ -45,6 +45,11 @@ const ProdFog = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const ProdHaze = Loadable({
+  loader: () => import(/* webpackChunkName: "ProdFog" */ '@/pages/prod/haze'),
+  loading: () => <div>loading</div>,
+})
+
 const entry = '/prod/rain'
 
 const RouterViewer = () => {

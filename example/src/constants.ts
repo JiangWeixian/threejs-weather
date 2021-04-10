@@ -32,4 +32,8 @@ export const PATHS = {
     name: '雾',
     path: '/prod/fog',
   },
+  haze: {
+    name: '霾',
+    path: '/prod/haze',
+  },
 }
