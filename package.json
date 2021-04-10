@@ -1,6 +1,6 @@
 {
   "name": "threejs-weather",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "threejs-weather",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -80,7 +80,6 @@
     "typescript": "3.7.2"
   },
   "peerDependencies": {
-    "react": "latest",
     "react-three-fiber": ">=4.2.5",
     "three": ">=0.116.1"
   },

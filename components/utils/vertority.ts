@@ -9,13 +9,14 @@ const PLACEMENT_TO_AXIS: { [key: string]: 'x' | 'y' | 'z' } = {
   fromLeft: 'y',
   fromBottom: 'x',
 }
-const PLACEMENT_TO_DIR = {
+export const PLACEMENT_TO_DIR: { [key in Orientation]: 1 | -1 } = {
   fromTop: 1,
   fromRight: 1,
   fromLeft: -1,
   fromBottom: -1,
 }
 
+export const PLACEMENTS = Object.keys(PLACEMENT_TO_DIR) as Orientation[]
 /**
  * 得到一个随机的噪声向量, 和orientation有关。
  * - placement = top -> [a, b, 0] or [0, b, 0]

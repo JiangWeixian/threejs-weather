@@ -7,5 +7,6 @@ import Cloudy from './cloudy'
 import RainRing from './rain-ring'
 import PartlyCloudy from './partly-cloudy'
 import Fog from './fog'
+import Haze from './haze'
 
-export { Rain, Sun, StarRings, Snow, Meteors, Cloudy, RainRing, PartlyCloudy, Fog }
+export { Rain, Sun, StarRings, Snow, Meteors, Cloudy, RainRing, PartlyCloudy, Fog, Haze }

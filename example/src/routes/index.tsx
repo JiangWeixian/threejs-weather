@@ -45,6 +45,11 @@ const ProdFog = Loadable({
   loading: () => <div>loading</div>,
 })
 
+const ProdHaze = Loadable({
+  loader: () => import(/* webpackChunkName: "ProdFog" */ '@/pages/prod/haze'),
+  loading: () => <div>loading</div>,
+})
+
 const entry = '/prod/rain'
 
 const RouterViewer = () => {
@@ -78,6 +83,9 @@ const RouterViewer = () => {
         </Route>
         <Route path={PATHS.fog.path}>
           <ProdFog />
+        </Route>
+        <Route path={PATHS.haze.path}>
+          <ProdHaze />
         </Route>
         {/* not found */}
         <Route path="/">
