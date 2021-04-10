@@ -1,39 +1,43 @@
 import React, { useRef } from 'react'
 import { Mesh } from 'three'
 
-import { useMeteors, Meteor, useMeteor, UseMeteorsProps } from './use-haze'
+import { useHazeDrop, UseHazeDropProps, UseHazeProps, useHaze } from './use-haze'
 
-const Haze = ({ value }: { value: Meteor }) => {
-  const meteor = useRef<Mesh>()
+export const SKY_COLOR = '#A2915E'
+
+export const Haze = (props: UseHazeDropProps) => {
+  const haze = useRef<Mesh>()
   const mat = useRef<any>()
-  useMeteor(meteor, mat, { value })
+  useHazeDrop(haze, mat, { value: props.value })
   return (
-    <mesh ref={meteor}>
-      <meshLine attach="geometry" vertices={value.vertices} />
-      <meshLineMaterial
-        attach="material"
-        ref={mat}
-        transparent={true}
-        depthTest={false}
-        sizeAttenuation={true}
-        lineWidth={0.02}
-        dashArray={0.5}
-        dashRatio={0.7}
-        opacity={0.75}
-        color={value.color}
-      />
-    </mesh>
+    <>
+      <mesh ref={haze}>
+        <meshLine attach="geometry" vertices={props.value.vertices} />
+        <meshLineMaterial
+          attach="material"
+          ref={mat}
+          transparent={true}
+          depthTest={false}
+          sizeAttenuation={true}
+          lineWidth={0.01}
+          dashArray={props.value.dashArray}
+          dashRatio={0.8}
+          opacity={props.value.opacity}
+          color={props.value.color}
+        />
+      </mesh>
+    </>
   )
 }
 
-type MeteorsProps = UseMeteorsProps & {}
+type HazeProps = UseHazeProps & {}
 
-const Hazes = (props: MeteorsProps) => {
-  const { meteors } = useMeteors(props)
+const Hazes = (props: HazeProps) => {
+  const { lines } = useHaze(props)
   return (
     <>
-      {meteors.map((meteor, index) => {
-        return <Haze key={index} value={meteor} />
+      {lines.map((haze, index) => {
+        return <Haze key={index} value={haze} />
       })}
     </>
   )

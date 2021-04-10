@@ -65,6 +65,7 @@
     "poststylus": "1.0.0",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
+    "react": "16.13.1",
     "react-three-fiber": "^4.2.5",
     "rimraf": "2.6.3",
     "stylus-supremacy": "2.12.7",
