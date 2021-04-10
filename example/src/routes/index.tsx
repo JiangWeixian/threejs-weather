@@ -84,6 +84,9 @@ const RouterViewer = () => {
         <Route path={PATHS.fog.path}>
           <ProdFog />
         </Route>
+        <Route path={PATHS.haze.path}>
+          <ProdHaze />
+        </Route>
         {/* not found */}
         <Route path="/">
           <Redirect to={entry} />
