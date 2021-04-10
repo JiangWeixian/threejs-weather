@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# v0.11.0
+
+- ✨ support `haze` weather type
+
 # v0.10.0
 
 - ✨ support `fog` weather type
