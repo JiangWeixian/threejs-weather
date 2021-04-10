@@ -12760,10 +12760,10 @@ threejs-meshline@2.0.11:
   resolved "https://registry.npm.taobao.org/threejs-meshline/download/threejs-meshline-2.0.11.tgz#f56b0462128aadd69e59ce583e1fec7bc8f21f53"
   integrity sha1-9WsEYhKKrdaeWc5YPh/se8jyH1M=
 
-threejs-weather@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.npmjs.org/threejs-weather/-/threejs-weather-0.10.1.tgz#1c164192a229657c036c7f7ba97b58df448b8a5f"
-  integrity sha512-YQUO4leaCGJv0htZaP8Fgt1b28u7YW8/BscnFn14Gbl/CGwMQUJ9UDy6tYokthVdRNklTjGeY3RoKjXZHb5Fdg==
+threejs-weather@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/threejs-weather/-/threejs-weather-0.11.0.tgz#0a2dfdddc2903bcea0c8f14aedd5dfaf3f64f54e"
+  integrity sha512-QgMorDh9Ay9ma+wIQuhfP9/wX+l2wUE84LGReMZGgYyWFdpg8bR7GYK/dZartWmOWUJ9LIrj2Ax8ArICQP/BKA==
   dependencies:
     threejs-meshline "2.0.11"
 
