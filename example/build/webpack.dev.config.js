@@ -21,6 +21,12 @@ const dev = {
     filename: '[name].js',
     publicPath: '/',
   },
+  resolve: {
+    alias: {
+      react: require.resolve('../../node_modules/react'),
+      'react-three-fiber': require.resolve('../../node_modules/react-three-fiber'),
+    },
+  },
   devServer: {
     port,
     watchContentBase: true,
@@ -96,7 +102,7 @@ const dev = {
         messages: [`Running here http://localhost:${port}`],
         notes: ['Happy coding'],
       },
-      onErrors: function (severity, errors) {
+      onErrors: function(severity, errors) {
         // You can listen to errors transformed and prioritized by the plugin
         // severity can be 'error' or 'warning'
       },
