@@ -20,7 +20,7 @@ const SunPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#faf4e8' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#faf4e8' }}>
         <Stats />
         <Sun count={Math.floor(count)} />
         <Suspense fallback="loading...">

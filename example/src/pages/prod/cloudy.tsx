@@ -20,7 +20,7 @@ const CloudyPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#3C4245' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
         <Stats />
         <Cloudy count={Math.floor(count)} />
         <Stats />

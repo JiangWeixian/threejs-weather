@@ -21,7 +21,7 @@ const SnowPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#1677b3' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
         <Stats />
         <Snow count={Math.floor(count)} />
         <Suspense fallback="loading...">

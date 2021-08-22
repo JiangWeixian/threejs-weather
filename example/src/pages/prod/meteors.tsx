@@ -25,7 +25,7 @@ const MeteorsPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#0F203B' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
         <Stats />
         <Meteors count={Math.floor(count)} angle={angle} />
         <Suspense fallback="loading...">

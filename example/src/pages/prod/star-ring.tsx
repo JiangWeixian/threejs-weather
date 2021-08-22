@@ -20,7 +20,7 @@ const StarRingsPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#0F203B' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
         <Stats />
         <StarRings count={Math.floor(count)} />
         <Suspense fallback="loading...">

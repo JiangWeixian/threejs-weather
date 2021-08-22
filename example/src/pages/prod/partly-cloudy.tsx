@@ -21,7 +21,7 @@ const PartlyCloudyPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#1677b3' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
         <Stats />
         <PartlyCloudy count={Math.floor(count)} />
         <Stats />

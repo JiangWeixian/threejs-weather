@@ -26,7 +26,7 @@ const HazePage = () => {
   })
   return (
     <>
-      <Canvas style={{ background: SKY_COLOR }}>
+      <Canvas shadows={true} dpr={window.devicePixelRatio} style={{ background: SKY_COLOR }}>
         <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
         <Suspense fallback="loading...">
           <WeatherText color="#f1f0ed">{PATHS.haze.name}</WeatherText>

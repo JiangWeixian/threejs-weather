@@ -20,7 +20,7 @@ const RainPage = () => {
   })
   return (
     <>
-      <Canvas style={{ backgroundColor: '#1677b3' }}>
+      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
         <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
         <Stats />
         <Rain />
