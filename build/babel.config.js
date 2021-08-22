@@ -1,4 +1,4 @@
-module.exports = function(modules) {
+module.exports = function (modules) {
   const plugins = [
     [
       require.resolve('@babel/plugin-transform-typescript'),

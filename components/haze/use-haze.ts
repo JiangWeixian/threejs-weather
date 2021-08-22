@@ -92,7 +92,7 @@ export const useHaze = ({ angle = -45, count = 100 }: UseHazeProps = DEFAULT_RAI
           angle: _angle,
           leg,
           opacity: Math.random() + 0.5,
-          orientation: orientation,
+          orientation,
           color: random.inRange(RAIN_COLORS),
           dashArray: Math.random() * 0.3,
         } as Haze

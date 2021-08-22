@@ -29,7 +29,7 @@ const prod = {
     splitChunks: {
       cacheGroups: {
         vendors: {
-          test: function (module) {
+          test(module) {
             return module.resource && /react/.test(module.resource)
           },
           name: 'vendors',

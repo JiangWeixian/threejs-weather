@@ -1,10 +1,9 @@
 import React, { Suspense } from 'react'
 import { Canvas, extend } from 'react-three-fiber'
-import { Stats } from 'drei'
+import { Stats, OrbitControls } from 'drei'
 import { Controls, useControl } from 'react-three-gui'
 import * as meshline from 'threejs-meshline'
 
-import { OrbitControls } from 'drei'
 import { Rain, RainRing } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'

@@ -18,7 +18,7 @@ const es = process.env.NODE_ENV === 'development' ? config.dirs.devEs : config.d
 function babelify(js, modules) {
   const babelConfig = config.getBabelConfig(modules)
   delete babelConfig.cacheDirectory
-  let stream = js
+  const stream = js
     .pipe(sourcemaps.init())
     .pipe(babel(babelConfig))
     .pipe(

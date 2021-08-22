@@ -90,7 +90,7 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
           ],
           angle: _angle,
           leg,
-          orientation: orientation,
+          orientation,
           color: random.inRange(RAIN_COLORS),
         } as Raindrop
       })

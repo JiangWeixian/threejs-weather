@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useFrame, useThree } from 'react-three-fiber'
-import { useRef } from 'react'
 import { Mesh, Vector3 } from 'three'
 import { Text } from 'drei'
 
