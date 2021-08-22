@@ -4,7 +4,7 @@
 
 ```tsx
 import { StarRings } from 'threejs-weather'
-import { Canvas, extend } from 'react-three-fiber'
+import { Canvas, extend } from 'react-three/fiber'
 import meshline from 'threejs-meshline'
 
 extend(meshline)

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Group, Mesh } from 'three'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 
 import { useSun, UseSunProps, Halo } from './use-sun'
 import { inRange } from '../utils/random'

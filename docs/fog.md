@@ -4,7 +4,7 @@
 
 ```tsx
 import { Fog } from 'threejs-weather'
-import { Canvas } from 'react-three-fiber'
+import { Canvas } from '@react-three/fiber'
 
 const Page = () => {
   return (

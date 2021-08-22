@@ -1,6 +1,6 @@
 import React, { useRef, useMemo } from 'react'
 import { Vector3 } from 'three'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 
 import vertority from '../utils/vertority'
 import { computeBoundingbox } from '../utils/element'
@@ -97,7 +97,7 @@ export const useHaze = ({ angle = -45, count = 100 }: UseHazeProps = DEFAULT_RAI
           dashArray: Math.random() * 0.3,
         } as Haze
       })
-  }, [_angle, count])
+  }, [_angle, comefrom, count, startpoints])
   return {
     lines,
   }

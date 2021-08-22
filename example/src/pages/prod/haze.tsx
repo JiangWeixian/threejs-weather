@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from 'react-three-fiber'
-import { Stats, OrbitControls } from 'drei'
+import { Canvas, extend } from '@react-three/fiber'
+import { Stats, OrbitControls } from '@react-three/drei'
 import { Controls, useControl } from 'react-three-gui'
-import { PCFSoftShadowMap } from 'three'
 import * as meshline from 'threejs-meshline'
 import { Haze } from 'threejs-weather'
 
@@ -17,11 +16,7 @@ const HazePage = () => {
   const angle = useControl('angle', { type: 'number', max: 45, min: -45, value: -45 })
   return (
     <>
-      <Canvas
-        pixelRatio={window.devicePixelRatio}
-        style={{ background: SKY_COLOR }}
-        shadowMap={{ enabled: true, type: PCFSoftShadowMap }}
-      >
+      <Canvas style={{ background: SKY_COLOR }}>
         <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
         <Suspense fallback="loading...">
           <WeatherText color="#f1f0ed">{PATHS.haze.name}</WeatherText>

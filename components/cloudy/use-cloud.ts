@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 
 import { DIRS } from '../utils/constants'
 import random from '../utils/random'
@@ -58,7 +58,7 @@ export const useClouds = (
         color: random.inRange(colors),
       } as Cloud
     })
-  }, [count])
+  }, [colors, count])
   return {
     clouds,
   }

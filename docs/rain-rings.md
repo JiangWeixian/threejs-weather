@@ -5,7 +5,7 @@
 
 ```tsx
 import { Rain, RainRings } from 'threejs-weather'
-import { Canvas } from 'react-three-fiber'
+import { Canvas } from 'react-three/fiber'
 
 const RainPage = () => {
   return (

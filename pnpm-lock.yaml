@@ -24,7 +24,6 @@ importers:
       cross-env: 7.0.3
       cz-emoji: ^1.3.1
       debug: 4.3.2
-      drei: 0.0.54
       enzyme: 3.10.0
       enzyme-adapter-react-16: 1.15.1
       eslint: ^7.32.0
@@ -77,7 +76,6 @@ importers:
       cross-env: 7.0.3
       cz-emoji: registry.nlark.com/cz-emoji/1.3.1
       debug: registry.nlark.com/debug/4.3.2
-      drei: 0.0.54_2264487932416a55241492f0d55afda2
       enzyme: 3.10.0
       enzyme-adapter-react-16: 1.15.1_139404e387ad12a3919093d103c0dae6
       eslint: 7.32.0
@@ -114,6 +112,8 @@ importers:
       '@babel/preset-env': 7.15.0
       '@babel/preset-react': 7.14.5
       '@babel/preset-typescript': 7.15.0
+      '@react-spring/three': 9.0.0-rc.3
+      '@react-spring/web': ^9.2.4
       '@react-three/drei': ^7.5.0
       '@react-three/fiber': ^7.0.6
       '@types/chai': 4.1.7
@@ -152,7 +152,6 @@ importers:
       css-loader: 1.0.1
       cssnano: 4.1.10
       cssnano-preset-advanced: 4.0.7
-      drei: 0.0.54
       enzyme: 3.9.0
       enzyme-adapter-react-16: 1.13.0
       fork-ts-checker-webpack-plugin: 1.3.1
@@ -181,8 +180,6 @@ importers:
       react-loadable: 5.5.0
       react-router: 5.2.0
       react-router-dom: 5.2.0
-      react-spring: ^9.2.4
-      react-three-fiber: 4.2.21
       react-three-gui: ^0.4.2
       react-transition-group: 4.4.2
       require-context: 1.1.0
@@ -213,21 +210,19 @@ importers:
       webpack-dev-server: 3.3.1
       webpack-merge: 4.2.1
     dependencies:
+      '@react-spring/three': registry.nlark.com/@react-spring/three/9.0.0-rc.3_react@17.0.2+three@0.131.3
+      '@react-spring/web': registry.nlark.com/@react-spring/web/9.2.4_react-dom@17.0.2+react@17.0.2
       '@react-three/drei': registry.nlark.com/@react-three/drei/7.5.0_d94cda7633a01f77b16fba3fb995b62f
       '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_efd7afedd83552f70935e05031e0f408
       axios: 0.21.1
       classnames: 2.3.1
       core-js: registry.nlark.com/core-js/3.16.2
-      drei: 0.0.54_22a7035dd9fa10ba71cd61bd18c83255
       history: registry.nlark.com/history/5.0.1
       react: registry.nlark.com/react/17.0.2
       react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      react-loadable: 5.5.0_react@17.0.2
       react-router: registry.nlark.com/react-router/5.2.0_react@17.0.2
       react-router-dom: registry.nlark.com/react-router-dom/5.2.0_react@17.0.2
-      react-spring: registry.nlark.com/react-spring/9.2.4_d94cda7633a01f77b16fba3fb995b62f
-      react-three-fiber: 4.2.21_efd7afedd83552f70935e05031e0f408
-      react-three-gui: registry.nlark.com/react-three-gui/0.4.2_22a7035dd9fa10ba71cd61bd18c83255
+      react-three-gui: registry.nlark.com/react-three-gui/0.4.2_efd7afedd83552f70935e05031e0f408
       react-transition-group: registry.nlark.com/react-transition-group/4.4.2_react-dom@17.0.2+react@17.0.2
       require-context: 1.1.0
       styled-components: registry.nlark.com/styled-components/5.3.0_react-dom@17.0.2+react@17.0.2
@@ -296,6 +291,7 @@ importers:
       prettier-quick: 0.0.5
       pretty-quick: 2.0.1_prettier@2.3.2
       react-hot-loader: registry.nlark.com/react-hot-loader/4.13.0_react-dom@17.0.2+react@17.0.2
+      react-loadable: 5.5.0_react@17.0.2
       rucksack-css: 1.0.2
       rupture: 0.7.1
       style-loader: 0.23.1
@@ -308,7 +304,7 @@ importers:
       ts-jest: 24.0.2_jest@24.8.0
       ts-loader: 6.0.0_typescript@4.3.5
       tslib: registry.nlark.com/tslib/2.3.1
-      typescript: 4.3.5
+      typescript: registry.nlark.com/typescript/4.3.5
       typings-for-css-modules-loader: 1.7.0_css-loader@1.0.1
       umi-serve: 1.9.4_@babel+core@7.15.0
       url-loader: 1.1.2_webpack@4.23.1
@@ -1534,6 +1530,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
+    dev: true
 
   /@babel/runtime/7.4.5:
     resolution: {integrity: sha1-WCu1MfX53GfS/LaCl5iU914lPxI=, tarball: '@babel/runtime/-/@babel/runtime-7.4.5.tgz'}
@@ -1947,10 +1944,6 @@ packages:
       '@types/yargs': 13.0.12
     dev: true
 
-  /@juggle/resize-observer/3.3.1:
-    resolution: {integrity: sha1-tQp4FwnIHhBwEAQhQ0DyVHWhcaA=, tarball: '@juggle/resize-observer/-/@juggle/resize-observer-3.3.1.tgz'}
-    dev: false
-
   /@manypkg/find-root/1.1.0:
     resolution: {integrity: sha1-pi2O0c1+fUwR2dUqg5dGC11K0p8=, tarball: '@manypkg/find-root/-/@manypkg/find-root-1.1.0.tgz'}
     dependencies:
@@ -1999,11 +1992,20 @@ packages:
       rimraf: 3.0.2
     dev: true
 
-  /@samverschueren/stream-to-observable/0.3.1:
+  /@samverschueren/stream-to-observable/0.3.1_rxjs@6.6.7:
     resolution: {integrity: sha1-ohEXsZ7pvnDDeewYd1N+8uHGMwE=, tarball: '@samverschueren/stream-to-observable/download/@samverschueren/stream-to-observable-0.3.1.tgz'}
     engines: {node: '>=6'}
+    peerDependencies:
+      rxjs: '*'
+      zen-observable: '*'
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
+      zen-observable:
+        optional: true
     dependencies:
       any-observable: 0.3.0
+      rxjs: registry.nlark.com/rxjs/6.6.7
     dev: true
 
   /@sindresorhus/is/0.14.0:
@@ -2781,9 +2783,19 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /any-observable/0.5.1:
+  /any-observable/0.5.1_rxjs@6.6.7:
     resolution: {integrity: sha1-q31J/2Tr5t064mdgo/WogejbeR4=, tarball: any-observable/download/any-observable-0.5.1.tgz}
     engines: {node: '>=8'}
+    peerDependencies:
+      rxjs: '*'
+      zen-observable: '*'
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
+      zen-observable:
+        optional: true
+    dependencies:
+      rxjs: registry.nlark.com/rxjs/6.6.7
     dev: true
 
   /anymatch/1.3.2:
@@ -5109,10 +5121,6 @@ packages:
       whatwg-url: 7.1.0
     dev: true
 
-  /debounce/1.2.1:
-    resolution: {integrity: sha1-OIgdj0FmpcWEgCDBGCe4NLyz4KU=}
-    dev: false
-
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     dependencies:
@@ -5501,51 +5509,6 @@ packages:
     resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
     engines: {node: '>=10'}
     dev: true
-
-  /drei/0.0.54_2264487932416a55241492f0d55afda2:
-    resolution: {integrity: sha1-9e13YTFJyGwPDWLPPGlGR5kt45M=}
-    deprecated: drei is now @react-three/drei
-    peerDependencies:
-      react: '>=16.13'
-      react-dom: '>=16.13'
-      react-three-fiber: '>=4.2'
-    dependencies:
-      '@babel/runtime': 7.15.3
-      lodash.omit: 4.5.0
-      lodash.pick: 4.4.0
-      postprocessing: 6.22.3_three@0.125.2
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      react-merge-refs: 1.1.0
-      stats.js: 0.17.0
-      troika-3d-text: 0.26.1_2264487932416a55241492f0d55afda2
-      utility-types: 3.10.0
-    transitivePeerDependencies:
-      - three
-    dev: true
-
-  /drei/0.0.54_22a7035dd9fa10ba71cd61bd18c83255:
-    resolution: {integrity: sha1-9e13YTFJyGwPDWLPPGlGR5kt45M=}
-    deprecated: drei is now @react-three/drei
-    peerDependencies:
-      react: '>=16.13'
-      react-dom: '>=16.13'
-      react-three-fiber: '>=4.2'
-    dependencies:
-      '@babel/runtime': 7.15.3
-      lodash.omit: 4.5.0
-      lodash.pick: 4.4.0
-      postprocessing: 6.22.3_three@0.131.3
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      react-merge-refs: 1.1.0
-      react-three-fiber: 4.2.21_efd7afedd83552f70935e05031e0f408
-      stats.js: 0.17.0
-      troika-3d-text: 0.26.1_efd7afedd83552f70935e05031e0f408
-      utility-types: 3.10.0
-    transitivePeerDependencies:
-      - three
-    dev: false
 
   /duplexer/0.1.2:
     resolution: {integrity: sha1-Or5DrvODX4rgd9E23c4PJ2sEAOY=}
@@ -6330,10 +6293,6 @@ packages:
       parse-node-version: 1.0.1
       time-stamp: 1.1.0
     dev: true
-
-  /fast-deep-equal/2.0.1:
-    resolution: {integrity: sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=}
-    dev: false
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha1-On1WtVnWy8PrUSMlJE5hmmXGxSU=, tarball: fast-deep-equal/download/fast-deep-equal-3.1.3.tgz}
@@ -9192,7 +9151,7 @@ packages:
     resolution: {integrity: sha1-L+qQlgTkNL5GTFC926DUlpKPpYY=, tarball: listr/download/listr-0.14.3.tgz}
     engines: {node: '>=6'}
     dependencies:
-      '@samverschueren/stream-to-observable': 0.3.1
+      '@samverschueren/stream-to-observable': 0.3.1_rxjs@6.6.7
       is-observable: 1.1.0
       is-promise: registry.nlark.com/is-promise/2.2.2
       is-stream: registry.nlark.com/is-stream/1.1.0
@@ -9201,6 +9160,8 @@ packages:
       listr-verbose-renderer: 0.5.0
       p-map: registry.nlark.com/p-map/2.1.0
       rxjs: registry.nlark.com/rxjs/6.6.7
+    transitivePeerDependencies:
+      - zen-observable
     dev: true
 
   /listr2/3.11.0_enquirer@2.3.6:
@@ -9366,12 +9327,6 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=}
     dev: true
-
-  /lodash.omit/4.5.0:
-    resolution: {integrity: sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=}
-
-  /lodash.pick/4.4.0:
-    resolution: {integrity: sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=}
 
   /lodash.rest/4.0.5:
     resolution: {integrity: sha1-lU73UEkmIDjJbR/Jiyj9r58Hcqo=}
@@ -10262,7 +10217,7 @@ packages:
     engines: {git: '>=2.11.0', node: '>=8', npm: '>=6.8.0', yarn: '>=1.7.0'}
     hasBin: true
     dependencies:
-      '@samverschueren/stream-to-observable': 0.3.1
+      '@samverschueren/stream-to-observable': 0.3.1_rxjs@6.6.7
       any-observable: 0.3.0
       async-exit-hook: 2.0.1
       chalk: 2.4.2
@@ -10295,6 +10250,8 @@ packages:
       symbol-observable: 1.2.0
       terminal-link: 1.3.0
       update-notifier: 2.5.0
+    transitivePeerDependencies:
+      - zen-observable
     dev: true
 
   /npm-name/5.5.0:
@@ -12196,24 +12153,6 @@ packages:
       supports-color: 6.1.0
     dev: true
 
-  /postprocessing/6.22.3_three@0.125.2:
-    resolution: {integrity: sha512-zk8sw7ZFlr7v5OVLnM6QpM8DDrV9buFuTfTYa0K0dTEB5ap5qCTVg25mG66uJ90vqu3u4bFJY6jbpoW3BGmALg==}
-    engines: {node: '>= 0.13.2'}
-    peerDependencies:
-      three: '>= 0.102.0 < 0.132.0'
-    dependencies:
-      three: 0.125.2
-    dev: true
-
-  /postprocessing/6.22.3_three@0.131.3:
-    resolution: {integrity: sha512-zk8sw7ZFlr7v5OVLnM6QpM8DDrV9buFuTfTYa0K0dTEB5ap5qCTVg25mG66uJ90vqu3u4bFJY6jbpoW3BGmALg==}
-    engines: {node: '>= 0.13.2'}
-    peerDependencies:
-      three: '>= 0.102.0 < 0.132.0'
-    dependencies:
-      three: registry.nlark.com/three/0.131.3
-    dev: false
-
   /preferred-pm/3.0.3:
     resolution: {integrity: sha1-G2M4AANx4+285S7y5PZesuc1htY=}
     engines: {node: '>=10'}
@@ -12356,11 +12295,11 @@ packages:
     dev: true
 
   /prop-types/15.7.2:
-    resolution: {integrity: sha1-UsQedbjIfnK52TYOAga5ncv/psU=}
+    resolution: {integrity: sha1-UsQedbjIfnK52TYOAga5ncv/psU=, tarball: prop-types/download/prop-types-15.7.2.tgz}
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 16.13.1
+      react-is: registry.nlark.com/react-is/16.13.1
 
   /proxy-addr/2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -12558,41 +12497,20 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=, tarball: react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz}
     dev: true
 
   /react-loadable/5.5.0_react@17.0.2:
-    resolution: {integrity: sha1-WCJRZ509qGwyquLI5onFnxGW2MQ=}
+    resolution: {integrity: sha1-WCJRZ509qGwyquLI5onFnxGW2MQ=, tarball: react-loadable/download/react-loadable-5.5.0.tgz}
     peerDependencies:
       react: '*'
     dependencies:
       prop-types: 15.7.2
       react: registry.nlark.com/react/17.0.2
-    dev: false
-
-  /react-merge-refs/1.1.0:
-    resolution: {integrity: sha1-c9iLiSxsaMu3pm4IAPqjdPTDiwY=}
-
-  /react-promise-suspense/0.3.3:
-    resolution: {integrity: sha1-sIXH4KwiuF/T1gWxxPGBzaQxC8k=}
-    dependencies:
-      fast-deep-equal: 2.0.1
-    dev: false
-
-  /react-reconciler/0.25.1_react@17.0.2:
-    resolution: {integrity: sha512-R5UwsIvRcSs3w8n9k3tBoTtUHdVhu9u84EG7E5M0Jk9F5i6DA1pQzPfUZd6opYWGy56MJOtV3VADzy6DRwYDjw==}
-    engines: {node: '>=0.10.0'}
-    peerDependencies:
-      react: ^16.13.1
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-      prop-types: 15.7.2
-      react: registry.nlark.com/react/17.0.2
-      scheduler: 0.19.1
-    dev: false
+    dev: true
 
   /react-test-renderer/16.14.0_react@17.0.2:
     resolution: {integrity: sha512-L8yPjqPE5CZO6rKsKXRO/rVPiaCOy0tQQJbC+UjPNlobl5mad59lvPjwFsQHTvL03caVDIVr9x9/OSgDe6I5Eg==}
@@ -12605,40 +12523,6 @@ packages:
       react-is: 16.13.1
       scheduler: 0.19.1
     dev: true
-
-  /react-three-fiber/4.2.21_efd7afedd83552f70935e05031e0f408:
-    resolution: {integrity: sha512-lbopEkL36cbAaG/y+iEGT1EFbVaVZBrOe2XGt2+HxsCL8AeWWiQQERo1HYiiqFc4p6DuoNq1hhOSxr1TKQjXuQ==}
-    deprecated: react-three-fiber has been deprecated, please use @react-three/fiber from now on
-    peerDependencies:
-      react: '>=16.13'
-      react-dom: '>=16.13'
-      three: '>=0.115'
-    dependencies:
-      '@babel/runtime': 7.15.3
-      '@juggle/resize-observer': 3.3.1
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      react-merge-refs: 1.1.0
-      react-promise-suspense: 0.3.3
-      react-reconciler: 0.25.1_react@17.0.2
-      react-use-measure: 2.0.4_react-dom@17.0.2+react@17.0.2
-      resize-observer-polyfill: 1.5.1
-      scheduler: 0.19.1
-      three: registry.nlark.com/three/0.131.3
-      tiny-emitter: 2.1.0
-      utility-types: 3.10.0
-    dev: false
-
-  /react-use-measure/2.0.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha1-y2dbNurq82gblNX14IsqHggf7ck=}
-    peerDependencies:
-      react: '>=16.13'
-      react-dom: '>=16.13'
-    dependencies:
-      debounce: 1.2.1
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-    dev: false
 
   /read-file-stdin/0.2.1:
     resolution: {integrity: sha1-JezP86FTtoCa+ssj7hU4fbng7mE=}
@@ -12845,6 +12729,7 @@ packages:
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: true
 
   /regenerator-transform/0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==}
@@ -13374,6 +13259,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    dev: true
 
   /schema-utils/0.4.7:
     resolution: {integrity: sha512-v/iwU6wvwGK8HbU9yi3/nhGzP0yGSuhQMzL6ySiec1FSrZZDkhm4noOSWzrNFo/jEc+SJY6jRTwuwbSXJPDUnQ==}
@@ -13922,9 +13808,6 @@ packages:
       define-property: 0.2.5
       object-copy: 0.1.0
     dev: true
-
-  /stats.js/0.17.0:
-    resolution: {integrity: sha1-scPcRtlEmLV4t/05hbgaznExzH0=}
 
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
@@ -14515,10 +14398,6 @@ packages:
     resolution: {integrity: sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=}
     dev: true
 
-  /tiny-emitter/2.1.0:
-    resolution: {integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==}
-    dev: false
-
   /tiny-invariant/1.1.0:
     resolution: {integrity: sha1-Y0xfjv3CdxS384bDXmdgmR0jCHU=, tarball: tiny-invariant/download/tiny-invariant-1.1.0.tgz}
     dev: false
@@ -14641,76 +14520,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /troika-3d-text/0.26.1_2264487932416a55241492f0d55afda2:
-    resolution: {integrity: sha512-sPLT9GfoJPhoG+dAWy1EDgtXjU4hJiYsmjZykPyxx1v5tzJTAo3pMfzha11IE2je5bO05NjvPFuWrh/HQjeQUQ==}
-    dependencies:
-      troika-3d: 0.26.0_2264487932416a55241492f0d55afda2
-      troika-three-utils: 0.26.0
-      troika-worker-utils: 0.26.1
-    transitivePeerDependencies:
-      - react
-      - react-dom
-      - three
-    dev: true
-
-  /troika-3d-text/0.26.1_efd7afedd83552f70935e05031e0f408:
-    resolution: {integrity: sha512-sPLT9GfoJPhoG+dAWy1EDgtXjU4hJiYsmjZykPyxx1v5tzJTAo3pMfzha11IE2je5bO05NjvPFuWrh/HQjeQUQ==}
-    dependencies:
-      troika-3d: 0.26.0_efd7afedd83552f70935e05031e0f408
-      troika-three-utils: 0.26.0
-      troika-worker-utils: 0.26.1
-    transitivePeerDependencies:
-      - react
-      - react-dom
-      - three
-    dev: false
-
-  /troika-3d/0.26.0_2264487932416a55241492f0d55afda2:
-    resolution: {integrity: sha512-wVMatGRx/jKtaRgv5onK3JMsYBZOkg3fh1f9bppBRG5TxGwL+E6v5eJB34AxKsLFuL441t+k1qbs2eBRP0XFXg==}
-    peerDependencies:
-      three: 0.103.x - 0.115.x
-    dependencies:
-      three: 0.125.2
-      troika-core: 0.26.0_react-dom@17.0.2+react@17.0.2
-      troika-three-utils: 0.26.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
-    dev: true
-
-  /troika-3d/0.26.0_efd7afedd83552f70935e05031e0f408:
-    resolution: {integrity: sha512-wVMatGRx/jKtaRgv5onK3JMsYBZOkg3fh1f9bppBRG5TxGwL+E6v5eJB34AxKsLFuL441t+k1qbs2eBRP0XFXg==}
-    peerDependencies:
-      three: 0.103.x - 0.115.x
-    dependencies:
-      three: registry.nlark.com/three/0.131.3
-      troika-core: 0.26.0_react-dom@17.0.2+react@17.0.2
-      troika-three-utils: 0.26.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
-    dev: false
-
-  /troika-animation/0.26.0:
-    resolution: {integrity: sha512-L8k0aaZKFhBMPCBuzRKCDMvoKgzNiQv+JU1K4VbBUtY4pz/MlAuj3JqtMBr8qXpFeKfIIv52gB4CfJve3uDUWQ==}
-
-  /troika-core/0.26.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-N3H0e4YpEGuZgwR+hOO2CmjXXv/+vKhQ1+Fm51VzNODXJtaTeOh2/FO0WYfgmSIG1/afVsqx/wpCqGEEt5LkdA==}
-    peerDependencies:
-      react: ^16.5.2
-      react-dom: ^16.5.2
-    dependencies:
-      prop-types: 15.7.2
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      troika-animation: 0.26.0
-
-  /troika-three-utils/0.26.0:
-    resolution: {integrity: sha512-zyH/MKg8/zEhAri48i0hUGxTZUIsOlq02wVdDQLUHIaqE0GhisNrh8hYcV1xChnDQvpVfzL/yzKcPgyk/Qbw/w==}
-
-  /troika-worker-utils/0.26.1:
-    resolution: {integrity: sha512-631kvP1T02Go4sBjOETL3xETw8cK9QiBDho46yoDojtezEodp9i02gcZRy9rpycRj0Gz0o6Ks+R5arUj+c0S8w==}
-
   /tryer/1.0.1:
     resolution: {integrity: sha1-8shUBoALmw90yfdGW4HqrSQSUvg=}
     dev: true
@@ -14771,7 +14580,7 @@ packages:
       loader-utils: 1.4.0
       micromatch: 4.0.4
       semver: 6.3.0
-      typescript: 4.3.5
+      typescript: registry.nlark.com/typescript/4.3.5
     dev: true
 
   /tslib/1.10.0:
@@ -15295,10 +15104,6 @@ packages:
   /utila/0.4.0:
     resolution: {integrity: sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=}
     dev: true
-
-  /utility-types/3.10.0:
-    resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
-    engines: {node: '>= 4'}
 
   /utils-merge/1.0.1:
     resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
@@ -17610,39 +17415,6 @@ packages:
       react: registry.nlark.com/react/17.0.2
     dev: false
 
-  registry.nlark.com/@react-spring/konva/9.2.4_react@17.0.2:
-    resolution: {integrity: sha1-5GeySzsRC6SWUmyQAUOc5WFkHg0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/konva/download/@react-spring/konva-9.2.4.tgz}
-    id: registry.nlark.com/@react-spring/konva/9.2.4
-    name: '@react-spring/konva'
-    version: 9.2.4
-    peerDependencies:
-      konva: '>=2.6'
-      react: ^16.8.0  || ^17.0.0
-      react-konva: ^16.8.0  || ^17.0.0
-    dependencies:
-      '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.2.4_react@17.0.2
-      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
-      '@react-spring/shared': registry.nlark.com/@react-spring/shared/9.2.4_react@17.0.2
-      '@react-spring/types': registry.nlark.com/@react-spring/types/9.2.4
-      react: registry.nlark.com/react/17.0.2
-    dev: false
-
-  registry.nlark.com/@react-spring/native/9.2.4_react@17.0.2:
-    resolution: {integrity: sha1-D9M1pEwFAj9UKN9ETY8ao9p6v8k=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/native/download/@react-spring/native-9.2.4.tgz}
-    id: registry.nlark.com/@react-spring/native/9.2.4
-    name: '@react-spring/native'
-    version: 9.2.4
-    peerDependencies:
-      react: ^16.8.0  || ^17.0.0
-      react-native: '>=0.58'
-    dependencies:
-      '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.2.4_react@17.0.2
-      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
-      '@react-spring/shared': registry.nlark.com/@react-spring/shared/9.2.4_react@17.0.2
-      '@react-spring/types': registry.nlark.com/@react-spring/types/9.2.4
-      react: registry.nlark.com/react/17.0.2
-    dev: false
-
   registry.nlark.com/@react-spring/rafz/9.2.4:
     resolution: {integrity: sha1-RHk+mtwU3Q3NFXPQlDaK8RqJ1zo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/rafz/download/@react-spring/rafz-9.2.4.tgz}
     name: '@react-spring/rafz'
@@ -17673,7 +17445,7 @@ packages:
       react: registry.nlark.com/react/17.0.2
     dev: false
 
-  registry.nlark.com/@react-spring/three/9.0.0-rc.3_d4e18dda78b49ee8f1149f9fbe39c33c:
+  registry.nlark.com/@react-spring/three/9.0.0-rc.3_react@17.0.2+three@0.131.3:
     resolution: {integrity: sha1-u/p4Y8lu2PogDL/2kiJ2PACXfu8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/three/download/@react-spring/three-9.0.0-rc.3.tgz}
     id: registry.nlark.com/@react-spring/three/9.0.0-rc.3
     name: '@react-spring/three'
@@ -17687,26 +17459,6 @@ packages:
       '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.0.0-rc.3_react@17.0.2
       '@react-spring/core': registry.nlark.com/@react-spring/core/9.0.0-rc.3_react@17.0.2
       '@react-spring/shared': registry.nlark.com/@react-spring/shared/9.0.0-rc.3
-      react: registry.nlark.com/react/17.0.2
-      react-three-fiber: 4.2.21_efd7afedd83552f70935e05031e0f408
-      three: registry.nlark.com/three/0.131.3
-    dev: false
-
-  registry.nlark.com/@react-spring/three/9.2.4_edf5af30bd47e3e41b56ce98c0df3c59:
-    resolution: {integrity: sha1-hJyXZYpuFBC2+COtIeLuM/6tqCA=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/three/download/@react-spring/three-9.2.4.tgz}
-    id: registry.nlark.com/@react-spring/three/9.2.4
-    name: '@react-spring/three'
-    version: 9.2.4
-    peerDependencies:
-      '@react-three/fiber': '>=6.0'
-      react: '>=16.11'
-      three: '>=0.126'
-    dependencies:
-      '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.2.4_react@17.0.2
-      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
-      '@react-spring/shared': registry.nlark.com/@react-spring/shared/9.2.4_react@17.0.2
-      '@react-spring/types': registry.nlark.com/@react-spring/types/9.2.4
-      '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_efd7afedd83552f70935e05031e0f408
       react: registry.nlark.com/react/17.0.2
       three: registry.nlark.com/three/0.131.3
     dev: false
@@ -17742,25 +17494,6 @@ packages:
     peerDependencies:
       react: ^16.8.0  || ^17.0.0
       react-dom: ^16.8.0  || ^17.0.0
-    dependencies:
-      '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.2.4_react@17.0.2
-      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
-      '@react-spring/shared': registry.nlark.com/@react-spring/shared/9.2.4_react@17.0.2
-      '@react-spring/types': registry.nlark.com/@react-spring/types/9.2.4
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-    dev: false
-
-  registry.nlark.com/@react-spring/zdog/9.2.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha1-2x0ZJP6ZIOkX2InE07sTi9CIXPE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/zdog/download/@react-spring/zdog-9.2.4.tgz}
-    id: registry.nlark.com/@react-spring/zdog/9.2.4
-    name: '@react-spring/zdog'
-    version: 9.2.4
-    peerDependencies:
-      react: ^16.8.0  || ^17.0.0
-      react-dom: ^16.8.0  || ^17.0.0
-      react-zdog: '>=1.0'
-      zdog: '>=1.0'
     dependencies:
       '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.2.4_react@17.0.2
       '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
@@ -17875,6 +17608,9 @@ packages:
       react: '>=17.0'
       react-dom: '>=17.0'
       three: '>=0.126'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime': registry.nlark.com/@babel/runtime/7.15.3
       react: registry.nlark.com/react/17.0.2
@@ -20143,8 +19879,8 @@ packages:
     engines: {git: '>=2.11.0', node: '>=10', npm: '>=6.8.0', yarn: '>=1.7.0'}
     hasBin: true
     dependencies:
-      '@samverschueren/stream-to-observable': 0.3.1
-      any-observable: 0.5.1
+      '@samverschueren/stream-to-observable': 0.3.1_rxjs@6.6.7
+      any-observable: 0.5.1_rxjs@6.6.7
       async-exit-hook: registry.nlark.com/async-exit-hook/2.0.1
       chalk: registry.nlark.com/chalk/4.1.2
       cosmiconfig: registry.nlark.com/cosmiconfig/7.0.0
@@ -20182,6 +19918,8 @@ packages:
       symbol-observable: 3.0.0
       terminal-link: registry.nlark.com/terminal-link/2.1.1
       update-notifier: registry.nlark.com/update-notifier/5.1.0
+    transitivePeerDependencies:
+      - zen-observable
     dev: true
 
   registry.nlark.com/npm-name/6.0.1:
@@ -20662,36 +20400,12 @@ packages:
       tiny-warning: 1.0.3
     dev: false
 
-  registry.nlark.com/react-spring/9.2.4_d94cda7633a01f77b16fba3fb995b62f:
-    resolution: {integrity: sha1-nYmwMhZk1ZT5V9ypRZsT2Us9+jk=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/react-spring/download/react-spring-9.2.4.tgz}
-    id: registry.nlark.com/react-spring/9.2.4
-    name: react-spring
-    version: 9.2.4
-    dependencies:
-      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
-      '@react-spring/konva': registry.nlark.com/@react-spring/konva/9.2.4_react@17.0.2
-      '@react-spring/native': registry.nlark.com/@react-spring/native/9.2.4_react@17.0.2
-      '@react-spring/three': registry.nlark.com/@react-spring/three/9.2.4_edf5af30bd47e3e41b56ce98c0df3c59
-      '@react-spring/web': registry.nlark.com/@react-spring/web/9.2.4_react-dom@17.0.2+react@17.0.2
-      '@react-spring/zdog': registry.nlark.com/@react-spring/zdog/9.2.4_react-dom@17.0.2+react@17.0.2
-    transitivePeerDependencies:
-      - '@react-three/fiber'
-      - konva
-      - react
-      - react-dom
-      - react-konva
-      - react-native
-      - react-zdog
-      - three
-      - zdog
-    dev: false
-
   registry.nlark.com/react-three-fiber/0.0.0-deprecated:
     resolution: {integrity: sha1-xzckJIfYJM+VIDBzCLfkxAcaJ48=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/react-three-fiber/download/react-three-fiber-0.0.0-deprecated.tgz}
     name: react-three-fiber
     version: 0.0.0-deprecated
 
-  registry.nlark.com/react-three-gui/0.4.2_22a7035dd9fa10ba71cd61bd18c83255:
+  registry.nlark.com/react-three-gui/0.4.2_efd7afedd83552f70935e05031e0f408:
     resolution: {integrity: sha1-YYOOq9wqcnnjQLM5s8SnHIQqu1A=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/react-three-gui/download/react-three-gui-0.4.2.tgz}
     id: registry.nlark.com/react-three-gui/0.4.2
     name: react-three-gui
@@ -20701,12 +20415,11 @@ packages:
       react-three-fiber: '*'
       three: '*'
     dependencies:
-      '@react-spring/three': registry.nlark.com/@react-spring/three/9.0.0-rc.3_d4e18dda78b49ee8f1149f9fbe39c33c
+      '@react-spring/three': registry.nlark.com/@react-spring/three/9.0.0-rc.3_react@17.0.2+three@0.131.3
       '@react-spring/web': registry.nlark.com/@react-spring/web/9.0.0-rc.3_react-dom@17.0.2+react@17.0.2
       react: registry.nlark.com/react/17.0.2
       react-color: 2.19.3_react@17.0.2
       react-is: registry.nlark.com/react-is/16.13.1
-      react-three-fiber: 4.2.21_efd7afedd83552f70935e05031e0f408
       react-use-gesture: registry.nlark.com/react-use-gesture/7.0.16_react@17.0.2
       styled-components: registry.nlark.com/styled-components/5.3.0_1f55980affd76ea66174a1939c753673
       three: registry.nlark.com/three/0.131.3
@@ -21379,6 +21092,14 @@ packages:
     resolution: {integrity: sha1-Ci54wud5B7JSq+XymMGwHGPw2z0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/type/download/type-2.5.0.tgz}
     name: type
     version: 2.5.0
+    dev: true
+
+  registry.nlark.com/typescript/4.3.5:
+    resolution: {integrity: sha1-TRw3zBbok5c8RaBohrcRMjTxGfQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/typescript/download/typescript-4.3.5.tgz}
+    name: typescript
+    version: 4.3.5
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   registry.nlark.com/update-notifier/5.1.0:

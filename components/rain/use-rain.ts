@@ -1,4 +1,4 @@
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import React, { useRef, useMemo } from 'react'
 import { Vector3 } from 'three'
@@ -94,7 +94,7 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
           color: random.inRange(RAIN_COLORS),
         } as Raindrop
       })
-  }, [_angle, count])
+  }, [_angle, comefrom, count, startpoints])
   return {
     lines,
   }

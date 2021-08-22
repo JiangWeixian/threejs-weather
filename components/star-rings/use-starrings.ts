@@ -3,7 +3,7 @@ import * as THREE from 'three'
 
 import random from '../utils/random'
 import { DIRS } from '../utils/constants'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 import { getCoord } from '../utils/scene'
 
 export type UseStarRingsProps = {

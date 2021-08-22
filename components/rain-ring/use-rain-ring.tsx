@@ -1,5 +1,5 @@
 import { Mesh, Material, Vector3 } from 'three'
-import { useFrame, useThree } from 'react-three-fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import React, { useMemo } from 'react'
 
 import vertority from '../utils/vertority'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useHistory, useLocation } from 'react-router'
-import { useSprings, animated, useSpring } from 'react-spring'
+import { useSprings, animated, useSpring } from '@react-spring/web'
 
 import { PATHS } from '@/constants'
 

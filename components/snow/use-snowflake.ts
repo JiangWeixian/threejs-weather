@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 
 import { DIRS } from '../utils/constants'
 import random from '../utils/random'
@@ -31,7 +31,7 @@ export const useSnowflakes = ({ count = 100 }: UseSnowflakesProps = { count: 100
         }),
       )
     }, [])
-  }, [])
+  }, [count])
   return {
     snowflakes: snowflakes as Snowflake[],
   }

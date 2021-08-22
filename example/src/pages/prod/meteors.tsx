@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from 'react-three-fiber'
-import { Stats } from 'drei'
+import { Canvas, extend } from '@react-three/fiber'
+import { Stats } from '@react-three/drei'
 import { Controls, useControl } from 'react-three-gui'
 import * as meshline from 'threejs-meshline'
 
@@ -15,7 +15,7 @@ const MeteorsPage = () => {
   const angle = useControl('angle', { type: 'number', max: 45, min: -45, value: 30 })
   return (
     <>
-      <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+      <Canvas style={{ backgroundColor: '#0F203B' }}>
         <Stats />
         <Meteors count={Math.floor(count)} angle={angle} />
         <Suspense fallback="loading...">

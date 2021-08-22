@@ -24,7 +24,7 @@ const dev = {
   resolve: {
     alias: {
       react: require.resolve('../../node_modules/react'),
-      'react-three-fiber': require.resolve('../../node_modules/react-three-fiber'),
+      '@react-three/fiber': require.resolve('../../node_modules/@react-three/fiber'),
     },
   },
   devServer: {

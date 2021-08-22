@@ -1,13 +1,15 @@
 import React, { useRef } from 'react'
-import { useFrame, useThree } from 'react-three-fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import { Mesh, Vector3 } from 'three'
-import { Text } from 'drei'
+import { Text } from '@react-three/drei'
 
 type TextProps = {
   children: string
   color?: string
   position?: Vector3
 }
+
+const InnerText = Text as any
 
 export const WeatherText = ({ color = '#310f1b', ...props }: TextProps) => {
   const text = useRef<Mesh>()
@@ -22,7 +24,7 @@ export const WeatherText = ({ color = '#310f1b', ...props }: TextProps) => {
     text.current.rotation.z = rotation.z
   })
   return (
-    <Text
+    <InnerText
       fontSize={0.5}
       ref={text}
       anchorX="center"
@@ -32,6 +34,6 @@ export const WeatherText = ({ color = '#310f1b', ...props }: TextProps) => {
       position={props.position}
     >
       {props.children}
-    </Text>
+    </InnerText>
   )
 }

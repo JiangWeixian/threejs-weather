@@ -13,7 +13,7 @@
 
 ## install
 
-`npm install threejs-weather three react-three-fiber`
+`npm install threejs-weather three @react-three/fiber`
 
 ## demos and documents
 

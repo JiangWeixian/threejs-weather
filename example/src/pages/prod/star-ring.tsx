@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from 'react-three-fiber'
-import { Stats } from 'drei'
+import { Canvas, extend } from '@react-three/fiber'
+import { Stats } from '@react-three/drei'
 import * as meshline from 'threejs-meshline'
 import { Controls, useControl } from 'react-three-gui'
 
@@ -14,7 +14,7 @@ const StarRingsPage = () => {
   const count = useControl('count', { type: 'number', max: 30, min: 10, value: 10 })
   return (
     <>
-      <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+      <Canvas style={{ backgroundColor: '#0F203B' }}>
         <Stats />
         <StarRings count={Math.floor(count)} />
         <Suspense fallback="loading...">

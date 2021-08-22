@@ -1,5 +1,5 @@
 import { useRef, useMemo } from 'react'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 import { Group, Vector3 } from 'three'
 
 import { getCoord } from '../utils/scene'

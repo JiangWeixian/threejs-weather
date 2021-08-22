@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from 'react-three-fiber'
-import { Stats } from 'drei'
+import { Canvas, extend } from '@react-three/fiber'
+import { Stats } from '@react-three/drei'
 import { Controls, useControl } from 'react-three-gui'
 import * as meshline from 'threejs-meshline'
 
@@ -14,7 +14,7 @@ const CloudyPage = () => {
   const count = useControl('count', { type: 'number', max: 100, min: 10, value: 10 })
   return (
     <>
-      <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
+      <Canvas style={{ backgroundColor: '#3C4245' }}>
         <Stats />
         <Cloudy count={Math.floor(count)} />
         <Stats />

@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useThree } from 'react-three-fiber'
-import { PerspectiveCamera } from 'drei'
-import {
-  Color,
-  Object3D,
-  MeshPhysicalMaterial,
-  Vector3,
-  Fog as _Fog,
-  PerspectiveCamera as _PerspectiveCamera,
-  Euler,
-} from 'three'
+import { useThree } from '@react-three/fiber'
+import { PerspectiveCamera } from '@react-three/drei'
+import { Color, Object3D, MeshPhysicalMaterial, Vector3, Fog as _Fog, Euler } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 const url = 'https://raw.githubusercontent.com/iondrimba/images/master/buildings.obj'
@@ -19,10 +11,10 @@ const CityFog = () => {
   const [buildings, setBuildings] = useState<Object3D>()
   const { scene } = useThree()
   useEffect(() => {
-    loader.load(url, (obj) => {
+    loader.load(url, obj => {
       obj.castShadow = true
       obj.receiveShadow = true
-      const models = [...obj.children].map((model) => {
+      const models = [...obj.children].map(model => {
         const scale = 0.01
 
         model.scale.set(scale, scale, scale)
@@ -83,7 +75,6 @@ const Camera = () => {
     <PerspectiveCamera
       rotation={new Euler(...rotation)}
       position={new Vector3(...position)}
-      children={null}
       makeDefault={true}
       args={[20, 2, 1, 1000]}
     />

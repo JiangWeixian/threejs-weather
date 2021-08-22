@@ -60,33 +60,15 @@ const RouterViewer = () => {
         <Redirect to={entry} exact={true} from="/" />
         {/* dev */}
         {/* prod */}
-        <Route path={PATHS.rain.path}>
-          <ProdRain />
-        </Route>
-        <Route path={PATHS.cloudy.path}>
-          <ProdCloudy />
-        </Route>
-        <Route path={PATHS.partlyCloudy.path}>
-          <ProdPartlyCloud />
-        </Route>
-        <Route path={PATHS.sun.path}>
-          <ProdSun />
-        </Route>
-        <Route path={PATHS.snow.path}>
-          <PordSnow />
-        </Route>
-        <Route path={PATHS.metetors.path}>
-          <ProdMeteors />
-        </Route>
-        <Route path={PATHS.starRing.path}>
-          <ProdStarRings />
-        </Route>
-        <Route path={PATHS.fog.path}>
-          <ProdFog />
-        </Route>
-        <Route path={PATHS.haze.path}>
-          <ProdHaze />
-        </Route>
+        <Route path={PATHS.rain.path} component={ProdRain} />
+        <Route path={PATHS.cloudy.path} component={ProdCloudy} />
+        <Route path={PATHS.partlyCloudy.path} component={ProdPartlyCloud} />
+        <Route path={PATHS.sun.path} component={ProdSun} />
+        <Route path={PATHS.snow.path} component={PordSnow} />
+        <Route path={PATHS.metetors.path} component={ProdMeteors} />
+        <Route path={PATHS.starRing.path} component={ProdStarRings} />
+        <Route path={PATHS.fog.path} component={ProdFog} />
+        <Route path={PATHS.haze.path} component={ProdHaze} />
         {/* not found */}
         <Route path="/">
           <Redirect to={entry} />
