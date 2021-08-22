@@ -23,7 +23,6 @@
     "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "dependencies": {
-    "@react-spring/three": "9.0.0-rc.3",
     "@react-spring/web": "^9.2.4",
     "@react-three/drei": "^7.5.0",
     "@react-three/fiber": "^7.0.6",
@@ -31,11 +30,11 @@
     "classnames": "2.3.1",
     "core-js": "3.16.2",
     "history": "5.0.1",
+    "leva": "^0.9.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "react-three-gui": "^0.4.2",
     "react-transition-group": "4.4.2",
     "require-context": "1.1.0",
     "styled-components": "5.3.0",

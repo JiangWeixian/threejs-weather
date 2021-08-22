@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
-import { Controls } from 'react-three-gui'
 import { Vector3 } from 'three'
 
 import { Fog } from 'threejs-weather'
@@ -22,7 +21,6 @@ const FogPage = () => {
         <Stats />
         <Fog />
       </Canvas>
-      <Controls />
     </>
   )
 }

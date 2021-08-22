@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Canvas, extend } from '@react-three/fiber'
 import { Stats, OrbitControls } from '@react-three/drei'
-import { Controls, useControl } from 'react-three-gui'
+import { useControls, Leva } from 'leva'
 import * as meshline from 'threejs-meshline'
 import { Haze } from 'threejs-weather'
 
@@ -12,8 +12,18 @@ extend(meshline)
 export const SKY_COLOR = '#A2915E'
 
 const HazePage = () => {
-  const count = useControl('count', { type: 'number', max: 100, min: 10, value: 200 })
-  const angle = useControl('angle', { type: 'number', max: 45, min: -45, value: -45 })
+  const { count, angle } = useControls({
+    count: {
+      value: 100,
+      max: 300,
+      min: 10,
+    },
+    angle: {
+      value: -45,
+      max: 45,
+      min: -45,
+    },
+  })
   return (
     <>
       <Canvas style={{ background: SKY_COLOR }}>
@@ -24,7 +34,7 @@ const HazePage = () => {
         <Stats />
         <Haze count={Math.floor(count)} angle={angle} />
       </Canvas>
-      <Controls />
+      <Leva />
     </>
   )
 }
