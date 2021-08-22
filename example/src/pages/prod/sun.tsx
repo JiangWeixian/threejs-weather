@@ -16,7 +16,7 @@ const SunPage = () => {
       value: 6,
       max: 6,
       min: 1,
-    }
+    },
   })
   return (
     <>

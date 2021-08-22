@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react'
 import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
 import Loadable from 'react-loadable'

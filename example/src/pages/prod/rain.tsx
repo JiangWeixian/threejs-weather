@@ -16,7 +16,7 @@ const RainPage = () => {
       value: 100,
       max: 300,
       min: 10,
-    }
+    },
   })
   return (
     <>

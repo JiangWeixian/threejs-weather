@@ -11,10 +11,10 @@ const CityFog = () => {
   const [buildings, setBuildings] = useState<Object3D>()
   const { scene } = useThree()
   useEffect(() => {
-    loader.load(url, obj => {
+    loader.load(url, (obj) => {
       obj.castShadow = true
       obj.receiveShadow = true
-      const models = [...obj.children].map(model => {
+      const models = [...obj.children].map((model) => {
         const scale = 0.01
 
         model.scale.set(scale, scale, scale)
