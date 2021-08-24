@@ -4,7 +4,7 @@ import { Stats } from '@react-three/drei'
 import { useControls, Leva } from 'leva'
 import * as meshline from 'threejs-meshline'
 
-import { Cloudy } from 'threejs-weather'
+import { Cloudy, useTheme } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
@@ -18,9 +18,10 @@ const CloudyPage = () => {
       min: 10,
     },
   })
+  const { bind } = useTheme({ type: 'cloudy', mode: 'day' })
   return (
     <>
-      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
+      <Canvas {...bind()}>
         <Stats />
         <Cloudy count={Math.floor(count)} />
         <Stats />

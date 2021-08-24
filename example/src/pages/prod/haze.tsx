@@ -3,13 +3,12 @@ import { Canvas, extend } from '@react-three/fiber'
 import { Stats, OrbitControls } from '@react-three/drei'
 import { useControls, Leva } from 'leva'
 import * as meshline from 'threejs-meshline'
-import { Haze } from 'threejs-weather'
+import { Haze, useTheme } from 'threejs-weather'
 
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
 extend(meshline)
-export const SKY_COLOR = '#A2915E'
 
 const HazePage = () => {
   const { count, angle } = useControls({
@@ -24,9 +23,10 @@ const HazePage = () => {
       min: -45,
     },
   })
+  const { bind } = useTheme({ type: 'haze', mode: 'day' })
   return (
     <>
-      <Canvas shadows={true} dpr={window.devicePixelRatio} style={{ background: SKY_COLOR }}>
+      <Canvas {...bind()}>
         <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
         <Suspense fallback="loading...">
           <WeatherText color="#f1f0ed">{PATHS.haze.name}</WeatherText>

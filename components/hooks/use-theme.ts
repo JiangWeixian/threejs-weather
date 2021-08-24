@@ -77,10 +77,10 @@ const theme: Record<UseThemeProps['mode'], typeof dayTheme> = {
   night: nightTheme,
 }
 
-export const useTheme = (props: UseThemeProps) => {
+export const useTheme = ({ mode = 'day', type }: UseThemeProps) => {
   const config = useMemo(() => {
-    return theme[props.mode][props.type]
-  }, [props.mode, props.type])
+    return theme[mode][type]
+  }, [mode, type])
   const bind = useCallback(() => {
     return {
       ...config,

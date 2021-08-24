@@ -5,7 +5,7 @@ import { useControls, Leva } from 'leva'
 
 import * as meshline from 'threejs-meshline'
 
-import { PartlyCloudy } from 'threejs-weather'
+import { PartlyCloudy, useTheme } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
@@ -19,9 +19,10 @@ const PartlyCloudyPage = () => {
       min: 10,
     },
   })
+  const { bind } = useTheme({ type: 'partly-cloudy', mode: 'day' })
   return (
     <>
-      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
+      <Canvas {...bind()}>
         <Stats />
         <PartlyCloudy count={Math.floor(count)} />
         <Stats />

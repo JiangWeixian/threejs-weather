@@ -4,7 +4,7 @@ import { Stats } from '@react-three/drei'
 import { useControls, Leva } from 'leva'
 import * as meshline from 'threejs-meshline'
 
-import { Meteors } from 'threejs-weather'
+import { Meteors, useTheme } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
@@ -23,9 +23,10 @@ const MeteorsPage = () => {
       min: -45,
     },
   })
+  const { bind } = useTheme({ type: 'meteors', mode: 'day' })
   return (
     <>
-      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+      <Canvas {...bind()}>
         <Stats />
         <Meteors count={Math.floor(count)} angle={angle} />
         <Suspense fallback="loading...">

@@ -4,7 +4,7 @@ import { Stats, OrbitControls } from '@react-three/drei'
 import { useControls, Leva } from 'leva'
 import * as meshline from 'threejs-meshline'
 
-import { Rain, RainRing } from 'threejs-weather'
+import { Rain, RainRing, useTheme } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
@@ -18,9 +18,10 @@ const RainPage = () => {
       min: 10,
     },
   })
+  const { bind } = useTheme({ type: 'rain', mode: 'day' })
   return (
     <>
-      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
+      <Canvas {...bind()}>
         <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
         <Stats />
         <Rain />

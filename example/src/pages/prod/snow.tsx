@@ -5,7 +5,7 @@ import { useControls, Leva } from 'leva'
 
 import * as meshline from 'threejs-meshline'
 
-import { Snow } from 'threejs-weather'
+import { Snow, useTheme } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
@@ -19,9 +19,10 @@ const SnowPage = () => {
       min: 10,
     },
   })
+  const { bind } = useTheme({ type: 'snow', mode: 'day' })
   return (
     <>
-      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#1677b3' }}>
+      <Canvas {...bind()}>
         <Stats />
         <Snow count={Math.floor(count)} />
         <Suspense fallback="loading...">

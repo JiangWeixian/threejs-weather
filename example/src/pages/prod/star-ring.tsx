@@ -4,7 +4,7 @@ import { Stats } from '@react-three/drei'
 import * as meshline from 'threejs-meshline'
 import { useControls, Leva } from 'leva'
 
-import { StarRings } from 'threejs-weather'
+import { StarRings, useTheme } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
@@ -18,9 +18,10 @@ const StarRingsPage = () => {
       min: 10,
     },
   })
+  const { bind } = useTheme({ type: 'snow', mode: 'day' })
   return (
     <>
-      <Canvas dpr={window.devicePixelRatio} style={{ backgroundColor: '#0F203B' }}>
+      <Canvas {...bind()}>
         <Stats />
         <StarRings count={Math.floor(count)} />
         <Suspense fallback="loading...">
