@@ -7,7 +7,7 @@ import { computeBoundingbox } from '../utils/element'
 import random from '../utils/random'
 import vertority from '../utils/vertority'
 import point from '../utils/point'
-import { deg2rad } from '../utils/angle'
+import { deg2rad, angle2dir } from '../utils/angle'
 import { DIRS } from '../utils/constants'
 import { getCoord } from '../utils/scene'
 import { Orientation } from '../interface'
@@ -22,17 +22,6 @@ export type Raindrop = {
 
 const RAIN_COLORS = ['#cdd1d3', '#fcd337']
 
-/**
- * 角度正负数值
- * @param {number | undefined} angle
- */
-const angle2dir = (angle?: number) => {
-  if (!angle || angle === 0) {
-    return 0
-  }
-  return angle / Math.abs(angle)
-}
-
 const angle2placement = (angle?: number) => {
   if (!angle || angle === 0) {
     return 'fromTop'
@@ -43,6 +32,7 @@ const angle2placement = (angle?: number) => {
 export type UseRainProps = {
   count?: number
   angle?: number
+  colors?: string[]
 }
 
 export const DEFAULT_RAINPROPS = {
@@ -50,7 +40,11 @@ export const DEFAULT_RAINPROPS = {
   angle: -45,
 }
 
-export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAINPROPS) => {
+export const useRain = ({
+  angle = -45,
+  count = 100,
+  colors = RAIN_COLORS,
+}: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
   const _angle = deg2rad(angle)
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
@@ -91,10 +85,10 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
           angle: _angle,
           leg,
           orientation,
-          color: random.inRange(RAIN_COLORS),
+          color: random.inRange(colors),
         } as Raindrop
       })
-  }, [_angle, comefrom, count, startpoints])
+  }, [_angle, comefrom, count, startpoints, colors])
   return {
     lines,
   }
