@@ -1,6 +1,9 @@
-import React, { useRef } from 'react'
-
 import { useStarRings, Ring, useRing, UseStarRingsProps } from './use-starrings'
+import React, { useRef } from 'react'
+import { extend } from '@react-three/fiber'
+import * as meshline from 'threejs-meshline'
+
+extend(meshline)
 
 const Ring = ({ value }: { value: Ring }) => {
   const ring = useRef<any>()

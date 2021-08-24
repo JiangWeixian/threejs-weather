@@ -6,8 +6,6 @@ import { useSun, UseSunProps, Halo } from './use-sun'
 import { inRange } from '../utils/random'
 import { DIRS } from '../utils/constants'
 
-export const SKY_COLOR = '#faf4e8'
-
 type SunProps = UseSunProps
 
 const SunHalo = ({ value }: { value: Halo }) => {

@@ -1,8 +1,10 @@
-import React, { useRef } from 'react'
 import { useRain, useRaindrop, UseRaindropProps, UseRainProps } from './use-rain'
-import { Mesh } from 'three'
 
-export const SKY_COLOR = '#1677b3'
+import React, { useRef } from 'react'
+import { Mesh } from 'three'
+import { extend } from '@react-three/fiber'
+import * as meshline from 'threejs-meshline'
+extend(meshline)
 
 export const Raindrop = (props: UseRaindropProps) => {
   const raindrop = useRef<Mesh>()

@@ -1,7 +1,10 @@
 import React, { useRef } from 'react'
 import { Mesh } from 'three'
+import { extend } from '@react-three/fiber'
+import * as meshline from 'threejs-meshline'
 
-import { useMeteors, Meteor, useMeteor, UseMeteorsProps } from './use-metors'
+import { useMeteors, Meteor, useMeteor, UseMeteorsProps } from './use-meteors'
+extend(meshline)
 
 const Meteor = ({ value }: { value: Meteor }) => {
   const meteor = useRef<Mesh>()
