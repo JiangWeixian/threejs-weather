@@ -11,65 +11,62 @@ export type UseThemeProps = {
     | 'snow'
     | 'sun'
     | 'star-rings'
-    | 'sun'
   mode: 'day' | 'night'
 }
 
-const dayTheme: Record<UseThemeProps['type'], {
-  style: CSSProperties,
-  shadows?: boolean
-}> = {
-  'cloudy': {
+const dayTheme: Record<
+  UseThemeProps['type'],
+  {
+    style: CSSProperties
+    shadows?: boolean
+  }
+> = {
+  cloudy: {
     style: {
-      backgroundColor: '#3C4245'
-    }
+      backgroundColor: '#3C4245',
+    },
   },
   fog: {
     style: {
       backgroundColor: '#000',
-      shadows: true
-    }
+    },
+    shadows: true,
   },
   haze: {
     style: {
       backgroundColor: '#A2915E',
-      shadows: true
-    }
+    },
+    shadows: true,
   },
   meteors: {
     style: {
-      backgroundColor: '#0F203B'
-    }
+      backgroundColor: '#0F203B',
+    },
   },
-  meteors: {
+  'partly-cloudy': {
     style: {
-      backgroundColor: '#0F203B'
-    }
+      backgroundColor: '#1677b3',
+    },
   },
-  "partly-cloudy": {
+  rain: {
     style: {
-      backgroundColor: '#1677b3'
-    }
+      backgroundColor: '#1677b3',
+    },
   },
-  "rain": {
+  snow: {
     style: {
-      backgroundColor: '#1677b3'
-    }
+      backgroundColor: '#1677b3',
+    },
   },
-  "snow": {
+  'star-rings': {
     style: {
-      backgroundColor: '#1677b3'
-    }
+      backgroundColor: '#0F203B',
+    },
   },
-  "star-rings": {
+  sun: {
     style: {
-      backgroundColor: '#0F203B'
-    }
-  },
-  "sun": {
-    style: {
-      backgroundColor: '#faf4e8'
-    }
+      backgroundColor: '#faf4e8',
+    },
   },
 }
 

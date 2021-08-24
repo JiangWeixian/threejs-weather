@@ -42,7 +42,7 @@ export const useHaze = ({ angle = -45, count = 100 }: UseHazeProps = DEFAULT_RAI
       ...line,
       opacity: Math.random() + 0.5,
       dashArray: Math.random() * 0.3,
-    }))
+    })),
   }
 }
 
