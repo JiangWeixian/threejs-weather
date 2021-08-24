@@ -1,1 +1,11 @@
 export type Orientation = 'fromTop' | 'fromRight' | 'fromLeft' | 'fromBottom'
+export type Weather =
+  | 'cloudy'
+  | 'fog'
+  | 'haze'
+  | 'meteors'
+  | 'partly-cloudy'
+  | 'rain'
+  | 'snow'
+  | 'sun'
+  | 'star-rings'
