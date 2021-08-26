@@ -57,4 +57,30 @@ export const dayTheme: Record<
   },
 }
 
-export const nightTheme = dayTheme
+export const nightTheme = {
+  ...dayTheme,
+  rain: {
+    ...dayTheme.rain,
+    style: {
+      backgroundColor: '#0F203B',
+    },
+  },
+  cloudy: {
+    ...dayTheme.cloudy,
+    style: {
+      backgroundColor: '#0F203B',
+    },
+  },
+  'partly-cloudy': {
+    ...dayTheme['partly-cloudy'],
+    style: {
+      backgroundColor: '#0F203B',
+    },
+  },
+  snow: {
+    ...dayTheme.snow,
+    style: {
+      backgroundColor: '#0F203B',
+    },
+  },
+}
