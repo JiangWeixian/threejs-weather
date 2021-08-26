@@ -1,15 +1,11 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
 import { useControls, Leva } from 'leva'
-
-import * as meshline from 'threejs-meshline'
-
 import { PartlyCloudy, useTheme } from 'threejs-weather'
+
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
-
-extend(meshline)
 
 const PartlyCloudyPage = () => {
   const { count } = useControls({

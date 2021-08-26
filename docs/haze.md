@@ -3,17 +3,14 @@
 ## usage
 
 ```tsx
-import { Haze } from 'threejs-weather'
-import { Canvas, extend } from '@react-three/fiber'
-import meshline from 'threejs-meshline'
-
-extend(meshline)
+import { Haze, useTheme } from 'threejs-weather'
+import { Canvas } from '@react-three/fiber'
 
 const Page = () => {
+  const { bind } = useTheme({ type: 'haze', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#A2915E' }}
+      {...bind()}
     >
       <Haze />
     </Canvas>

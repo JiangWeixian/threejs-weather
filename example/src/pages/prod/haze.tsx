@@ -1,14 +1,11 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import { Stats, OrbitControls } from '@react-three/drei'
 import { useControls, Leva } from 'leva'
-import * as meshline from 'threejs-meshline'
 import { Haze, useTheme } from 'threejs-weather'
 
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
-
-extend(meshline)
 
 const HazePage = () => {
   const { count, angle } = useControls({

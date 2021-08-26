@@ -3,14 +3,14 @@
 ## usage
 
 ```tsx
-import { Fog } from 'threejs-weather'
+import { Fog, useTheme } from 'threejs-weather'
 import { Canvas } from '@react-three/fiber'
 
 const Page = () => {
+  const { bind } = useTheme({ type: 'fog', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#A2915E' }}
+      {...bind()}
     >
       <Fog />
     </Canvas>

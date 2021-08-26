@@ -4,14 +4,14 @@
 > 只会在特定角度出现
 
 ```tsx
-import { Rain, RainRings } from 'threejs-weather'
+import { Rain, RainRings, useTheme } from 'threejs-weather'
 import { Canvas } from 'react-three/fiber'
 
 const RainPage = () => {
+  const { bind } = useTheme({ type: 'rain', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#1677b3' }}
+      {...bind()}
     >
       <Rain />
       <RainRings />
