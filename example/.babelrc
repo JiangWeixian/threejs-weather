@@ -4,7 +4,9 @@
       "@babel/preset-env",
       {
         "targets": {
-          "browsers": ["> 1%"]
+          "browsers": [
+            "> 1%"
+          ]
         },
         "useBuiltIns": "usage",
         "corejs": 3,
@@ -13,8 +15,8 @@
     ],
     "@babel/preset-react"
   ],
-  "plugins": ["@babel/plugin-syntax-dynamic-import", "react-hot-loader/babel", ["import", {
-    "libraryName": "threejs-weather",
-    "style": false
-  }]]
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "react-hot-loader/babel"
+  ]
 }

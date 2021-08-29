@@ -9,5 +9,23 @@ import PartlyCloudy from './partly-cloudy'
 import Fog from './fog'
 import Haze from './haze'
 import { useTheme } from './hooks/use-theme'
+import { useTransition } from './hooks/use-transition'
+import { WeatherProvider, useWeather, WeatherConsumer } from './context'
 
-export { Rain, Sun, StarRings, Snow, Meteors, Cloudy, RainRing, PartlyCloudy, Fog, Haze, useTheme }
+export {
+  Rain,
+  Sun,
+  StarRings,
+  Snow,
+  Meteors,
+  Cloudy,
+  RainRing,
+  PartlyCloudy,
+  Fog,
+  Haze,
+  useWeather,
+  useTheme,
+  useTransition,
+  WeatherProvider,
+  WeatherConsumer,
+}

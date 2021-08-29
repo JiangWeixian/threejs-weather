@@ -46,6 +46,8 @@
     "three": ">=0.131.3"
   },
   "dependencies": {
+    "@react-spring/core": "^9.2.4",
+    "@react-spring/three": "^9.2.4",
     "threejs-meshline": "2.0.12"
   },
   "devDependencies": {

@@ -1,32 +1,19 @@
 import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
-import { useControls, Leva } from 'leva'
 
-import { Cloudy, useTheme } from 'threejs-weather'
+import { Cloudy } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
-const CloudyPage = () => {
-  const { count } = useControls({
-    count: {
-      value: 100,
-      max: 300,
-      min: 10,
-    },
-  })
-  const { bind } = useTheme({ type: 'cloudy', mode: 'day' })
+const CloudyPage = (props) => {
   return (
     <>
-      <Canvas {...bind()}>
-        <Stats />
-        <Cloudy count={Math.floor(count)} />
-        <Stats />
-        <Suspense fallback="loading...">
-          <WeatherText color="#f1f0ed">{PATHS.cloudy.name}</WeatherText>
-        </Suspense>
-      </Canvas>
-      <Leva />
+      <Stats />
+      <Cloudy style={props.style} count={Math.floor(props.count)} />
+      <Stats />
+      <Suspense fallback="loading...">
+        <WeatherText color="#f1f0ed">{PATHS.cloudy.name}</WeatherText>
+      </Suspense>
     </>
   )
 }

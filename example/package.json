@@ -41,7 +41,8 @@
     "swr": "0.5.6",
     "three": "0.131.3",
     "threejs-meshline": "2.0.12",
-    "threejs-weather": "^0.11.0"
+    "threejs-weather": "^0.11.0",
+    "wouter": "^2.7.4"
   },
   "devDependencies": {
     "@babel/core": "7.15.0",

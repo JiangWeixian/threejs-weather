@@ -1,15 +1,22 @@
 import { useStarRings, Ring, useRing, UseStarRingsProps } from './use-starrings'
 import React, { useRef } from 'react'
 import { extend } from '@react-three/fiber'
+import { a } from '@react-spring/three'
 import * as meshline from 'threejs-meshline'
+import { Style } from '../interface'
 
 extend(meshline)
 
-const Ring = ({ value }: { value: Ring }) => {
+type RingProps = {
+  value: Ring
+  style?: Style
+}
+
+const Ring = ({ value, style }: RingProps) => {
   const ring = useRef<any>()
   useRing(ring)
   return (
-    <mesh>
+    <a.mesh material-opacity={style?.opacity.to((x) => x * value.opacity)}>
       <meshLine attach="geometry" vertices={value.vertices} />
       <meshLineMaterial
         ref={ring}
@@ -20,23 +27,24 @@ const Ring = ({ value }: { value: Ring }) => {
         dashArray={value.dashArray}
         dashRatio={0.2}
         lineWidth={value.lineWidth}
-        opacity={value.opacity}
         color={value.color}
       />
-    </mesh>
+    </a.mesh>
   )
 }
 
-type StarRingsProps = UseStarRingsProps & {}
+type StarRingsProps = UseStarRingsProps & {
+  style?: Style
+}
 
 const StarRings = (props: StarRingsProps) => {
-  const { rings } = useStarRings(props)
+  const { rings, startpoint } = useStarRings(props)
   return (
-    <>
+    <a.group position={startpoint}>
       {rings.map((ring, index) => {
-        return <Ring key={index} value={ring} />
+        return <Ring key={index} value={ring} style={props.style} />
       })}
-    </>
+    </a.group>
   )
 }
 

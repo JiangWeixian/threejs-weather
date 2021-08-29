@@ -1,3 +1,5 @@
+import type { SpringValue } from '@react-spring/core'
+
 export type Orientation = 'fromTop' | 'fromRight' | 'fromLeft' | 'fromBottom'
 export type Weather =
   | 'cloudy'
@@ -9,3 +11,8 @@ export type Weather =
   | 'snow'
   | 'sun'
   | 'star-rings'
+
+export type Style = {
+  opacity: SpringValue<number>
+  scale: SpringValue<number[]>
+}

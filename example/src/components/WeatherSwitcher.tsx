@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useHistory, useLocation } from 'react-router'
+import { useLocation } from 'wouter'
+import { useWeather } from 'threejs-weather'
 import { useSprings, animated, useSpring } from '@react-spring/web'
 
 import { PATHS } from '@/constants'
@@ -27,17 +28,17 @@ const StyledWeatherSwitcher = styled(animated.ul)`
 `
 
 export const WeatherSwitcher = () => {
-  const history = useHistory()
-  const location = useLocation()
+  const [location, setLocation] = useLocation()
   const values = Object.values(PATHS)
-  const index = values.findIndex((v) => v.path === location.pathname)
+  const index = values.findIndex((v) => v.path === location)
   const [activeIndex, setActiveIndex] = useState<number>(index < 0 ? 0 : index)
   const [springs, set] = useSprings(values.length, (index) => ({
     opacity: 0.2,
   }))
   const color = useSpring({
-    color: PATHS[location.pathname.replace('/prod/', '')]?.mode === 'light' ? '#000' : '#fff',
+    color: PATHS[location.replace('/prod/', '')]?.mode === 'light' ? '#000' : '#fff',
   })
+  const { handleChangeType } = useWeather()
   useEffect(() => {
     set(((index: number) => {
       if (index !== activeIndex) {
@@ -51,10 +52,12 @@ export const WeatherSwitcher = () => {
       {springs.map((props, i) => {
         return (
           <animated.li
+            key={i}
             style={props}
             onClick={() => {
               setActiveIndex(i)
-              history.push(values[i].path)
+              handleChangeType(values[i].path.replace('/prod/', ''))
+              setLocation(values[i].path)
             }}
             onMouseEnter={() => {
               set(((index: number) => {

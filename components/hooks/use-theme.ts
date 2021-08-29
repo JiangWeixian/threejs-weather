@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react'
+
 import { Weather } from '../interface'
 import { dayTheme, nightTheme } from '../theme'
 

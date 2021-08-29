@@ -10,6 +10,8 @@ importers:
       '@babel/preset-env': 7.15.0
       '@babel/preset-react': 7.14.5
       '@changesets/cli': ^2.16.0
+      '@react-spring/core': ^9.2.4
+      '@react-spring/three': ^9.2.4
       '@react-three/drei': ^7.5.0
       '@react-three/fiber': ^7.0.6
       '@testing-library/react-hooks': 3.2.1
@@ -54,6 +56,8 @@ importers:
       tslib: 2.3.1
       typescript: 4.3.5
     dependencies:
+      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
+      '@react-spring/three': registry.nlark.com/@react-spring/three/9.2.4_89ae3f5cda273adbc54a157e7fcc9915
       threejs-meshline: registry.nlark.com/threejs-meshline/2.0.12
     devDependencies:
       '@aiou/eslint-config': registry.nlark.com/@aiou/eslint-config/0.2.1_231f79013a5f77c334537212a12d84da
@@ -208,6 +212,7 @@ importers:
       webpack-cli: 3.3.2
       webpack-dev-server: 3.3.1
       webpack-merge: 4.2.1
+      wouter: ^2.7.4
     dependencies:
       '@react-spring/web': registry.nlark.com/@react-spring/web/9.2.4_react-dom@17.0.2+react@17.0.2
       '@react-three/drei': registry.nlark.com/@react-three/drei/7.5.0_d94cda7633a01f77b16fba3fb995b62f
@@ -228,6 +233,7 @@ importers:
       three: registry.nlark.com/three/0.131.3
       threejs-meshline: registry.nlark.com/threejs-meshline/2.0.12
       threejs-weather: link:..
+      wouter: registry.nlark.com/wouter/2.7.4_react@17.0.2
     devDependencies:
       '@babel/core': registry.nlark.com/@babel/core/7.15.0
       '@babel/plugin-syntax-dynamic-import': 7.8.3_@babel+core@7.15.0
@@ -2003,7 +2009,7 @@ packages:
         optional: true
     dependencies:
       any-observable: 0.3.0
-      rxjs: registry.nlark.com/rxjs/6.6.7
+      rxjs: 6.6.7
     dev: true
 
   /@sindresorhus/is/0.14.0:
@@ -17648,6 +17654,25 @@ packages:
       react: registry.nlark.com/react/17.0.2
     dev: false
 
+  registry.nlark.com/@react-spring/three/9.2.4_89ae3f5cda273adbc54a157e7fcc9915:
+    resolution: {integrity: sha1-hJyXZYpuFBC2+COtIeLuM/6tqCA=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/three/download/@react-spring/three-9.2.4.tgz}
+    id: registry.nlark.com/@react-spring/three/9.2.4
+    name: '@react-spring/three'
+    version: 9.2.4
+    peerDependencies:
+      '@react-three/fiber': '>=6.0'
+      react: '>=16.11'
+      three: '>=0.126'
+    dependencies:
+      '@react-spring/animated': registry.nlark.com/@react-spring/animated/9.2.4_react@17.0.2
+      '@react-spring/core': registry.nlark.com/@react-spring/core/9.2.4_react@17.0.2
+      '@react-spring/shared': registry.nlark.com/@react-spring/shared/9.2.4_react@17.0.2
+      '@react-spring/types': registry.nlark.com/@react-spring/types/9.2.4
+      '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_2264487932416a55241492f0d55afda2
+      react: registry.nlark.com/react/17.0.2
+      three: 0.125.2
+    dev: false
+
   registry.nlark.com/@react-spring/types/9.2.4:
     resolution: {integrity: sha1-I2XOnXYfVIqa3LLNaHFL8mdlpd4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-spring/types/download/@react-spring/types-9.2.4.tgz}
     name: '@react-spring/types'
@@ -21387,6 +21412,17 @@ packages:
     dependencies:
       string-width: 4.2.2
     dev: true
+
+  registry.nlark.com/wouter/2.7.4_react@17.0.2:
+    resolution: {integrity: sha1-1SgSLKz26YBde5U7vd+5AiaFCXc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/wouter/download/wouter-2.7.4.tgz}
+    id: registry.nlark.com/wouter/2.7.4
+    name: wouter
+    version: 2.7.4
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: registry.nlark.com/react/17.0.2
+    dev: false
 
   registry.nlark.com/wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/wrappy/download/wrappy-1.0.2.tgz}

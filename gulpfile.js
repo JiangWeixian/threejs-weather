@@ -44,22 +44,10 @@ function compile(modules) {
   }
   const tsResult = tsProject.src().pipe(
     ts(config.tsConfig, {
-      error(e) {
-        tsDefaultReporter.error(e)
-        error = 1
-      },
       finish: tsDefaultReporter.finish,
-    }),
+    }).on('error', () => {}),
   )
 
-  function check() {
-    if (error && !argv['ignore-error']) {
-      process.exit(1)
-    }
-  }
-
-  tsResult.on('finish', check)
-  tsResult.on('end', check)
   const tsFilesStream = babelify(tsResult.js, modules)
   const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? es : lib))
   return merge2([tsFilesStream, tsd, assets])

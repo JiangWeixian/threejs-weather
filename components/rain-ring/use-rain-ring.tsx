@@ -3,13 +3,21 @@ import { useFrame, useThree } from '@react-three/fiber'
 import React, { useMemo } from 'react'
 
 import vertority from '../utils/vertority'
+import { Style } from '../interface'
 
 export type Ring = {
   radius: number
   startpoint: Vector3
 }
 
-export const useRainRing = (rainring: React.MutableRefObject<Mesh | undefined>) => {
+type UseRainRingProps = {
+  style?: Style
+}
+
+export const useRainRing = (
+  rainring: React.MutableRefObject<Mesh | undefined>,
+  props: UseRainRingProps,
+) => {
   const { camera } = useThree()
   useFrame(() => {
     if (!rainring.current || !rainring.current.material) {
@@ -21,6 +29,7 @@ export const useRainRing = (rainring: React.MutableRefObject<Mesh | undefined>) 
       return
     }
     mat.opacity -= 0.01
+    mat.opacity *= props.style?.opacity.get() ?? 1
     rainring.current.scale.x += 0.1
     rainring.current.scale.y += 0.1
     if ((rainring.current.material as Material).opacity <= 0) {

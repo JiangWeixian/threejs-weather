@@ -1,17 +1,24 @@
 import React, { useRef } from 'react'
 import { Mesh } from 'three'
 import { extend } from '@react-three/fiber'
+import { a } from '@react-spring/three'
 import * as meshline from 'threejs-meshline'
 
 import { useMeteors, Meteor, useMeteor, UseMeteorsProps } from './use-meteors'
+import { Style } from '../interface'
 extend(meshline)
 
-const Meteor = ({ value }: { value: Meteor }) => {
+type MeteorProps = {
+  value: Meteor
+  style?: Style
+}
+
+const Meteor = ({ value, style }: MeteorProps) => {
   const meteor = useRef<Mesh>()
   const mat = useRef<any>()
-  useMeteor(meteor, mat, { value })
+  useMeteor(meteor, mat, { value, style })
   return (
-    <mesh ref={meteor}>
+    <a.mesh ref={meteor} material-opacity={style?.opacity.to((x) => x * 0.75)}>
       <meshLine attach="geometry" vertices={value.vertices} />
       <meshLineMaterial
         attach="material"
@@ -22,21 +29,22 @@ const Meteor = ({ value }: { value: Meteor }) => {
         lineWidth={0.02}
         dashArray={0.5}
         dashRatio={0.7}
-        opacity={0.75}
         color={value.color}
       />
-    </mesh>
+    </a.mesh>
   )
 }
 
-type MeteorsProps = UseMeteorsProps & {}
+type MeteorsProps = UseMeteorsProps & {
+  style?: Style
+}
 
 const Meteors = (props: MeteorsProps) => {
   const { meteors } = useMeteors(props)
   return (
     <>
       {meteors.map((meteor, index) => {
-        return <Meteor key={index} value={meteor} />
+        return <Meteor key={index} value={meteor} style={props.style} />
       })}
     </>
   )

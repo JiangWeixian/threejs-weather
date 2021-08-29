@@ -10,7 +10,7 @@ import point from '../utils/point'
 import { deg2rad, angle2dir } from '../utils/angle'
 import { DIRS } from '../utils/constants'
 import { getCoord } from '../utils/scene'
-import { Orientation } from '../interface'
+import { Orientation, Style } from '../interface'
 
 export type Raindrop = {
   vertices: THREE.Vector3[] // rain-drop geom
@@ -96,6 +96,7 @@ export const useRain = ({
 
 export type UseRaindropProps = {
   value: Raindrop
+  style?: Style
 }
 
 export const useRaindrop = (
@@ -123,6 +124,7 @@ export const useRaindrop = (
     raindrop.current.position.x -= vx0.current * angle2dir(props.value.angle)
     // 从无到有比较真实
     mat.current.opacity += 0.01
+    mat.current.opacity *= props.style?.opacity.get() ?? 1
     vy0.current += a.current
     vx0.current += a.current
     // 判断raindrop是否出了边界
