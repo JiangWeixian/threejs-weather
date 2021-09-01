@@ -1,7 +1,7 @@
 import React, { createContext, useState, useCallback, useContext, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Color } from 'three'
-import { SpringValue, useSpring } from '@react-spring/three'
+import { useSpring, SpringValue } from '@react-spring/three'
 
 import { useTheme, UseThemeProps } from '../hooks/use-theme'
 
