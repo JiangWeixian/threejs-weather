@@ -1,3 +1,4 @@
+// FIXME: fog has totally different animation behavior between others
 import React, { useEffect, useState } from 'react'
 import { useThree } from '@react-three/fiber'
 import { PerspectiveCamera } from '@react-three/drei'
