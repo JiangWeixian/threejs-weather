@@ -12,7 +12,11 @@ const FogPage = (props) => {
   return (
     <>
       <Suspense fallback="loading...">
-        <WeatherText position={new Vector3(...position).multiplyScalar(0.9)} color="#f1f0ed">
+        <WeatherText
+          position={new Vector3(...position).multiplyScalar(0.9)}
+          color="#f1f0ed"
+          style={props.style}
+        >
           {PATHS.fog.name}
         </WeatherText>
       </Suspense>

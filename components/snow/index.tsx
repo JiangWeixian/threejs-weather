@@ -27,7 +27,6 @@ type SnowProps = UseSnowflakesProps & {
 
 const Snow = (props: SnowProps) => {
   const { snowflakes } = useSnowflakes(props)
-  console.log(snowflakes)
   return (
     <a.group>
       {snowflakes.map((snowflake, index) => {

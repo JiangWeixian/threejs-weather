@@ -10,7 +10,9 @@ const HazePage = (props) => {
     <>
       <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">{PATHS.haze.name}</WeatherText>
+        <WeatherText style={props.style} color="#f1f0ed">
+          {PATHS.haze.name}
+        </WeatherText>
       </Suspense>
       <Stats />
       <Haze count={Math.floor(props.count)} style={props.style} />

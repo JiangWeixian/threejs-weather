@@ -12,7 +12,9 @@ const CloudyPage = (props) => {
       <Cloudy style={props.style} count={Math.floor(props.count)} />
       <Stats />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">{PATHS.cloudy.name}</WeatherText>
+        <WeatherText color="#f1f0ed" style={props.style}>
+          {PATHS.cloudy.name}
+        </WeatherText>
       </Suspense>
     </>
   )

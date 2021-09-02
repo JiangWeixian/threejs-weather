@@ -11,7 +11,9 @@ const StarRingsPage = (props) => {
       <Stats />
       <StarRings style={props.style} count={Math.floor(props.count)} />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">{PATHS.starRings.name}</WeatherText>
+        <WeatherText style={props.style} color="#f1f0ed">
+          {PATHS.starRings.name}
+        </WeatherText>
       </Suspense>
     </>
   )

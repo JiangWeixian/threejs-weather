@@ -51,13 +51,13 @@ export const WeatherProvider = ({
 }: WeatherProps) => {
   const [type, setType] = useState(defaultType)
   const [mode, setMode] = useState(defaultMode)
-  const { bind } = useTheme({ type, mode })
+  const controlType = props.type || type
+  const controlMode = props.mode || mode
+  const { bind } = useTheme({ type: controlType, mode: controlMode })
   const { style: _style, ...config } = bind()
   const [style, api] = useSpring(() => ({
     backgroundColor: _style.backgroundColor,
   }))
-  const controlType = props.type || type
-  const controlMode = props.mode || mode
   useEffect(() => {
     api.start({
       backgroundColor: _style.backgroundColor,
@@ -80,7 +80,7 @@ export const WeatherProvider = ({
         ) : (
           <PerspectiveCamera makeDefault={true} args={[75, 0, 0.1, 1000]} />
         )}
-        <Container type={type} style={style}>
+        <Container type={controlType} style={style}>
           {props.children}
         </Container>
       </Canvas>

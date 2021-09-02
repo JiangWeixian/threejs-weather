@@ -13,7 +13,9 @@ const RainPage = (props) => {
       <Rain count={Math.floor(props.count)} style={props.style} />
       <RainRing style={props.style} />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">{PATHS.rain.name}</WeatherText>
+        <WeatherText style={props.style} color="#f1f0ed">
+          {PATHS.rain.name}
+        </WeatherText>
       </Suspense>
     </>
   )

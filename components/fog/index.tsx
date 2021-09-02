@@ -5,7 +5,6 @@ import { Object3D, MeshPhysicalMaterial, Vector3, Fog as _Fog, Euler } from 'thr
 import { a } from '@react-spring/three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
-import { useWeather } from '../context'
 import { Style } from '../interface'
 
 const url = 'https://raw.githubusercontent.com/iondrimba/images/master/buildings.obj'
@@ -100,10 +99,8 @@ export const FogCamera = () => {
 }
 
 const Fog = (props: FogProps) => {
-  const { type } = useWeather()
   return (
     <a.group>
-      {!type && <FogCamera />}
       <CityFog style={props.style} />
       <directionalLight position={[-8, 12, 0]} castShadow={true} color="#272727" />
       <directionalLight position={[8, 1200, 8]} color="#d3263a" castShadow={true} />

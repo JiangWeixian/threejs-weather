@@ -11,7 +11,9 @@ const MeteorsPage = (props) => {
       <Stats />
       <Meteors style={props.style} count={Math.floor(props.count)} />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">{PATHS.meteors.name}</WeatherText>
+        <WeatherText style={props.style} color="#f1f0ed">
+          {PATHS.meteors.name}
+        </WeatherText>
       </Suspense>
     </>
   )

@@ -11,7 +11,7 @@ const SunPage = (props) => {
       <Stats />
       <Sun style={props.style} count={Math.floor(props.count)} />
       <Suspense fallback="loading...">
-        <WeatherText>{PATHS.sun.name}</WeatherText>
+        <WeatherText style={props.style}>{PATHS.sun.name}</WeatherText>
       </Suspense>
     </>
   )

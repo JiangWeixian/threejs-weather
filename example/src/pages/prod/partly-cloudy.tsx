@@ -11,7 +11,9 @@ const PartlyCloudyPage = (props) => {
       <Stats />
       <PartlyCloudy style={props.style} count={Math.floor(props.count)} />
       <Suspense fallback="loading...">
-        <WeatherText color="#f1f0ed">{PATHS.partlyCloudy.name}</WeatherText>
+        <WeatherText color="#f1f0ed" style={props.style}>
+          {PATHS.partlyCloudy.name}
+        </WeatherText>
       </Suspense>
       {/* <Leva /> */}
     </>
