@@ -6,7 +6,6 @@ import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
 const MeteorsPage = (props) => {
-
   return (
     <>
       <Stats />

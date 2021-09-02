@@ -11,6 +11,7 @@ import Haze from './haze'
 import { useTheme } from './hooks/use-theme'
 import { useTransition } from './hooks/use-transition'
 import { WeatherProvider, useWeather, WeatherConsumer } from './context'
+export * as types from './interface'
 
 export {
   Rain,

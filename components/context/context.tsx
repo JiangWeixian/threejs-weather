@@ -2,8 +2,10 @@ import React, { createContext, useState, useCallback, useContext, useEffect } fr
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Color } from 'three'
 import { useSpring, SpringValue } from '@react-spring/three'
+import { PerspectiveCamera } from '@react-three/drei'
 
 import { useTheme, UseThemeProps } from '../hooks/use-theme'
+import { FogCamera } from '../fog'
 
 type Config = {
   type?: UseThemeProps['type']
@@ -18,6 +20,8 @@ type WeatherProps = {
   children?: React.ReactNode
   defaultType?: UseThemeProps['type']
   defaultMode?: UseThemeProps['mode']
+  type?: UseThemeProps['type']
+  mode?: UseThemeProps['mode']
   extra?: React.ReactNode
 }
 
@@ -25,11 +29,17 @@ const Container = (props: {
   children?: React.ReactNode
   style: {
     backgroundColor?: SpringValue<any>
+    opacity?: SpringValue<any>
   }
+  type: UseThemeProps['type']
 }) => {
-  const { scene } = useThree()
+  const { scene, camera } = useThree()
   useFrame(() => {
     scene.background = new Color(props.style.backgroundColor?.get())
+    if (props.type !== 'fog' && props.style.backgroundColor?.idle) {
+      camera.lookAt(0, 0, 0)
+      camera.position.z = 5
+    }
   })
   return <>{props.children}</>
 }
@@ -46,6 +56,8 @@ export const WeatherProvider = ({
   const [style, api] = useSpring(() => ({
     backgroundColor: _style.backgroundColor,
   }))
+  const controlType = props.type || type
+  const controlMode = props.mode || mode
   useEffect(() => {
     api.start({
       backgroundColor: _style.backgroundColor,
@@ -58,10 +70,19 @@ export const WeatherProvider = ({
     setMode(mode)
   }, [])
   return (
-    <WeatherContext.Provider value={{ type, mode, handleChangeType, handleChangeMode }}>
+    <WeatherContext.Provider
+      value={{ type: controlType, mode: controlMode, handleChangeType, handleChangeMode }}
+    >
       {props.extra}
       <Canvas {...config}>
-        <Container style={style}>{props.children}</Container>
+        {type === 'fog' ? (
+          <FogCamera />
+        ) : (
+          <PerspectiveCamera makeDefault={true} args={[75, 0, 0.1, 1000]} />
+        )}
+        <Container type={type} style={style}>
+          {props.children}
+        </Container>
       </Canvas>
     </WeatherContext.Provider>
   )

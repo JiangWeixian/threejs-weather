@@ -6,7 +6,6 @@ import vertority from '../utils/vertority'
 import { computeBoundingbox } from '../utils/element'
 import { deg2rad } from '../utils/angle'
 import { getCoord } from '../utils/scene'
-import { Style } from '../interface'
 
 export type UseMeteorsProps = {
   count?: number
@@ -55,13 +54,12 @@ export const useMeteors = (
 
 export type UseMeteorProps = {
   value: Meteor
-  style?: Style
 }
 
 export const useMeteor = (
   meteor: React.MutableRefObject<Mesh | undefined>,
   mat: React.MutableRefObject<any>,
-  { value, style }: UseMeteorProps,
+  { value }: UseMeteorProps,
 ) => {
   const vopacity = useRef(0.01)
   const { offsetTop } = computeBoundingbox(value.vertices[0])

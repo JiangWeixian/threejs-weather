@@ -1,11 +1,13 @@
 import { CSSProperties } from 'react'
+import { PCFSoftShadowMap } from 'three'
+
 import { Weather } from './interface'
 
 export const dayTheme: Record<
   Weather,
   {
     style: CSSProperties
-    shadows?: boolean
+    shadows?: any
   }
 > = {
   cloudy: {
@@ -15,9 +17,9 @@ export const dayTheme: Record<
   },
   fog: {
     style: {
-      backgroundColor: '#000',
+      backgroundColor: '#0F203B',
     },
-    shadows: true,
+    shadows: { enabled: true, type: PCFSoftShadowMap },
   },
   haze: {
     style: {

@@ -32,7 +32,7 @@ export const WeatherSwitcher = () => {
   const values = Object.values(PATHS)
   const index = values.findIndex((v) => v.path === location)
   const [activeIndex, setActiveIndex] = useState<number>(index < 0 ? 0 : index)
-  const [springs, set] = useSprings(values.length, (index) => ({
+  const [springs, set] = useSprings(values.length, () => ({
     opacity: 0.2,
   }))
   const color = useSpring({
@@ -46,7 +46,7 @@ export const WeatherSwitcher = () => {
       }
       return { opacity: 1 }
     }) as any)
-  }, [activeIndex])
+  }, [activeIndex, set])
   return (
     <StyledWeatherSwitcher style={color}>
       {springs.map((props, i) => {
