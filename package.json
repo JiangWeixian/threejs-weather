@@ -28,7 +28,7 @@
     "release": "pnpm run build && pnpm changeset publish",
     "build": "pnpm run clean && cross-env NODE_ENV=production gulp compile",
     "build:dev": "pnpm run clean && cross-env NODE_ENV=development gulp compile",
-    "prepublishOnly": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch"
+    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch --tag=beta --no-release-draft"
   },
   "husky": {
     "hooks": {
