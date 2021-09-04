@@ -3,17 +3,24 @@
 ## usage
 
 ```tsx
-import { Fog } from 'threejs-weather'
-import { Canvas } from 'react-three-fiber'
+import { Fog, useTheme, FogCamera } from 'threejs-weather'
+import { Canvas } from '@react-three/fiber'
 
 const Page = () => {
+  const { bind } = useTheme({ type: 'fog', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#A2915E' }}
+      {...bind()}
     >
+      <FogCamera />
       <Fog />
     </Canvas>
   )
 }
 ```
+
+## props
+
+| name  |          description          |  type  | default |
+| :---: | :---------------------------: | :----: | :-----: |
+| url |  custom building model url  | string |      |

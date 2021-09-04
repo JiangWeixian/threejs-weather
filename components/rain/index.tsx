@@ -1,42 +1,46 @@
-import React, { useRef } from 'react'
 import { useRain, useRaindrop, UseRaindropProps, UseRainProps } from './use-rain'
-import { Mesh } from 'three'
+import { Style } from '../interface'
 
-export const SKY_COLOR = '#1677b3'
+import React, { useRef } from 'react'
+import { a } from '@react-spring/three'
+import { Mesh } from 'three'
+import { extend } from '@react-three/fiber'
+import * as meshline from 'threejs-meshline'
+extend(meshline)
 
 export const Raindrop = (props: UseRaindropProps) => {
   const raindrop = useRef<Mesh>()
   const mat = useRef<any>()
-  useRaindrop(raindrop, mat, { value: props.value })
+  useRaindrop(raindrop, mat, { value: props.value, style: props.style })
   return (
-    <>
-      <mesh ref={raindrop}>
-        <meshLine attach="geometry" vertices={props.value.vertices} />
-        <meshLineMaterial
-          attach="material"
-          ref={mat}
-          transparent={true}
-          depthTest={false}
-          sizeAttenuation={true}
-          lineWidth={0.01}
-          opacity={0}
-          color={props.value.color}
-        />
-      </mesh>
-    </>
+    <mesh ref={raindrop}>
+      <meshLine attach="geometry" vertices={props.value.vertices} />
+      <meshLineMaterial
+        attach="material"
+        ref={mat}
+        transparent={true}
+        depthTest={false}
+        sizeAttenuation={true}
+        lineWidth={0.01}
+        opacity={0}
+        color={props.value.color}
+      />
+    </mesh>
   )
 }
 
-type RainProps = UseRainProps & {}
+type RainProps = UseRainProps & {
+  style?: Style
+}
 
 const Rain = (props: RainProps) => {
   const { lines } = useRain(props)
   return (
-    <>
+    <a.group>
       {lines.map((raindrop, index) => {
-        return <Raindrop key={index} value={raindrop} />
+        return <Raindrop key={index} value={raindrop} style={props.style} />
       })}
-    </>
+    </a.group>
   )
 }
 

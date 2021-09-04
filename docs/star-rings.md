@@ -3,17 +3,14 @@
 ## usage
 
 ```tsx
-import { StarRings } from 'threejs-weather'
-import { Canvas, extend } from 'react-three-fiber'
-import meshline from 'threejs-meshline'
-
-extend(meshline)
+import { StarRings, useTheme } from 'threejs-weather'
+import { Canvas } from 'react-three/fiber'
 
 const RainPage = () => {
+  const { bind } = useTheme({ type: 'snow', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#0F203B' }}
+      {...bind()}
     >
       <StarRings />
     </Canvas>

@@ -1,4 +1,4 @@
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import React, { useRef, useMemo } from 'react'
 import { Vector3 } from 'three'
@@ -7,10 +7,10 @@ import { computeBoundingbox } from '../utils/element'
 import random from '../utils/random'
 import vertority from '../utils/vertority'
 import point from '../utils/point'
-import { deg2rad } from '../utils/angle'
+import { deg2rad, angle2dir } from '../utils/angle'
 import { DIRS } from '../utils/constants'
 import { getCoord } from '../utils/scene'
-import { Orientation } from '../interface'
+import { Orientation, Style } from '../interface'
 
 export type Raindrop = {
   vertices: THREE.Vector3[] // rain-drop geom
@@ -22,17 +22,6 @@ export type Raindrop = {
 
 const RAIN_COLORS = ['#cdd1d3', '#fcd337']
 
-/**
- * 角度正负数值
- * @param {number | undefined} angle
- */
-const angle2dir = (angle?: number) => {
-  if (!angle || angle === 0) {
-    return 0
-  }
-  return angle / Math.abs(angle)
-}
-
 const angle2placement = (angle?: number) => {
   if (!angle || angle === 0) {
     return 'fromTop'
@@ -43,6 +32,7 @@ const angle2placement = (angle?: number) => {
 export type UseRainProps = {
   count?: number
   angle?: number
+  colors?: string[]
 }
 
 export const DEFAULT_RAINPROPS = {
@@ -50,7 +40,11 @@ export const DEFAULT_RAINPROPS = {
   angle: -45,
 }
 
-export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAINPROPS) => {
+export const useRain = ({
+  angle = -45,
+  count = 100,
+  colors = RAIN_COLORS,
+}: UseRainProps = DEFAULT_RAINPROPS) => {
   // raindrop start position data
   const _angle = deg2rad(angle)
   const startpoints = useRef<{ [key: string]: THREE.Vector3 }>({
@@ -90,11 +84,11 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
           ],
           angle: _angle,
           leg,
-          orientation: orientation,
-          color: random.inRange(RAIN_COLORS),
+          orientation,
+          color: random.inRange(colors),
         } as Raindrop
       })
-  }, [_angle, count])
+  }, [_angle, comefrom, count, startpoints, colors])
   return {
     lines,
   }
@@ -102,6 +96,7 @@ export const useRain = ({ angle = -45, count = 100 }: UseRainProps = DEFAULT_RAI
 
 export type UseRaindropProps = {
   value: Raindrop
+  style?: Style
 }
 
 export const useRaindrop = (
@@ -129,6 +124,7 @@ export const useRaindrop = (
     raindrop.current.position.x -= vx0.current * angle2dir(props.value.angle)
     // 从无到有比较真实
     mat.current.opacity += 0.01
+    mat.current.opacity *= props.style?.opacity.get() ?? 1
     vy0.current += a.current
     vx0.current += a.current
     // 判断raindrop是否出了边界

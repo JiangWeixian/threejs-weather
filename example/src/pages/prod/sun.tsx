@@ -1,27 +1,18 @@
 import React, { Suspense } from 'react'
-import { Canvas, extend } from 'react-three-fiber'
-import { Stats } from 'drei'
-import * as meshline from 'threejs-meshline'
-import { Controls, useControl } from 'react-three-gui'
+import { Stats } from '@react-three/drei'
 
 import { Sun } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
-extend(meshline)
-
-const SunPage = () => {
-  const count = useControl('count', { type: 'number', max: 6, min: 1, value: 6 })
+const SunPage = (props) => {
   return (
     <>
-      <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#faf4e8' }}>
-        <Stats />
-        <Sun count={Math.floor(count)} />
-        <Suspense fallback="loading...">
-          <WeatherText>{PATHS.sun.name}</WeatherText>
-        </Suspense>
-      </Canvas>
-      <Controls />
+      <Stats />
+      <Sun style={props.style} count={Math.floor(props.count)} />
+      <Suspense fallback="loading...">
+        <WeatherText style={props.style}>{PATHS.sun.name}</WeatherText>
+      </Suspense>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import models from '@/store/models'
 import { RematchStore, RematchDispatch, RematchRootState } from '@rematch/core'
-import { ReactThreeFiber } from 'react-three-fiber'
+import { ReactThreeFiber } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 type Models = typeof models

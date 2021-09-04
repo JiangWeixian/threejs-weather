@@ -19,7 +19,7 @@ export const PLACEMENT_TO_DIR: { [key in Orientation]: 1 | -1 } = {
 export const PLACEMENTS = Object.keys(PLACEMENT_TO_DIR) as Orientation[]
 /**
  * 得到一个随机的噪声向量, 和orientation有关。
- * - placement = top -> [a, b, 0] or [0, b, 0]
+ * - placement = top -> [a, b, 0](fromPlacement) or [0, b, 0](fromAxis)
  * - placement = left -> [a, b, 0] or [a, 0, 0]
  * - placement = right -> [a, b, 0] or [a, 0, 0]
  * @param {Orientation} placement

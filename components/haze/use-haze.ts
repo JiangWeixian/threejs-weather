@@ -1,15 +1,13 @@
-import React, { useRef, useMemo } from 'react'
-import { Vector3 } from 'three'
-import { useFrame } from 'react-three-fiber'
+import React, { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 
 import vertority from '../utils/vertority'
 import { computeBoundingbox } from '../utils/element'
 import random from '../utils/random'
-import { deg2rad } from '../utils/angle'
-import point from '../utils/point'
 import { getCoord } from '../utils/scene'
 import { DIRS } from '../utils/constants'
-import { Orientation } from '../interface'
+import { useRain } from '../rain/use-rain'
+import { angle2dir } from '../utils/angle'
 
 export type Haze = {
   vertices: THREE.Vector3[] // rain-drop geom
@@ -21,25 +19,7 @@ export type Haze = {
   opacity: number
 }
 
-const RAIN_COLORS = ['#fff', '#0F203B']
-
-/**
- * 角度正负数值
- * @param {number | undefined} angle
- */
-const angle2dir = (angle?: number) => {
-  if (!angle || angle === 0) {
-    return 0
-  }
-  return angle / Math.abs(angle)
-}
-
-const angle2placement = (angle?: number) => {
-  if (!angle || angle === 0) {
-    return 'fromTop'
-  }
-  return angle < 0 ? 'fromRight' : 'fromLeft'
-}
+const HAZE_COLORS = ['#fff', '#0F203B']
 
 export type UseHazeProps = {
   count?: number
@@ -52,54 +32,17 @@ export const DEFAULT_RAINPROPS = {
 }
 
 export const useHaze = ({ angle = -45, count = 100 }: UseHazeProps = DEFAULT_RAINPROPS) => {
-  // hazedrop start position data
-  const _angle = deg2rad(angle)
-  const startpoints = useRef<{ [key: string]: Vector3 }>({
-    fromTop: new Vector3().fromArray(point.axisxy.top),
-    fromRight: new Vector3().fromArray(point.axisxy.right),
-    fromLeft: new Vector3().fromArray(point.axisxy.left),
-  }).current
-  // radindrop come from which orientation
-  const comefrom = useRef<{ [key: string]: Orientation[] }>({
-    fromLeft: ['fromTop', 'fromRight'],
-    fromRight: ['fromTop', 'fromLeft'],
-    fromTop: ['fromTop'],
-  }).current
-  const lines = useMemo(() => {
-    return Array(count)
-      .fill(0)
-      .map(() => {
-        // h / deltax = tan(ang)
-        // 直角边
-        const leg = 0.5 // Math.random() * 2
-        // FIXME: should modify from angle
-        const orientation = random.inRange<Orientation>(comefrom[angle2placement(_angle)])
-        // noise vertor for startpoint
-        const vertor = vertority
-          .fromPlacement(orientation)
-          .add(new Vector3(0, 0, point.fromAxisZ()))
-        return {
-          vertices: [
-            // endpoint
-            new Vector3()
-              .copy(startpoints[orientation])
-              .add(vertor)
-              // distance vertor
-              .add(new Vector3(leg / Math.tan(_angle), leg, 0)),
-            // startpoint
-            new Vector3().copy(startpoints[orientation]).add(vertor),
-          ],
-          angle: _angle,
-          leg,
-          opacity: Math.random() + 0.5,
-          orientation: orientation,
-          color: random.inRange(RAIN_COLORS),
-          dashArray: Math.random() * 0.3,
-        } as Haze
-      })
-  }, [_angle, count])
+  const { lines } = useRain({
+    angle,
+    count,
+    colors: HAZE_COLORS,
+  })
   return {
-    lines,
+    lines: lines.map((line) => ({
+      ...line,
+      opacity: Math.random() + 0.5,
+      dashArray: Math.random() * 0.3,
+    })),
   }
 }
 

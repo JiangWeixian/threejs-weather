@@ -1,5 +1,5 @@
 import { useRef, useMemo } from 'react'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 import { Group, Vector3 } from 'three'
 
 import { getCoord } from '../utils/scene'
@@ -33,7 +33,7 @@ export const useSun = (
   const coord = useRef(getCoord()).current
   const startpoint = useMemo(() => {
     return new Vector3(coord[0] * percentX, coord[1], 0)
-  }, [percentX])
+  }, [coord, percentX])
 
   const sunshines = useMemo(() => {
     return Array(3)
@@ -58,7 +58,7 @@ export const useSun = (
           angle: angle.current,
         } as Sunshine
       })
-  }, [percentX])
+  }, [coord, percentX])
   const halos = useMemo(() => {
     return Array(count)
       .fill(0)
@@ -70,7 +70,7 @@ export const useSun = (
           startpoint,
         } as Halo
       })
-  }, [startpoint, count])
+  }, [count])
   return {
     sunshines,
     halos,

@@ -1,97 +1,114 @@
-import React from 'react'
-import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
-import Loadable from 'react-loadable'
+import React, { useMemo, useEffect, useState, useCallback } from 'react'
+import { useLocation, Switch, Route, Router } from 'wouter'
+import { useTransition, WeatherProvider, types } from 'threejs-weather'
+import { a } from '@react-spring/three'
+import { Leva, useControls } from 'leva'
+import Sun from '@/pages/prod/sun'
+import Cloudy from '@/pages/prod/cloudy'
+import StarRing from '@/pages/prod/star-ring'
+import Snow from '@/pages/prod/snow'
+import Rain from '@/pages/prod/rain'
+import Meteors from '@/pages/prod/meteors'
+import Haze from '@/pages/prod/haze'
+import Fog from '@/pages/prod/fog'
+import PartlyCloudy from '@/pages/prod/partly-cloudy'
 
 import { PATHS } from '@/constants'
 import { WeatherSwitcher } from '@/components/WeatherSwitcher'
+import { getWeatherType } from '@/utils/weather'
 
-const ProdSun = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdSun" */ '@/pages/prod/sun'),
-  loading: () => <div>loading</div>,
-})
+const Transition = () => {
+  const [location] = useLocation()
+  const defaultCount = useMemo(() => {
+    const path = Object.values(PATHS).find((item) => item.path === location)
+    return path?.count || 6
+  }, [location])
+  const [{ count }, set] = useControls(() => ({
+    count: {
+      value: defaultCount,
+      max: 100,
+      min: 1,
+    },
+  }))
+  useEffect(() => {
+    set({ count: defaultCount })
+  }, [defaultCount, set])
+  console.log(location)
+  const { transition } = useTransition({ location })
+  const type = location === '/' ? 'rain' : getWeatherType(location) || 'rain'
+  return (
+    <WeatherProvider defaultType={type as types.Weather} extra={<WeatherSwitcher />}>
+      {transition((style, _location, p) => {
+        return (
+          <a.group>
+            <Switch location={_location}>
+              <Route path={PATHS.partlyCloudy.path}>
+                <PartlyCloudy style={style} count={count} />
+              </Route>
+              <Route path={PATHS.cloudy.path}>
+                <Cloudy style={style} count={count} />
+              </Route>
+              <Route path={PATHS.sun.path}>
+                <Sun style={style} count={count} />
+              </Route>
+              <Route path={PATHS.starRings.path}>
+                <StarRing style={style} count={count} />
+              </Route>
+              <Route path={PATHS.snow.path}>
+                <Snow style={style} count={count} />
+              </Route>
+              <Route path={PATHS.rain.path}>
+                <Rain style={style} count={count} />
+              </Route>
+              <Route path={PATHS.meteors.path}>
+                <Meteors style={style} count={count} />
+              </Route>
+              <Route path={PATHS.haze.path}>
+                <Haze style={style} count={count} />
+              </Route>
+              <Route path={PATHS.fog.path}>
+                <Fog style={style} p={p} count={count} />
+              </Route>
+            </Switch>
+          </a.group>
+        )
+      })}
+    </WeatherProvider>
+  )
+}
 
-const PordSnow = Loadable({
-  loader: () => import(/* webpackChunkName: "PordSnow" */ '@/pages/prod/snow'),
-  loading: () => <div>loading</div>,
-})
+const currentLoc = () => window.location.hash.replace('#', '') || '/'
 
-const ProdStarRings = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdStarRings" */ '@/pages/prod/star-ring'),
-  loading: () => <div>loading</div>,
-})
+const useHashLocation = () => {
+  const [loc, setLoc] = useState(currentLoc())
 
-const ProdCloudy = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdCloudy" */ '@/pages/prod/cloudy'),
-  loading: () => <div>loading</div>,
-})
+  useEffect(() => {
+    const handler = () => setLoc(currentLoc())
 
-const ProdMeteors = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdMeteors" */ '@/pages/prod/meteors'),
-  loading: () => <div>loading</div>,
-})
+    // subscribe on hash changes
+    window.addEventListener('hashchange', handler)
+    return () => window.removeEventListener('hashchange', handler)
+  }, [])
 
-const ProdRain = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdRain" */ '@/pages/prod/rain'),
-  loading: () => <div>loading</div>,
-})
+  const navigate = useCallback((to) => (window.location.hash = to), [])
 
-const ProdPartlyCloud = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdPartlyCloud" */ '@/pages/prod/partly-cloudy'),
-  loading: () => <div>loading</div>,
-})
+  useEffect(() => {
+    if (loc === '/') {
+      navigate(PATHS.rain.path)
+    }
+  }, [loc, navigate])
+  return [loc, navigate]
+}
 
-const ProdFog = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdFog" */ '@/pages/prod/fog'),
-  loading: () => <div>loading</div>,
-})
-
-const ProdHaze = Loadable({
-  loader: () => import(/* webpackChunkName: "ProdFog" */ '@/pages/prod/haze'),
-  loading: () => <div>loading</div>,
-})
-
-const entry = '/prod/rain'
+const HashRouter = (props) => {
+  return <Router hook={useHashLocation as any}>{props.children}</Router>
+}
 
 const RouterViewer = () => {
   return (
     <HashRouter>
-      <WeatherSwitcher />
-      <Switch>
-        <Redirect to={entry} exact={true} from="/" />
-        {/* dev */}
-        {/* prod */}
-        <Route path={PATHS.rain.path}>
-          <ProdRain />
-        </Route>
-        <Route path={PATHS.cloudy.path}>
-          <ProdCloudy />
-        </Route>
-        <Route path={PATHS.partlyCloudy.path}>
-          <ProdPartlyCloud />
-        </Route>
-        <Route path={PATHS.sun.path}>
-          <ProdSun />
-        </Route>
-        <Route path={PATHS.snow.path}>
-          <PordSnow />
-        </Route>
-        <Route path={PATHS.metetors.path}>
-          <ProdMeteors />
-        </Route>
-        <Route path={PATHS.starRing.path}>
-          <ProdStarRings />
-        </Route>
-        <Route path={PATHS.fog.path}>
-          <ProdFog />
-        </Route>
-        <Route path={PATHS.haze.path}>
-          <ProdHaze />
-        </Route>
-        {/* not found */}
-        <Route path="/">
-          <Redirect to={entry} />
-        </Route>
-      </Switch>
+      <Transition />
+      <Leva />
     </HashRouter>
   )
 }

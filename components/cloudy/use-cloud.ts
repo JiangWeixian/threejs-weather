@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react'
 import { Vector3, Mesh } from 'three'
-import { useFrame } from 'react-three-fiber'
+import { useFrame } from '@react-three/fiber'
 
 import { DIRS } from '../utils/constants'
 import random from '../utils/random'
@@ -48,8 +48,8 @@ export const useClouds = (
     colors: DARK_CLOUD_COLORS,
   },
 ) => {
+  const coord = useRef(getCoord()).current
   const clouds = useMemo(() => {
-    const coord = getCoord()
     return new Array(count).fill(0).map(() => {
       return {
         radius: (Math.random() * coord[0]) / 2,
@@ -58,8 +58,9 @@ export const useClouds = (
         color: random.inRange(colors),
       } as Cloud
     })
-  }, [count])
+  }, [colors, coord, count])
   return {
     clouds,
+    startpoint: new Vector3(0, coord[1], 0),
   }
 }

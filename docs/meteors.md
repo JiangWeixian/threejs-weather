@@ -3,17 +3,14 @@
 ## usage
 
 ```tsx
-import { Meteors } from 'threejs-weather'
-import { Canvas, extend } from 'react-three-fiber'
-import meshline from 'threejs-meshline'
+import { Meteors, useTheme } from 'threejs-weather'
+import { Canvas } from 'react-three/fiber'
 
-extend(meshline)
-
-const RainPage = () => {
+const Page = () => {
+  const { bind } = useTheme({ type: 'meteors', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#0F203B' }}
+      {...bind()}
     >
       <Meteors />
     </Canvas>

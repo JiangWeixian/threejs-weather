@@ -3,13 +3,14 @@
 ## usage
 
 ```tsx
-import { Sun } from 'threejs-weather'
+import { Sun, useTheme } from 'threejs-weather'
+import { Canvas } from 'react-three/fiber'
 
 const RainPage = () => {
+  const { bind } = useTheme({ type: 'sun', mode: 'day' })
   return (
     <Canvas
-      pixelRatio={window.devicePixelRatio}
-      style={{ backgroundColor: '#1677b3' }}
+      {...bind()}
     >
       <Sun />
     </Canvas>

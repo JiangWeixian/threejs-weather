@@ -3,11 +3,13 @@
 ## usage
 
 ```tsx
-import { Cloudy } from 'threejs-weather'
+import { Cloudy, useTheme } from 'threejs-weather'
+import { Canvas } from '@react-three/fiber'
 
 const CloudyPage = () => {
+  const { bind } = useTheme({ type: 'cloudy', mode: 'day' })
   return (
-    <Canvas pixelRatio={window.devicePixelRatio} style={{ backgroundColor: '#3C4245' }}>
+    <Canvas {...bind()}>
       <Cloudy />
     </Canvas>
   )
