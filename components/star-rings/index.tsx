@@ -2,10 +2,11 @@ import { useStarRings, Ring, useRing, UseStarRingsProps } from './use-starrings'
 import React, { useRef } from 'react'
 import { extend } from '@react-three/fiber'
 import { a } from '@react-spring/three'
-import * as meshline from 'threejs-meshline'
+import { MeshLine, MeshLineMaterial } from 'three.meshline'
+
 import { Style } from '../interface'
 
-extend(meshline)
+extend({ MeshLine, MeshLineMaterial })
 
 type RingProps = {
   value: Ring

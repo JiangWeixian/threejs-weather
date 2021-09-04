@@ -1,1 +1,1 @@
-declare module 'threejs-meshline'
+declare module 'three.meshline'
