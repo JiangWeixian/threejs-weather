@@ -3,7 +3,7 @@
 ## usage
 
 ```tsx
-import { Fog, useTheme } from 'threejs-weather'
+import { Fog, useTheme, FogCamera } from 'threejs-weather'
 import { Canvas } from '@react-three/fiber'
 
 const Page = () => {
@@ -12,8 +12,15 @@ const Page = () => {
     <Canvas
       {...bind()}
     >
+      <FogCamera />
       <Fog />
     </Canvas>
   )
 }
 ```
+
+## props
+
+| name  |          description          |  type  | default |
+| :---: | :---------------------------: | :----: | :-----: |
+| url |  custom building model url  | string |      |
