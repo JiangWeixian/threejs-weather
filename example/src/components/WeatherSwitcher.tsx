@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useLocation } from 'wouter'
-import { useWeather } from 'threejs-weather'
+import { useWeather, types } from 'threejs-weather'
 import { useSprings, animated, useSpring } from '@react-spring/web'
 
 import { PATHS } from '@/constants'
@@ -56,7 +56,7 @@ export const WeatherSwitcher = () => {
             style={props}
             onClick={() => {
               setActiveIndex(i)
-              handleChangeType(values[i].path.replace('/prod/', ''))
+              handleChangeType?.(values[i].path.replace('/prod/', '') as types.Weather)
               setLocation(values[i].path)
             }}
             onMouseEnter={() => {

@@ -5,10 +5,12 @@ import { Haze } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
+const OC: any = OrbitControls
+
 const HazePage = (props) => {
   return (
     <>
-      <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
+      <OC enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Suspense fallback="loading...">
         <WeatherText style={props.style} color="#f1f0ed">
           {PATHS.haze.name}

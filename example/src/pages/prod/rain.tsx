@@ -5,10 +5,12 @@ import { Rain, RainRing } from 'threejs-weather'
 import { WeatherText } from '@/components/WeatherText'
 import { PATHS } from '@/constants'
 
+const OC: any = OrbitControls
+
 const RainPage = (props) => {
   return (
     <>
-      <OrbitControls enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
+      <OC enableDamping={true} rotateSpeed={0.3} dampingFactor={1} />
       <Stats />
       <Rain count={Math.floor(props.count)} style={props.style} />
       <RainRing style={props.style} />
