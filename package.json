@@ -28,7 +28,7 @@
     "release": "pnpm run build && pnpm changeset publish",
     "build": "pnpm run clean && cross-env NODE_ENV=production gulp compile",
     "build:dev": "pnpm run clean && cross-env NODE_ENV=development gulp compile",
-    "release:beta": "np --no-cleanup --yolo --no-publish --any-branch --tag=beta --no-release-draft"
+    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch --tag=beta --no-release-draft"
   },
   "husky": {
     "hooks": {
@@ -47,7 +47,8 @@
   "dependencies": {
     "@react-spring/core": "^9.2.4",
     "@react-spring/three": "^9.2.4",
-    "three.meshline": "^1.3.0"
+    "three.meshline": "^1.3.0",
+    "threejs-meshline": "2.0.12"
   },
   "devDependencies": {
     "@aiou/eslint-config": "^0.2.1",
