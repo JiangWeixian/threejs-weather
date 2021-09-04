@@ -39,7 +39,7 @@
     "require-context": "1.1.0",
     "styled-components": "5.3.0",
     "swr": "0.5.6",
-    "three": "0.131.3",
+    "three": "0.125.2",
     "threejs-meshline": "2.0.12",
     "threejs-weather": "^1.0.0",
     "wouter": "^2.7.4"

@@ -198,7 +198,7 @@ importers:
       swr: 0.5.6
       terser-webpack-plugin: 3.0.2
       thread-loader: 2.1.3
-      three: 0.131.3
+      three: 0.125.2
       threejs-meshline: 2.0.12
       threejs-weather: ^1.0.0
       ts-import-plugin: 1.5.5
@@ -217,9 +217,9 @@ importers:
       wouter: ^2.7.4
     dependencies:
       '@react-spring/web': registry.nlark.com/@react-spring/web/9.2.4_react-dom@17.0.2+react@17.0.2
-      '@react-three/drei': registry.nlark.com/@react-three/drei/7.6.1_d94cda7633a01f77b16fba3fb995b62f
-      '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_efd7afedd83552f70935e05031e0f408
-      axios: 0.21.1_debug@4.3.2
+      '@react-three/drei': registry.nlark.com/@react-three/drei/7.6.1_0f7b89072eed7b111d666d1965771434
+      '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_2264487932416a55241492f0d55afda2
+      axios: 0.21.1
       classnames: 2.3.1
       core-js: registry.nlark.com/core-js/3.16.2
       history: registry.nlark.com/history/5.0.1
@@ -232,7 +232,7 @@ importers:
       require-context: 1.1.0
       styled-components: registry.nlark.com/styled-components/5.3.0_react-dom@17.0.2+react@17.0.2
       swr: registry.nlark.com/swr/0.5.6_react@17.0.2
-      three: registry.nlark.com/three/0.131.3
+      three: registry.nlark.com/three/0.125.2
       threejs-meshline: registry.nlark.com/threejs-meshline/2.0.12
       threejs-weather: link:..
       wouter: registry.nlark.com/wouter/2.7.4_react@17.0.2
@@ -259,7 +259,7 @@ importers:
       '@types/uglifyjs-webpack-plugin': 1.1.0
       '@types/webpack': 4.4.31
       '@types/webpack-bundle-analyzer': 2.13.1
-      '@types/webpack-dev-server': 3.9.0_debug@4.3.2
+      '@types/webpack-dev-server': 3.9.0
       '@types/webpack-env': 1.13.9
       '@types/webpack-merge': 4.1.5
       babel-core: 7.0.0-bridge.0_@babel+core@7.15.0
@@ -296,7 +296,7 @@ importers:
       prettier: registry.nlark.com/prettier/2.3.2
       prettier-quick: 0.0.5
       pretty-quick: 2.0.1_prettier@2.3.2
-      react-hot-loader: registry.nlark.com/react-hot-loader/4.13.0_9c6a8df88c2691f81f37725d5b4de033
+      react-hot-loader: registry.nlark.com/react-hot-loader/4.13.0_react-dom@17.0.2+react@17.0.2
       react-loadable: 5.5.0_react@17.0.2
       rucksack-css: 1.0.2
       rupture: 0.7.1
@@ -2186,11 +2186,11 @@ packages:
       '@types/webpack': 4.4.31
     dev: true
 
-  /@types/http-proxy-middleware/1.0.0_debug@4.3.2:
+  /@types/http-proxy-middleware/1.0.0:
     resolution: {integrity: sha1-Q3ClJ2Z4LpxPC+LvecPdR6719Cg=, tarball: '@types/http-proxy-middleware/-/@types/http-proxy-middleware-1.0.0.tgz'}
     deprecated: This is a stub types definition. http-proxy-middleware provides its own type definitions, so you do not need this installed.
     dependencies:
-      http-proxy-middleware: 2.0.1_debug@4.3.2
+      http-proxy-middleware: 2.0.1
     transitivePeerDependencies:
       - debug
     dev: true
@@ -2374,12 +2374,12 @@ packages:
       '@types/webpack': 4.4.31
     dev: true
 
-  /@types/webpack-dev-server/3.9.0_debug@4.3.2:
+  /@types/webpack-dev-server/3.9.0:
     resolution: {integrity: sha1-4xCWR3qIsOVJaMvA1ojaybosVEI=, tarball: '@types/webpack-dev-server/-/@types/webpack-dev-server-3.9.0.tgz'}
     dependencies:
       '@types/connect-history-api-fallback': 1.3.5
       '@types/express': 4.17.13
-      '@types/http-proxy-middleware': 1.0.0_debug@4.3.2
+      '@types/http-proxy-middleware': 1.0.0
       '@types/serve-static': 1.13.10
       '@types/webpack': 4.4.31
     transitivePeerDependencies:
@@ -3174,10 +3174,10 @@ packages:
     resolution: {integrity: sha1-1h9G2DslGSUOJ4Ta9bCUeai0HFk=}
     dev: true
 
-  /axios/0.21.1_debug@4.3.2:
+  /axios/0.21.1:
     resolution: {integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==}
     dependencies:
-      follow-redirects: 1.14.1_debug@4.3.2
+      follow-redirects: 1.14.1
     transitivePeerDependencies:
       - debug
     dev: false
@@ -6577,7 +6577,7 @@ packages:
       readable-stream: 2.3.7
     dev: true
 
-  /follow-redirects/1.14.1_debug@4.3.2:
+  /follow-redirects/1.14.1:
     resolution: {integrity: sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==}
     engines: {node: '>=4.0'}
     peerDependencies:
@@ -6585,8 +6585,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dependencies:
-      debug: registry.nlark.com/debug/4.3.2
 
   /for-each/0.3.3:
     resolution: {integrity: sha1-abRH6IoKXTLD5whPPxcQA0shN24=}
@@ -7476,15 +7474,26 @@ packages:
       - debug
     dev: true
 
-  /http-proxy-middleware/2.0.1_debug@4.3.2:
+  /http-proxy-middleware/2.0.1:
     resolution: {integrity: sha512-cfaXRVoZxSed/BmkA7SwBVNI9Kj7HFltaE5rqYOub5kWzWZ+gofV2koVN1j2rMW7pEfSSlCHGJ31xmuyFyfLOg==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@types/http-proxy': 1.17.7
-      http-proxy: 1.18.1_debug@4.3.2
+      http-proxy: 1.18.1
       is-glob: 4.0.1
       is-plain-obj: 3.0.0
       micromatch: 4.0.4
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
+  /http-proxy/1.18.1:
+    resolution: {integrity: sha1-QBVB8FNIhLv5UmAzTnL4juOXZUk=}
+    engines: {node: '>=8.0.0'}
+    dependencies:
+      eventemitter3: 4.0.7
+      follow-redirects: 1.14.1
+      requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -7494,18 +7503,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.14.1_debug@4.3.2
-      requires-port: 1.0.0
-    transitivePeerDependencies:
-      - debug
-    dev: true
-
-  /http-proxy/1.18.1_debug@4.3.2:
-    resolution: {integrity: sha1-QBVB8FNIhLv5UmAzTnL4juOXZUk=}
-    engines: {node: '>=8.0.0'}
-    dependencies:
-      eventemitter3: 4.0.7
-      follow-redirects: 1.14.1_debug@4.3.2
+      follow-redirects: 1.14.1
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
@@ -17721,6 +17719,9 @@ packages:
       react: '>=17.0'
       react-dom: '>=17.0'
       three: '>=0.128.0'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime': registry.nlark.com/@babel/runtime/7.15.3
       '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_2264487932416a55241492f0d55afda2
@@ -17733,45 +17734,13 @@ packages:
       react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
       react-merge-refs: registry.nlark.com/react-merge-refs/1.1.0
       stats.js: registry.nlark.com/stats.js/0.17.0
-      three: 0.125.2
+      three: registry.nlark.com/three/0.125.2
       three-mesh-bvh: registry.nlark.com/three-mesh-bvh/0.4.3_three@0.125.2
       three-stdlib: registry.nlark.com/three-stdlib/2.4.0_three@0.125.2
       troika-three-text: registry.nlark.com/troika-three-text/0.42.0_three@0.125.2
       use-asset: registry.nlark.com/use-asset/1.0.4_react@17.0.2
       utility-types: registry.nlark.com/utility-types/3.10.0
       zustand: registry.nlark.com/zustand/3.5.9_react@17.0.2
-    dev: true
-
-  registry.nlark.com/@react-three/drei/7.6.1_d94cda7633a01f77b16fba3fb995b62f:
-    resolution: {integrity: sha1-Eb23kV8NidIo72BDERRC7g38jZ4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-three/drei/download/@react-three/drei-7.6.1.tgz}
-    id: registry.nlark.com/@react-three/drei/7.6.1
-    name: '@react-three/drei'
-    version: 7.6.1
-    peerDependencies:
-      '@react-three/fiber': '>=6.0'
-      react: '>=17.0'
-      react-dom: '>=17.0'
-      three: '>=0.128.0'
-    dependencies:
-      '@babel/runtime': registry.nlark.com/@babel/runtime/7.15.3
-      '@react-three/fiber': registry.nlark.com/@react-three/fiber/7.0.6_efd7afedd83552f70935e05031e0f408
-      blob-polyfill: registry.nlark.com/blob-polyfill/5.0.20210201
-      detect-gpu: registry.nlark.com/detect-gpu/3.1.14
-      glsl-noise: registry.nlark.com/glsl-noise/0.0.0
-      lodash.omit: registry.nlark.com/lodash.omit/4.5.0
-      lodash.pick: registry.nlark.com/lodash.pick/4.4.0
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      react-merge-refs: registry.nlark.com/react-merge-refs/1.1.0
-      stats.js: registry.nlark.com/stats.js/0.17.0
-      three: registry.nlark.com/three/0.131.3
-      three-mesh-bvh: registry.nlark.com/three-mesh-bvh/0.4.3_three@0.131.3
-      three-stdlib: registry.nlark.com/three-stdlib/2.4.0_three@0.131.3
-      troika-three-text: registry.nlark.com/troika-three-text/0.42.0_three@0.131.3
-      use-asset: registry.nlark.com/use-asset/1.0.4_react@17.0.2
-      utility-types: registry.nlark.com/utility-types/3.10.0
-      zustand: registry.nlark.com/zustand/3.5.9_react@17.0.2
-    dev: false
 
   registry.nlark.com/@react-three/fiber/7.0.6_2264487932416a55241492f0d55afda2:
     resolution: {integrity: sha1-+qWqXUlq53ion+LT9QNCig48hBs=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-three/fiber/download/@react-three/fiber-7.0.6.tgz}
@@ -17795,39 +17764,10 @@ packages:
       react-use-measure: registry.nlark.com/react-use-measure/2.0.4_react-dom@17.0.2+react@17.0.2
       resize-observer-polyfill: 1.5.1
       scheduler: registry.nlark.com/scheduler/0.20.2
-      three: 0.125.2
+      three: registry.nlark.com/three/0.125.2
       use-asset: registry.nlark.com/use-asset/1.0.4_react@17.0.2
       utility-types: registry.nlark.com/utility-types/3.10.0
       zustand: registry.nlark.com/zustand/3.5.9_react@17.0.2
-    dev: true
-
-  registry.nlark.com/@react-three/fiber/7.0.6_efd7afedd83552f70935e05031e0f408:
-    resolution: {integrity: sha1-+qWqXUlq53ion+LT9QNCig48hBs=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@react-three/fiber/download/@react-three/fiber-7.0.6.tgz}
-    id: registry.nlark.com/@react-three/fiber/7.0.6
-    name: '@react-three/fiber'
-    version: 7.0.6
-    peerDependencies:
-      react: '>=17.0'
-      react-dom: '>=17.0'
-      three: '>=0.126'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-    dependencies:
-      '@babel/runtime': registry.nlark.com/@babel/runtime/7.15.3
-      react: registry.nlark.com/react/17.0.2
-      react-dom: registry.nlark.com/react-dom/17.0.2_react@17.0.2
-      react-merge-refs: registry.nlark.com/react-merge-refs/1.1.0
-      react-reconciler: registry.nlark.com/react-reconciler/0.26.2_react@17.0.2
-      react-three-fiber: registry.nlark.com/react-three-fiber/0.0.0-deprecated
-      react-use-measure: registry.nlark.com/react-use-measure/2.0.4_react-dom@17.0.2+react@17.0.2
-      resize-observer-polyfill: 1.5.1
-      scheduler: registry.nlark.com/scheduler/0.20.2
-      three: registry.nlark.com/three/0.131.3
-      use-asset: registry.nlark.com/use-asset/1.0.4_react@17.0.2
-      utility-types: registry.nlark.com/utility-types/3.10.0
-      zustand: registry.nlark.com/zustand/3.5.9_react@17.0.2
-    dev: false
 
   registry.nlark.com/@sindresorhus/is/0.14.0:
     resolution: {integrity: sha1-n7OjzzEyMoFR81PeRjLgHlIQK+o=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@sindresorhus/is/download/@sindresorhus/is-0.14.0.tgz}
@@ -20651,7 +20591,7 @@ packages:
       react: registry.nlark.com/react/17.0.2
     dev: false
 
-  registry.nlark.com/react-hot-loader/4.13.0_9c6a8df88c2691f81f37725d5b4de033:
+  registry.nlark.com/react-hot-loader/4.13.0_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha1-wn6UCFgcKmePUxbmnAYbIm3GogI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/react-hot-loader/download/react-hot-loader-4.13.0.tgz}
     id: registry.nlark.com/react-hot-loader/4.13.0
     name: react-hot-loader
@@ -20665,7 +20605,6 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': registry.nlark.com/@types/react/17.0.19
       fast-levenshtein: 2.0.6
       global: registry.nlark.com/global/4.4.0
       hoist-non-react-statics: 3.3.2
@@ -21128,19 +21067,7 @@ packages:
     peerDependencies:
       three: '>= 0.123.0'
     dependencies:
-      three: 0.125.2
-    dev: true
-
-  registry.nlark.com/three-mesh-bvh/0.4.3_three@0.131.3:
-    resolution: {integrity: sha1-2lrH2y5hqgqmbcAHCmCFvPvRKBw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/three-mesh-bvh/download/three-mesh-bvh-0.4.3.tgz}
-    id: registry.nlark.com/three-mesh-bvh/0.4.3
-    name: three-mesh-bvh
-    version: 0.4.3
-    peerDependencies:
-      three: '>= 0.123.0'
-    dependencies:
-      three: registry.nlark.com/three/0.131.3
-    dev: false
+      three: registry.nlark.com/three/0.125.2
 
   registry.nlark.com/three-stdlib/2.4.0_three@0.125.2:
     resolution: {integrity: sha1-5v/eGd5A8+LY3+XVZZZnJywZGLY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/three-stdlib/download/three-stdlib-2.4.0.tgz}
@@ -21159,30 +21086,8 @@ packages:
       mmd-parser: registry.nlark.com/mmd-parser/1.0.4
       opentype.js: registry.nlark.com/opentype.js/1.3.3
       potpack: registry.nlark.com/potpack/1.0.1
-      three: 0.125.2
+      three: registry.nlark.com/three/0.125.2
       zstddec: registry.npmjs.org/zstddec/0.0.2
-    dev: true
-
-  registry.nlark.com/three-stdlib/2.4.0_three@0.131.3:
-    resolution: {integrity: sha1-5v/eGd5A8+LY3+XVZZZnJywZGLY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/three-stdlib/download/three-stdlib-2.4.0.tgz}
-    id: registry.nlark.com/three-stdlib/2.4.0
-    name: three-stdlib
-    version: 2.4.0
-    peerDependencies:
-      three: '>=0.128.0'
-    dependencies:
-      '@babel/runtime': registry.nlark.com/@babel/runtime/7.15.3
-      '@webgpu/glslang': registry.nlark.com/@webgpu/glslang/0.0.15
-      '@webxr-input-profiles/motion-controllers': registry.nlark.com/@webxr-input-profiles/motion-controllers/1.0.0
-      chevrotain: registry.nlark.com/chevrotain/9.0.2
-      fflate: registry.nlark.com/fflate/0.6.10
-      ktx-parse: registry.nlark.com/ktx-parse/0.2.1
-      mmd-parser: registry.nlark.com/mmd-parser/1.0.4
-      opentype.js: registry.nlark.com/opentype.js/1.3.3
-      potpack: registry.nlark.com/potpack/1.0.1
-      three: registry.nlark.com/three/0.131.3
-      zstddec: registry.npmjs.org/zstddec/0.0.2
-    dev: false
 
   registry.nlark.com/three.meshline/1.3.0:
     resolution: {integrity: sha1-Ni2b00gJB6TYomY1h3IqNOWnzJI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/three.meshline/download/three.meshline-1.3.0.tgz}
@@ -21190,10 +21095,10 @@ packages:
     version: 1.3.0
     dev: false
 
-  registry.nlark.com/three/0.131.3:
-    resolution: {integrity: sha1-QG/SEMYDypFUk3rjWCmW+/08txY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/three/download/three-0.131.3.tgz}
+  registry.nlark.com/three/0.125.2:
+    resolution: {integrity: sha1-3LoSdJoutBUi4VISuRnNP79ymxI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/three/download/three-0.125.2.tgz}
     name: three
-    version: 0.131.3
+    version: 0.125.2
     dev: false
 
   registry.nlark.com/threejs-meshline/2.0.12:
@@ -21252,24 +21157,9 @@ packages:
       three: '>=0.103.0'
     dependencies:
       bidi-js: registry.nlark.com/bidi-js/1.0.2
-      three: 0.125.2
+      three: registry.nlark.com/three/0.125.2
       troika-three-utils: registry.nlark.com/troika-three-utils/0.42.0_three@0.125.2
       troika-worker-utils: registry.nlark.com/troika-worker-utils/0.42.0
-    dev: true
-
-  registry.nlark.com/troika-three-text/0.42.0_three@0.131.3:
-    resolution: {integrity: sha1-fvfspkgsAgECAQE5ytrERySly2k=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/troika-three-text/download/troika-three-text-0.42.0.tgz}
-    id: registry.nlark.com/troika-three-text/0.42.0
-    name: troika-three-text
-    version: 0.42.0
-    peerDependencies:
-      three: '>=0.103.0'
-    dependencies:
-      bidi-js: registry.nlark.com/bidi-js/1.0.2
-      three: registry.nlark.com/three/0.131.3
-      troika-three-utils: registry.nlark.com/troika-three-utils/0.42.0_three@0.131.3
-      troika-worker-utils: registry.nlark.com/troika-worker-utils/0.42.0
-    dev: false
 
   registry.nlark.com/troika-three-utils/0.42.0_three@0.125.2:
     resolution: {integrity: sha1-AWJPuLK56OoAeYWGj6G82u0IGe8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/troika-three-utils/download/troika-three-utils-0.42.0.tgz}
@@ -21279,19 +21169,7 @@ packages:
     peerDependencies:
       three: '>=0.103.0'
     dependencies:
-      three: 0.125.2
-    dev: true
-
-  registry.nlark.com/troika-three-utils/0.42.0_three@0.131.3:
-    resolution: {integrity: sha1-AWJPuLK56OoAeYWGj6G82u0IGe8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/troika-three-utils/download/troika-three-utils-0.42.0.tgz}
-    id: registry.nlark.com/troika-three-utils/0.42.0
-    name: troika-three-utils
-    version: 0.42.0
-    peerDependencies:
-      three: '>=0.103.0'
-    dependencies:
-      three: registry.nlark.com/three/0.131.3
-    dev: false
+      three: registry.nlark.com/three/0.125.2
 
   registry.nlark.com/troika-worker-utils/0.42.0:
     resolution: {integrity: sha1-RzAEpluObRvtifA4Q5RxKlJjY8M=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/troika-worker-utils/download/troika-worker-utils-0.42.0.tgz}
