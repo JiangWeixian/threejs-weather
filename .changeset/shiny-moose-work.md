@@ -1,5 +1,0 @@
----
-"threejs-weather": major
----
-
-animation
