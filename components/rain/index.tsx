@@ -5,9 +5,8 @@ import React, { useRef } from 'react'
 import { a } from '@react-spring/three'
 import { Mesh } from 'three'
 import { extend } from '@react-three/fiber'
-import { MeshLine, MeshLineMaterial } from 'three.meshline'
-
-extend({ MeshLine, MeshLineMaterial })
+import * as meshline from 'threejs-meshline'
+extend(meshline)
 
 export const Raindrop = (props: UseRaindropProps) => {
   const raindrop = useRef<Mesh>()

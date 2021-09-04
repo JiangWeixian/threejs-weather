@@ -21,7 +21,7 @@ const FogPage = (props) => {
         </WeatherText>
       </Suspense>
       <Stats />
-      <Fog style={props.style} />
+      <Fog style={props.style} p={props.p} />
     </>
   )
 }

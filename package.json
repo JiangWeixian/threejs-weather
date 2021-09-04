@@ -1,6 +1,6 @@
 {
   "name": "threejs-weather",
-  "version": "1.0.0-5",
+  "version": "0.11.0",
   "description": "threejs-weather",
   "keywords": [
     "react",
@@ -27,8 +27,7 @@
     "lint:fix": "eslint . --fix",
     "release": "pnpm run build && pnpm changeset publish",
     "build": "pnpm run clean && cross-env NODE_ENV=production gulp compile",
-    "build:dev": "pnpm run clean && cross-env NODE_ENV=development gulp compile",
-    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch --tag=beta --no-release-draft"
+    "build:dev": "pnpm run clean && cross-env NODE_ENV=development gulp compile"
   },
   "husky": {
     "hooks": {

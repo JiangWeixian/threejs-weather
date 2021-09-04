@@ -38,7 +38,7 @@ const Transition = () => {
   const type = location === '/' ? 'rain' : getWeatherType(location) || 'rain'
   return (
     <WeatherProvider defaultType={type as types.Weather} extra={<WeatherSwitcher />}>
-      {transition((style, _location) => {
+      {transition((style, _location, p) => {
         return (
           <a.group>
             <Switch location={_location}>
@@ -67,7 +67,7 @@ const Transition = () => {
                 <Haze style={style} count={count} />
               </Route>
               <Route path={PATHS.fog.path}>
-                <Fog style={style} count={count} />
+                <Fog style={style} p={p} count={count} />
               </Route>
             </Switch>
           </a.group>

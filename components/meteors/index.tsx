@@ -2,12 +2,11 @@ import React, { useRef } from 'react'
 import { Mesh } from 'three'
 import { extend } from '@react-three/fiber'
 import { a } from '@react-spring/three'
-import { MeshLine, MeshLineMaterial } from 'three.meshline'
+import * as meshline from 'threejs-meshline'
 
 import { useMeteors, Meteor, useMeteor, UseMeteorsProps } from './use-meteors'
 import { Style } from '../interface'
-
-extend({ MeshLine, MeshLineMaterial })
+extend(meshline)
 
 type MeteorProps = {
   value: Meteor

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
 import { PerspectiveCamera } from '@react-three/drei'
 import { Object3D, MeshPhysicalMaterial, Vector3, Fog as _Fog, Euler } from 'three'
-import { a } from '@react-spring/three'
+import { a, TransitionState } from '@react-spring/three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 import { Style } from '../interface'
@@ -12,6 +12,8 @@ const loader = new OBJLoader()
 
 type FogProps = {
   style?: Style
+  p?: TransitionState
+  url?: string
 }
 
 const color = '#353c3c'
@@ -21,7 +23,7 @@ const CityFog = (props: FogProps) => {
   const buildingRef = useRef<any[]>([])
   const { scene } = useThree()
   useEffect(() => {
-    loader.load(url, (obj) => {
+    loader.load(props.url || url, (obj) => {
       obj.castShadow = true
       obj.receiveShadow = true
       const models = [...obj.children].map((model) => {
@@ -69,12 +71,13 @@ const CityFog = (props: FogProps) => {
     scene.fog = new _Fog(color, near, far)
     if (buildingRef.current) {
       buildingRef.current.forEach((building) => {
-        building.material.opacity = props.style?.opacity.get() ?? 1
+        building.material.opacity = props.p?.phase === 'leave' ? 0 : props.style?.opacity.get() ?? 1
       })
     }
   })
+  const scale = props.style?.scale.to([0, 1], [0.8, 1])
   return (
-    <a.group scale={props.style?.scale as any}>
+    <a.group scale={scale as any}>
       <a.mesh material-opacity={props.style?.opacity}>
         {group ? (
           <primitive castShadow={true} receiveShadow={true} object={group} dispose={null} />
@@ -101,7 +104,7 @@ export const FogCamera = () => {
 const Fog = (props: FogProps) => {
   return (
     <a.group>
-      <CityFog style={props.style} />
+      <CityFog style={props.style} p={props.p} url={props.url} />
       <directionalLight position={[-8, 12, 0]} castShadow={true} color="#272727" />
       <directionalLight position={[8, 1200, 8]} color="#d3263a" castShadow={true} />
       {/* sky */}

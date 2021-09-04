@@ -1,13 +1,13 @@
 import React, { useRef } from 'react'
 import { extend } from '@react-three/fiber'
 import { Mesh } from 'three'
-import { MeshLine, MeshLineMaterial } from 'three.meshline'
+import * as meshline from 'threejs-meshline'
 import { a } from '@react-spring/three'
 
 import { useHazeDrop, UseHazeDropProps, UseHazeProps, useHaze } from './use-haze'
 import { Style } from '../interface'
 
-extend({ MeshLine, MeshLineMaterial })
+extend(meshline)
 
 export const Haze = (
   props: UseHazeDropProps & {
