@@ -33,6 +33,7 @@ const Transition = () => {
   useEffect(() => {
     set({ count: defaultCount })
   }, [defaultCount, set])
+  console.log(location)
   const { transition } = useTransition({ location })
   const type = location === '/' ? 'rain' : getWeatherType(location) || 'rain'
   return (
