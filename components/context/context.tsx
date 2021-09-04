@@ -75,7 +75,7 @@ export const WeatherProvider = ({
     >
       {props.extra}
       <Canvas {...config}>
-        {type === 'fog' ? (
+        {controlType === 'fog' ? (
           <FogCamera />
         ) : (
           <PerspectiveCamera makeDefault={true} args={[75, 0, 0.1, 1000]} />
